@@ -1,0 +1,38 @@
+# 开发环境配置
+spring:
+  datasource:
+    url: jdbc:h2:mem:aimanager_dev;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+
+# 日志配置
+logging:
+  level:
+    com.aimanager: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# AI Manager 开发配置
+aimanager:
+  python:
+    base-url: http://localhost:5000
+    timeout: 30000
+
+  voice:
+    recognition:
+      timeout: 5000
+    synthesis:
+      rate: 200
+
+  system:
+    max-concurrent-tasks: 5
+    task-timeout: 30000
