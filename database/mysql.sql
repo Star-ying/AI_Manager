@@ -3,6 +3,8 @@ CREATE DATABASE IF NOT EXISTS ai_manager CHARACTER SET utf8mb4 COLLATE utf8mb4_u
 
 USE ai_manager
 
-CREATE TABLE setting (
+CREATE TABLE conv_history(
+    id INT AUTO_INCREMENT PRIMARY,
+    message TEXT,
     
 )

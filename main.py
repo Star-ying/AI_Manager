@@ -1,10 +1,8 @@
-import json
 import time
 from Progress.app.voice_recognizer import VoiceRecognizer
 from Progress.app.qwen_assistant import QWENAssistant
 from Progress.app.system_controller import SystemController, TaskOrchestrator
 from Progress.app.text_to_speech import VoiceFeedback
-from database import setting
 
 
 def handle_response(resp, controller: SystemController, orchestrator: TaskOrchestrator, speaker: VoiceFeedback):
@@ -79,34 +77,40 @@ def main():
 
 if __name__ == "__main__":
     main()
-    #—————— 设置信息获取示例 ——————
-    """ # 加载配置
+    """#—————— 设置信息获取示例 ——————
+    # 加载配置
     config = setting.load_config()
     print("当前配置：")
     print(json.dumps(config, indent=2, ensure_ascii=False))
 
     # 示例：修改快捷键
-    setting.update_shortcut("save", "Ctrl+Shift+S")
+    config.update_shortcut("save", "Ctrl+Shift+S")
 
     # 示例：更改资源路径
-    setting.set_resource_path("./my_resources")
+    config.set_resource_path("./my_resources")
 
     # 示例：查看显示设置
-    display = setting.get_display_settings()
+    display = config.get_display_settings()
     print("当前显示设置:", display) """
-    # —————— 设置存储示例 ——————
-    """ if __name__ == "__main__":
-    # 加载配置
-    config = load_config()
-    print("当前配置：")
-    print(json.dumps(config, indent=2, ensure_ascii=False))
 
-    # 示例：修改快捷键
-    update_shortcut("save", "Ctrl+Shift+S")
+    """# 获取 AI_model 配置
+    api_key = config.get("ai_model", "api_key")
+    model = config.get("ai_model", "model")
 
-    # 示例：更改资源路径
-    set_resource_path("./my_resources")
+    # 获取语音识别设置
+    lang = config.get("voice_recognition", "language")
+    timeout = config.get("voice_recognition", "timeout")
+    phrase_timeout = config.get("voice_recognition","phrase_timeout")
 
-    # 示例：查看显示设置
-    display = get_display_settings()
-    print("当前显示设置:", display) """
+    # 获取 TTS 设置
+    rate = config.get("tts", "rate")
+    volume = config.get("tts", "volume")
+
+    # 获取路径
+    resource_path = config.get("paths","resource_path")
+    music_path = config.get("paths", "default_music_path")
+    doc_path = config.get("paths", "default_document_path")
+
+    # 获取应用信息
+    app_name = config.get("app", "name")
+    app_version = config.get("app", "version") """
