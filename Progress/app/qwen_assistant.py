@@ -4,10 +4,12 @@ GPT-4 API集成模块 → 已改造为【通义千问 Qwen】API集成模块
 """
 import json
 import re
-from config import DASHSCOPE_API_KEY, DASHSCOPE_MODEL  # 确保 config.py 中有这两个配置
+from database import config
 import dashscope
 from dashscope import Generation
-
+ 
+DASHSCOPE_API_KEY = config.api_key
+DASHSCOPE_MODEL = config.model
 
 class QWENAssistant:
     def __init__(self):

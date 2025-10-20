@@ -6,7 +6,10 @@ import pyttsx3
 import threading
 import queue
 import time
-from config import TTS_RATE, TTS_VOLUME
+from database import config
+
+TTS_RATE = config.rate
+TTS_VOLUME = config.volume
 
 
 class TextToSpeech:

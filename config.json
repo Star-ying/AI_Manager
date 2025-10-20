@@ -1,0 +1,39 @@
+{
+    "shortcuts": {
+        "save": "Ctrl+Shift+S",
+        "open": "Ctrl+O",
+        "exit": "Ctrl+Q",
+        "undo": "Ctrl+Z"
+    },
+    "display": {
+        "theme": "light",
+        "window_size": [
+            800,
+            600
+        ],
+        "font": "Arial",
+        "font_size": 12
+    },
+    "paths": {
+        "resource_path": "./my_resources",
+        "default_music_path": "./music",
+        "default_document_path": "./Documents"
+    },
+    "ai_model": {
+        "api_key": "sk-6175f4c9a399401d914d11b1e1db1873",
+        "model": "qwen-plus"
+    },
+    "voice_recognition": {
+        "language": "zh-CN",
+        "timeout": 5,
+        "phrase_timeout": 0.3
+    },
+    "tts": {
+        "rate": 200,
+        "volume": 0.9
+    },
+    "app": {
+        "name": "语音控制AI助手",
+        "version": "1.0.0"
+    }
+}

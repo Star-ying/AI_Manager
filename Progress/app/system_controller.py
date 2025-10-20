@@ -8,11 +8,12 @@ import platform
 import psutil
 import pygame
 import schedule
-import time
-import threading
 from datetime import datetime
-from config import DEFAULT_MUSIC_PATH, DEFAULT_DOCUMENT_PATH
+from database import config
 
+RESOURCE_PATH = config.resource_path
+DEFAULT_MUSIC_PATH = RESOURCE_PATH + "\\" + config.music_path
+DEFAULT_DOCUMENT_PATH = RESOURCE_PATH + "\\" + config.doc_path
 
 class SystemController:
     def __init__(self):

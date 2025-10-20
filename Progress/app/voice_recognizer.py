@@ -5,8 +5,11 @@
 import speech_recognition as sr
 import threading
 import time
-from config import VOICE_RECOGNITION_LANGUAGE, VOICE_TIMEOUT, VOICE_PHRASE_TIMEOUT
+from database import config
 
+VOICE_TIMEOUT = config.timeout
+VOICE_PHRASE_TIMEOUT = config.phrase_timeout
+VOICE_RECOGNITION_LANGUAGE = config.lang
 
 class VoiceRecognizer:
     def __init__(self):
