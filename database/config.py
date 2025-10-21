@@ -1,12 +1,11 @@
 import json
 import os
-from pathlib import Path
 from typing import Any
 class ConfigManager:
     def __init__(self):
         # 配置文件名
         self.BASE_CONFIG_FILE = "./database/base_config.json"
-        self.CONFIG_FILE = "config.json"
+        self.CONFIG_FILE = "./config.json"
         self.DEFAULT_CONFIG = ""
         # 默认配置
         with open(self.BASE_CONFIG_FILE,'r',encoding='utf-8') as f:
@@ -48,78 +47,52 @@ class ConfigManager:
             else:
                 default[key] = value
 
-    def save_config(self, config):
+    def save_config(self, config)-> bool:
         """
         保存配置到 JSON 文件
         """
         try:
             with open(self.CONFIG_FILE, 'w', encoding='utf-8') as f:
                 json.dump(config, f, indent=4, ensure_ascii=False)
-            print(f"配置已保存至 {self.CONFIG_FILE}")
+            return True
         except Exception as e:
             print(f"保存配置失败：{e}")
+            return False
 
-    def update_shortcut(self, action, key_combination):
-        """修改快捷键"""
-        config = self.load_config()
-        if action in config["shortcuts"]:
-            config["shortcuts"][action] = key_combination
-            self.save_config(config)
-            print(f"快捷键 '{action}' 已更新为 '{key_combination}'")
-        else:
-            print(f"无效的操作: {action}")
+    def update_key(self, *section, key, value)-> bool:
+        """增加或修改设置"""
+        try:
+            data = self.config
+            for k in section:
+                data = data[k]
+            data[key] = value
+            self.save_config(self.config)
+            return True
+        except Exception:
+            return False
 
-    def set_resource_path(self, new_path):
-        """设置资源存储路径"""
+    def create_path(self,new_path)-> bool:
         if not os.path.exists(new_path):
             try:
                 os.makedirs(new_path)
                 print(f"路径 {new_path} 已创建")
+                return True
             except Exception as e:
                 print(f"无法创建路径 {new_path}: {e}")
                 return False
-        config = self.load_config()
-        config["paths"]["resource_path"] = new_path
-        self.save_config(config)
-        print(f"资源路径已设置为: {new_path}")
         return True
 
-    def get_display_settings(self):
-        """获取显示设置"""
-        config = self.load_config()
-        return config["display"]
-
-    def add_json_property(self, section, key, value):
-        """
-        向 JSON 文件的指定 section 添加一个键值对
-        如果 section 不存在，则自动创建
-        """
-        file_path = Path(self.self.config_file)
-
-        # 1. 读取现有配置
-        if not file_path.exists():
-            print(f"文件 {file_path} 不存在，创建新文件。")
-            data = {}
-        else:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                try:
-                    data = json.load(f)
-                except json.JSONDecodeError:
-                    print("警告：JSON 解析错误，使用空配置。")
-                    data = {}
-
-        # 2. 确保 section 存在（支持嵌套字典）
-        if section not in data:
-            data[section] = {}
-
-        # 3. 添加或更新属性
-        data[section][key] = value
-
-        # 4. 写回文件
-        with open(file_path, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=4)
-
-        print(f"已添加 {section}.{key} = {value}")
+    def set_resource_path(self, new_path)-> bool:
+        """设置资源存储路径"""
+        if not self.create_path(new_path):
+            return False
+        self.config["paths"]["resource_path"] = new_path
+        temp = self.config["paths"]["resources"]
+        for k in temp:
+            self.create_path(new_path+temp[k])
+        self.save_config(self.config)
+        print(f"资源路径已设置为: {new_path}")
+        return True
 
     def get(self, *keys) -> Any:
         """
@@ -136,7 +109,18 @@ class ConfigManager:
 
 # 全局实例（单例模式）
 config = ConfigManager()
+
 # 使用配置（推荐方式）
+
+#增加或修改新的设置配置
+config.update_key("shortcuts",key = "exit",value = "Ctrl+C")
+config.update_key("shortcuts",key = "select_all",value = "Shift+Alt+A")
+
+#修改资源路径
+config.set_resource_path("./resoures")
+
+#获取设置配置
+display = config.get("display")
 
 # 获取 AI_model 配置
 api_key = config.get("ai_model", "api_key")
@@ -153,8 +137,8 @@ volume = config.get("tts", "volume")
 
 # 获取路径
 resource_path = config.get("paths","resource_path")
-music_path = config.get("paths", "default_music_path")
-doc_path = config.get("paths", "default_document_path")
+music_path = config.get("paths", "resources", "default_music_path")
+doc_path = config.get("paths", "resources", "default_document_path")
 
 # 获取应用信息
 app_name = config.get("app", "name")

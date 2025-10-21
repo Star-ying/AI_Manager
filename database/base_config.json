@@ -16,8 +16,10 @@
     },
     "paths": {
         "resource_path": "./resources",
-        "default_music_path": "./music",
-        "default_document_path": "./Documents"
+        "resources": {
+            "default_music_path": "./Music",
+            "default_document_path": "./Documents"
+        }
     },
     "ai_model": {
         "api_key": "sk-6175f4c9a399401d914d11b1e1db1873",

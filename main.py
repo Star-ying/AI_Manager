@@ -43,7 +43,6 @@ def handle_response(resp, controller: SystemController, orchestrator: TaskOrches
         # 普通对话
         speaker.speak_response(reply)
 
-
 def main():
     recognizer = VoiceRecognizer()
     assistant = QWENAssistant()
@@ -73,7 +72,6 @@ def main():
         pass
     finally:
         speaker.tts.cleanup()
-
 
 if __name__ == "__main__":
     main()
