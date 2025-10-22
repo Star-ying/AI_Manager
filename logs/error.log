@@ -10,3 +10,28 @@ Traceback (most recent call last):
     success = executor.execute(ai_response)
               ^^^^^^^^^^^^^^^^
 AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:46:51 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 3.693s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 116, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 414, in execute_from_ai_decision
+    from utils.ai_tools import call_llm_to_choose_function  # 假设已定义
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'utils'
+2025-10-22 12:46:51 | ai_assistant | ERROR    | main.py:158 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 153, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 116, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 414, in execute_from_ai_decision
+    from utils.ai_tools import call_llm_to_choose_function  # 假设已定义
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'utils'

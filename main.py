@@ -99,42 +99,33 @@ def handle_single_interaction(
     tts_engine: TTSEngine,
     executor: TaskOrchestrator
 ):
+    """
+    单次完整交互：听 -> 识别 -> AI 决策 -> 执行 -> 回复
+    """
     # 1. 听
-    voice_text = recognizer.listen_and_recognize()
-    if not voice_text:
-        response = "抱歉，我没有听清楚，请重新说话。"
-        logger.info(f"🗣️ 回复: {response}")
-        tts_engine.speak(response)
+    text = recognizer.listen_and_recognize(timeout=5)
+    if not text:
+        logger.info("🔇 未检测到有效语音")
         return
 
-    log_var("🎤 识别到的语音文本", voice_text)
+    logger.info(f"🗣️ 用户说: '{text}'")
 
-    # 2. 理解
-    ai_response = assistant.process_voice_command(voice_text)
-    ai_reply = ai_response.get("response", "好的，已处理。")
-    intent = ai_response.get("intent")
-    action = ai_response.get("action")
-    params = ai_response.get("parameters")
+    # 2. AI 决策 + 执行（一体化由 TaskOrchestrator 完成）
+    # 注意：这里不再需要单独调用 assistant.think_and_decide()
+    # 因为现在的 execute_from_ai_decision 内部已经集成了 LLM 调用
+    result = executor.execute_from_ai_decision(text)
 
-    log_var("🧠 AI响应.intent", intent)
-    log_var("🧠 AI响应.action", action)
-    log_var("🧠 AI响应.parameters", params)
-
-    # 3. 执行（若无需确认）
-    if not ai_response.get("needs_confirmation", False):
-        try:
-            result = executor.execute_from_ai_decision(text)
-
-            if result["success"]:
-                ai_reply = result["message"]
-            else:
-                ai_reply = "抱歉，" + result["message"]
-        except Exception as e:
-            logger.exception("💥 执行动作时发生异常")
-            ai_reply = "抱歉，我在尝试执行这个操作时出了点问题。"
+    # 3. 构造回复语句
+    if result["success"]:
+        ai_reply = str(result["message"])
+        logger.info(f"✅ 操作成功: {result['operation']} -> {ai_reply}")
+    else:
+        error_msg = result["message"]
+        ai_reply = f"抱歉，{error_msg if '抱歉' not in error_msg else error_msg[3:]}"
+        logger.warning(f"❌ 执行失败: {error_msg}")
 
     # 4. 说
-    logger.info(f"🗣️ 回复: {ai_reply}")
+    logger.info(f"🤖 回复: {ai_reply}")
     tts_engine.speak(ai_reply)
 
 

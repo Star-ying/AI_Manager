@@ -1,6 +1,7 @@
 import json
 import os
 from typing import Any
+
 class ConfigManager:
     def __init__(self):
         # 配置文件名

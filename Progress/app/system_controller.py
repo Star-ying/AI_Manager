@@ -16,6 +16,7 @@ import logging
 import schedule
 
 
+from Progress.app.utils.ai_tools import call_llm_to_choose_function
 from database import config
 from Progress.utils.ai_tools import FUNCTION_SCHEMA, ai_callable
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
@@ -37,6 +38,32 @@ class SystemController:
         self.system = platform.system()
         self.music_player = None
         self._init_music_player()
+
+    @ai_callable(
+        description="使用语音合成技术播报一段文本回复用户",
+        params={
+            "message": "要朗读的文本内容"
+        },
+        intent="response",
+        action="speak"
+    )
+    @log_step("语音回复用户")
+    @log_time
+    def _speak_response(self, message: str):
+        """
+        AI 回复用户的语音播报接口
+        """
+        if not self.tts_engine.is_available():
+            logger.warning("🔊 TTS 引擎不可用")
+            return False, "TTS 引擎未就绪"
+
+        try:
+            logger.info(f"📢 播报: {message}")
+            success = self.tts_engine.speak(message, interrupt=True)
+            return success, "语音已播放" if success else "播放失败"
+        except Exception as e:
+            logger.exception("💥 播报异常")
+            return False, str(e)
 
     @log_step("初始化音乐播放器")
     @log_time
