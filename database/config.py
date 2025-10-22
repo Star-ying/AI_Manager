@@ -12,7 +12,7 @@ class ConfigManager:
             self.DEFAULT_CONFIG = json.load(f)
         self.config = self.load_config()
 
-    def load_config(self):
+    def load_config(self)-> json:
         """
         加载配置文件。如果不存在或损坏，则创建默认配置。
         """
@@ -110,14 +110,14 @@ class ConfigManager:
 # 全局实例（单例模式）
 config = ConfigManager()
 
-# 使用配置（推荐方式）
+""" # 使用配置（推荐方式）
 
 #增加或修改新的设置配置
 config.update_key("shortcuts",key = "exit",value = "Ctrl+C")
 config.update_key("shortcuts",key = "select_all",value = "Shift+Alt+A")
 
 #修改资源路径
-config.set_resource_path("./resoures")
+config.set_resource_path("./resoures") """
 
 #获取设置配置
 display = config.get("display")

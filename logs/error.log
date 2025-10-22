@@ -1,0 +1,12 @@
+2025-10-22 12:18:38 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:18:50 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'

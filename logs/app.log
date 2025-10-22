@@ -1,0 +1,98 @@
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 启动 AI 语音助手
+2025-10-22 12:10:05 | ai_assistant | INFO     | main.py:141 | main() | 🚀 正在启动 AI 语音助手系统...
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音识别模块
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 加载 Vosk 离线模型
+2025-10-22 12:10:05 | ai_assistant | INFO     | voice_recognizer.py:54 | _load_model() | 📦 正在加载模型: ./vosk-model-small-cn-0.22
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音频系统
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化 AI 助手模块
+2025-10-22 12:10:06 | ai_assistant | INFO     | qwen_assistant.py:32 | __init__() | ✅ QWENAssistant 初始化完成，使用模型: qwen-plus
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化文本转语音模块
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音合成引擎
+2025-10-22 12:10:06 | ai_assistant | INFO     | text_to_speech.py:45 | _initialize_engine() | ✅ 语音合成引擎初始化成功
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化动作执行器
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-22 12:10:06 | ai_assistant | INFO     | system_controller.py:47 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-22 12:10:06 | ai_assistant | INFO     | system_controller.py:356 | __init__() | 🔧 任务编排器已加载 10 个可调用函数
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:06 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:11 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:11 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:11 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:17 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:17 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:17 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:17 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:17 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:22 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:22 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:23 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:23 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:23 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:28 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:28 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:28 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:28 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:28 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:33 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:33 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:34 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:34 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:34 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 启动 AI 语音助手
+2025-10-22 12:18:31 | ai_assistant | INFO     | main.py:141 | main() | 🚀 正在启动 AI 语音助手系统...
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音识别模块
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 加载 Vosk 离线模型
+2025-10-22 12:18:31 | ai_assistant | INFO     | voice_recognizer.py:58 | _load_model() | 📦 正在加载模型: ./vosk-model-small-cn-0.22
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音频系统
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化 AI 助手模块
+2025-10-22 12:18:32 | ai_assistant | INFO     | qwen_assistant.py:32 | __init__() | ✅ QWENAssistant 初始化完成，使用模型: qwen-plus
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化文本转语音模块
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音合成引擎
+2025-10-22 12:18:32 | ai_assistant | INFO     | text_to_speech.py:45 | _initialize_engine() | ✅ 语音合成引擎初始化成功
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化动作执行器
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-22 12:18:32 | ai_assistant | INFO     | system_controller.py:47 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-22 12:18:32 | ai_assistant | INFO     | system_controller.py:356 | __init__() | 🔧 任务编排器已加载 10 个可调用函数
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:32 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:36 | ai_assistant | INFO     | voice_recognizer.py:157 | listen_and_recognize() | 🎯 识别结果: '播放 音乐'
+2025-10-22 12:18:36 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-22 12:18:38 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:18:38 | ai_assistant | INFO     | main.py:134 | handle_single_interaction() | 🗣️ 回复: 抱歉，我在尝试执行这个操作时出了点问题。
+2025-10-22 12:18:39 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:39 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:39 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:18:44 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:18:44 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:44 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:48 | ai_assistant | INFO     | voice_recognizer.py:157 | listen_and_recognize() | 🎯 识别结果: '你好'
+2025-10-22 12:18:48 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-22 12:18:50 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:18:50 | ai_assistant | INFO     | main.py:134 | handle_single_interaction() | 🗣️ 回复: 抱歉，我在尝试执行这个操作时出了点问题。
+2025-10-22 12:18:50 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:50 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:50 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:18:56 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:18:56 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:56 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...

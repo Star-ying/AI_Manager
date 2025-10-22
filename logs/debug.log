@@ -1,0 +1,628 @@
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 启动 AI 语音助手
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: main, 参数: args=(), kwargs={}
+2025-10-22 12:10:05 | ai_assistant | INFO     | main.py:141 | main() | 🚀 正在启动 AI 语音助手系统...
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音识别模块
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_speech_recognizer, 参数: args=(), kwargs={}
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 加载 Vosk 离线模型
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _load_model, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:05 | ai_assistant | INFO     | voice_recognizer.py:54 | _load_model() | 📦 正在加载模型: ./vosk-model-small-cn-0.22
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 模型加载成功
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_load_model' 执行完成，耗时: 0.348s
+2025-10-22 12:10:05 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音频系统
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _init_audio_system, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | voice_recognizer.py:69 | _init_audio_system() | ✅ 音频系统初始化完成
+2025-10-22 12:10:05 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_init_audio_system' 执行完成，耗时: 0.300s
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 语音识别器初始化完成
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_speech_recognizer' 执行完成，耗时: 0.759s
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化 AI 助手模块
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_qwen_assistant, 参数: args=(), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | INFO     | qwen_assistant.py:32 | __init__() | ✅ QWENAssistant 初始化完成，使用模型: qwen-plus
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ Qwen 助手初始化完成
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_qwen_assistant' 执行完成，耗时: 0.000s
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化文本转语音模块
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_tts_engine, 参数: args=(), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音合成引擎
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _initialize_engine, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 已选择中文语音: Microsoft Huihui Desktop - Chinese (Simplified)
+2025-10-22 12:10:06 | ai_assistant | INFO     | text_to_speech.py:45 | _initialize_engine() | ✅ 语音合成引擎初始化成功
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_initialize_engine' 执行完成，耗时: 0.202s
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ TTS 引擎初始化完成
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_tts_engine' 执行完成，耗时: 0.202s
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化动作执行器
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_action_executor, 参数: args=(), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _init_music_player, 参数: args=(<Progress.app.system_controller.SystemController object at 0x000002644F53FCB0>,), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | INFO     | system_controller.py:47 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_init_music_player' 执行完成，耗时: 0.013s
+2025-10-22 12:10:06 | ai_assistant | INFO     | system_controller.py:356 | __init__() | 🔧 任务编排器已加载 10 个可调用函数
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 动作执行器初始化完成
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_action_executor' 执行完成，耗时: 0.013s
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 所有模块初始化完成，进入监听循环
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 
+——————————————————————————————————————————————————
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 🎙️  语音助手已就绪
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 💡 说出你的命令，例如：'打开浏览器'、'写一篇春天的文章'
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 🛑 说出‘退出’、‘关闭’、‘停止’或‘拜拜’来结束程序
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ——————————————————————————————————————————————————
+
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:06 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  44.1 |██        |
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  89.7 |████      |
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 110.6 |█████     |
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  82.4 |████      |
+2025-10-22 12:10:06 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  71.5 |███       |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  51.2 |██        |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  71.2 |███       |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  72.2 |███       |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  72.6 |███       |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  53.5 |██        |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  89.4 |████      |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 106.1 |█████     |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 112.6 |█████     |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  88.8 |████      |
+2025-10-22 12:10:07 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  67.3 |███       |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  83.6 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  98.0 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  85.9 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  89.4 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 131.9 |██████    |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 108.4 |█████     |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  97.8 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  89.1 |████      |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  60.4 |███       |
+2025-10-22 12:10:08 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  92.0 |████      |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  95.9 |████      |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 112.6 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 111.4 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 100.6 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 106.6 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 103.3 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 101.7 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 103.3 |█████     |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 123.5 |██████    |
+2025-10-22 12:10:09 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 117.8 |█████     |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  90.8 |████      |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  55.6 |██        |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  43.2 |██        |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  43.5 |██        |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  45.4 |██        |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  93.1 |████      |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 152.0 |███████   |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 109.5 |█████     |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  92.8 |████      |
+2025-10-22 12:10:10 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 106.6 |█████     |
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  93.1 |████      |
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  94.9 |████      |
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  72.3 |███       |
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 100.5 |█████     |
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 5708.5 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.129s
+2025-10-22 12:10:11 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _speech_worker, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.001s
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.131s
+2025-10-22 12:10:11 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:11 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:11 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:11 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  43.6 |██        |
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 134.1 |██████    |
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 110.8 |█████     |
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  92.3 |████      |
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  92.0 |████      |
+2025-10-22 12:10:12 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  43.8 |██        |
+2025-10-22 12:10:13 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  58.9 |██        |
+2025-10-22 12:10:13 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3325.2 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:13 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1779.4 |████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:13 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 8291.6 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1586.2 |███████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1085.3 |██████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1504.3 |███████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3878.9 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1321.1 |██████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 150.6 |███████   |
+2025-10-22 12:10:14 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  56.6 |██        |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  66.5 |███       |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  61.6 |███       |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  57.0 |██        |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  86.0 |████      |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 141.1 |███████   |
+2025-10-22 12:10:15 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  93.6 |████      |
+2025-10-22 12:10:16 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  42.3 |██        |
+2025-10-22 12:10:16 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  60.3 |███       |
+2025-10-22 12:10:17 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.128s
+2025-10-22 12:10:17 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.003s
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.004s
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.132s
+2025-10-22 12:10:17 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:17 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:17 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  40.7 |██        |
+2025-10-22 12:10:17 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  61.6 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  50.9 |██        |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  46.9 |██        |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  70.8 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  72.6 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  69.1 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  76.4 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 140.3 |███████   |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  76.9 |███       |
+2025-10-22 12:10:18 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  82.7 |████      |
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  59.7 |██        |
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3055.0 |████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3449.5 |████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 8382.7 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 4073.3 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1803.6 |██████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1411.1 |██████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3631.6 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 6050.5 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:19 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1170.1 |██████████████████████████████████████████████████████████|
+2025-10-22 12:10:20 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  44.0 |██        |
+2025-10-22 12:10:21 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  49.2 |██        |
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  57.9 |██        |
+2025-10-22 12:10:22 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.127s
+2025-10-22 12:10:22 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.000s
+2025-10-22 12:10:22 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.128s
+2025-10-22 12:10:23 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:23 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:23 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  87.8 |████      |
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 109.1 |█████     |
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  74.4 |███       |
+2025-10-22 12:10:23 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  67.8 |███       |
+2025-10-22 12:10:24 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  44.8 |██        |
+2025-10-22 12:10:24 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  76.0 |███       |
+2025-10-22 12:10:24 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  62.6 |███       |
+2025-10-22 12:10:24 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  52.0 |██        |
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 363.9 |██████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 6827.1 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2260.2 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 13029.5 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2857.4 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2842.8 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2177.7 |████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 7239.8 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 7078.8 |█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:25 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 426.0 |█████████████████████|
+2025-10-22 12:10:26 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  77.5 |███       |
+2025-10-22 12:10:26 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  76.5 |███       |
+2025-10-22 12:10:26 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  63.1 |███       |
+2025-10-22 12:10:26 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  41.7 |██        |
+2025-10-22 12:10:28 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.130s
+2025-10-22 12:10:28 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.000s
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.131s
+2025-10-22 12:10:28 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:28 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:28 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:28 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  72.4 |███       |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  58.3 |██        |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  73.0 |███       |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  84.8 |████      |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  81.7 |████      |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  82.4 |████      |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 141.5 |███████   |
+2025-10-22 12:10:29 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 135.2 |██████    |
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 169.3 |████████  |
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  94.9 |████      |
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  84.3 |████      |
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  45.9 |██        |
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 4122.5 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1917.7 |███████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 4613.7 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 4167.0 |████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:30 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2545.2 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 4927.1 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2119.3 |█████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 265.7 |█████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1506.0 |███████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1822.5 |███████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 269.4 |█████████████|
+2025-10-22 12:10:31 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  40.0 |██        |
+2025-10-22 12:10:32 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  45.9 |██        |
+2025-10-22 12:10:32 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  61.0 |███       |
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  47.5 |██        |
+2025-10-22 12:10:33 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.132s
+2025-10-22 12:10:33 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>,), kwargs={}
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.000s
+2025-10-22 12:10:33 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.133s
+2025-10-22 12:10:34 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:10:34 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000002644F43F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000002644F43FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000002644F53F8C0>), kwargs={}
+2025-10-22 12:10:34 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:10:34 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000002644F43F230>,), kwargs={}
+2025-10-22 12:10:34 | ai_assistant | DEBUG    | voice_recognizer.py:107 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:10:34 | ai_assistant | INFO     | voice_recognizer.py:108 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:10:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  61.7 |███       |
+2025-10-22 12:10:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  81.5 |████      |
+2025-10-22 12:10:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  52.5 |██        |
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 启动 AI 语音助手
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: main, 参数: args=(), kwargs={}
+2025-10-22 12:18:31 | ai_assistant | INFO     | main.py:141 | main() | 🚀 正在启动 AI 语音助手系统...
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音识别模块
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_speech_recognizer, 参数: args=(), kwargs={}
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 加载 Vosk 离线模型
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _load_model, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:31 | ai_assistant | INFO     | voice_recognizer.py:58 | _load_model() | 📦 正在加载模型: ./vosk-model-small-cn-0.22
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 模型加载成功
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_load_model' 执行完成，耗时: 0.308s
+2025-10-22 12:18:31 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音频系统
+2025-10-22 12:18:31 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _init_audio_system, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | voice_recognizer.py:73 | _init_audio_system() | ✅ 音频系统初始化完成
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_init_audio_system' 执行完成，耗时: 0.311s
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 语音识别器初始化完成
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_speech_recognizer' 执行完成，耗时: 0.740s
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化 AI 助手模块
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_qwen_assistant, 参数: args=(), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | INFO     | qwen_assistant.py:32 | __init__() | ✅ QWENAssistant 初始化完成，使用模型: qwen-plus
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ Qwen 助手初始化完成
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_qwen_assistant' 执行完成，耗时: 0.000s
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化文本转语音模块
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_tts_engine, 参数: args=(), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化语音合成引擎
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _initialize_engine, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 已选择中文语音: Microsoft Huihui Desktop - Chinese (Simplified)
+2025-10-22 12:18:32 | ai_assistant | INFO     | text_to_speech.py:45 | _initialize_engine() | ✅ 语音合成引擎初始化成功
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_initialize_engine' 执行完成，耗时: 0.203s
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ TTS 引擎初始化完成
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_tts_engine' 执行完成，耗时: 0.204s
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化动作执行器
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: initialize_action_executor, 参数: args=(), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _init_music_player, 参数: args=(<Progress.app.system_controller.SystemController object at 0x000001E55229FCB0>,), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | INFO     | system_controller.py:47 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 '_init_music_player' 执行完成，耗时: 0.012s
+2025-10-22 12:18:32 | ai_assistant | INFO     | system_controller.py:356 | __init__() | 🔧 任务编排器已加载 10 个可调用函数
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 动作执行器初始化完成
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'initialize_action_executor' 执行完成，耗时: 0.013s
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ✅ 所有模块初始化完成，进入监听循环
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 
+——————————————————————————————————————————————————
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 🎙️  语音助手已就绪
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 💡 说出你的命令，例如：'打开浏览器'、'写一篇春天的文章'
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: 🛑 说出‘退出’、‘关闭’、‘停止’或‘拜拜’来结束程序
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:52 | log_call() | 📌 调用点: ——————————————————————————————————————————————————
+
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000001E55229F8C0>), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | voice_recognizer.py:111 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:18:32 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  20.7 |█         |
+2025-10-22 12:18:32 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  26.4 |█         |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.3 |          |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  47.8 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  62.5 |███       |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  55.9 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  56.5 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  52.7 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  49.7 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  52.4 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  42.4 |██        |
+2025-10-22 12:18:33 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  34.9 |█         |
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  74.9 |███       |
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  77.6 |███       |
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  68.5 |███       |
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  60.0 |███       |
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3497.2 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 3455.4 |████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 5421.1 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2416.0 |████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:34 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1365.4 |████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1265.9 |███████████████████████████████████████████████████████████████|
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2930.9 |██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2479.1 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  18.7 |          |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  40.9 |██        |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  56.6 |██        |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  32.3 |█         |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  29.0 |█         |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  25.7 |█         |
+2025-10-22 12:18:35 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  44.2 |██        |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  45.0 |██        |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  38.7 |█         |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  18.6 |          |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.8 |          |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.7 |          |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   4.3 |          |
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   4.6 |          |
+2025-10-22 12:18:36 | ai_assistant | INFO     | voice_recognizer.py:157 | listen_and_recognize() | 🎯 识别结果: '播放 音乐'
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 4.069s
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🎤 识别到的语音文本 = 播放 音乐
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: process_voice_command, 参数: args=(<Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, '播放 音乐'), kwargs={}
+2025-10-22 12:18:36 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-22 12:18:36 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 原始输入 = 播放 音乐
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 模型输出 = {
+    "intent": "music",
+    "action": "play",
+    "parameters": {
+        "song": "",
+        "artist": "",
+        "playlist": ""
+    },
+    "response": "好的，即将开始播放音乐。请问您想播放哪首歌曲、歌手或播放列表？",
+    "needs_confirmation": false
+}
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'process_voice_command' 执行完成，耗时: 1.870s
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.intent = music
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.action = play
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.parameters = {'song': '', 'artist': '', 'playlist': ''}
+2025-10-22 12:18:38 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:18:38 | ai_assistant | INFO     | main.py:134 | handle_single_interaction() | 🗣️ 回复: 抱歉，我在尝试执行这个操作时出了点问题。
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, '抱歉，我在尝试执行这个操作时出了点问题。'), kwargs={}
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: _speech_worker, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.001s
+2025-10-22 12:18:38 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.943s
+2025-10-22 12:18:39 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000001E55229F8C0>), kwargs={}
+2025-10-22 12:18:39 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:111 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:18:39 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  11.7 |          |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  26.4 |█         |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  27.1 |█         |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  30.7 |█         |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  28.5 |█         |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  26.2 |█         |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   9.2 |          |
+2025-10-22 12:18:39 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  26.6 |█         |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.1 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  14.0 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   8.4 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  14.6 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   8.1 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  12.6 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  10.8 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.0 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  12.2 |          |
+2025-10-22 12:18:40 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  17.9 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  19.8 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  14.1 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  36.5 |█         |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  19.5 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  20.3 |█         |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  22.7 |█         |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  22.1 |█         |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  19.2 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  17.4 |          |
+2025-10-22 12:18:41 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  16.3 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  18.9 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  13.5 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  11.1 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  11.4 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   4.1 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.6 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.7 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.8 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.3 |          |
+2025-10-22 12:18:42 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  15.2 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.3 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.1 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  13.6 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  14.3 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  17.7 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  20.4 |█         |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  16.3 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  10.9 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  11.2 |          |
+2025-10-22 12:18:43 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  11.6 |          |
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  23.1 |█         |
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  18.5 |          |
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.113s
+2025-10-22 12:18:44 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.005s
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.005s
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.119s
+2025-10-22 12:18:44 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000001E55229F8C0>), kwargs={}
+2025-10-22 12:18:44 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | voice_recognizer.py:111 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:18:44 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   4.1 |          |
+2025-10-22 12:18:44 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  27.2 |█         |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 140.8 |███████   |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 117.5 |█████     |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  70.1 |███       |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  39.9 |█         |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  17.4 |          |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  31.8 |█         |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.8 |          |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.5 |          |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.2 |          |
+2025-10-22 12:18:45 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.7 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   5.8 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   9.4 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.8 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  10.8 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   7.2 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   6.4 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.6 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.4 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.2 |          |
+2025-10-22 12:18:46 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.7 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.5 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.9 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   7.5 |          |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  29.2 |█         |
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 892.7 |████████████████████████████████████████████|
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 1545.0 |█████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:47 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 2700.7 |███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 590.2 |█████████████████████████████|
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  26.9 |█         |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  10.7 |          |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   4.9 |          |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.8 |          |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.4 |          |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   7.4 |          |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:  76.3 |███       |
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量: 147.6 |███████   |
+2025-10-22 12:18:48 | ai_assistant | INFO     | voice_recognizer.py:157 | listen_and_recognize() | 🎯 识别结果: '你好'
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 4.230s
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🎤 识别到的语音文本 = 你好
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: process_voice_command, 参数: args=(<Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, '你好'), kwargs={}
+2025-10-22 12:18:48 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-22 12:18:48 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 原始输入 = 你好
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 模型输出 = {
+    "intent": "chat",
+    "action": "greet",
+    "parameters": {},
+    "response": "你好！有什么我可以帮你的吗？",
+    "needs_confirmation": false
+}
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'process_voice_command' 执行完成，耗时: 1.542s
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.intent = chat
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.action = greet
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:46 | log_var() | 🧠 AI响应.parameters = {}
+2025-10-22 12:18:50 | ai_assistant | ERROR    | main.py:130 | handle_single_interaction() | 💥 执行动作时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 126, in handle_single_interaction
+    success = executor.execute(ai_response)
+              ^^^^^^^^^^^^^^^^
+AttributeError: 'TaskOrchestrator' object has no attribute 'execute'
+2025-10-22 12:18:50 | ai_assistant | INFO     | main.py:134 | handle_single_interaction() | 🗣️ 回复: 抱歉，我在尝试执行这个操作时出了点问题。
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, '抱歉，我在尝试执行这个操作时出了点问题。'), kwargs={}
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.000s
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.775s
+2025-10-22 12:18:50 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000001E55229F8C0>), kwargs={}
+2025-10-22 12:18:50 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:50 | ai_assistant | DEBUG    | voice_recognizer.py:111 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:18:50 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.4 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.4 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.7 |          |
+2025-10-22 12:18:51 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   9.9 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   3.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.4 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:52 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.5 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:53 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.4 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.1 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:54 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.0 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:55 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:152 | listen_and_recognize() | 💤 超时未检测到语音输入
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:160 | listen_and_recognize() | ❓ 未识别到有效内容
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'listen_and_recognize' 执行完成，耗时: 5.122s
+2025-10-22 12:18:56 | ai_assistant | INFO     | main.py:106 | handle_single_interaction() | 🗣️ 回复: 抱歉，我没有听清楚，请重新说话。
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: speak, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, '抱歉，我没有听清楚，请重新说话。'), kwargs={}
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: stop_current_speech, 参数: args=(<Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>,), kwargs={}
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'stop_current_speech' 执行完成，耗时: 0.000s
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'speak' 执行完成，耗时: 0.000s
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:34 | wrapper() | ✅ 函数 'handle_single_interaction' 执行完成，耗时: 5.123s
+2025-10-22 12:18:56 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 处理一次语音交互
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: handle_single_interaction, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>, <Progress.app.qwen_assistant.QWENAssistant object at 0x000001E55219F8C0>, <Progress.app.text_to_speech.TTSEngine object at 0x000001E55219FA10>, <Progress.app.system_controller.TaskOrchestrator object at 0x000001E55229F8C0>), kwargs={}
+2025-10-22 12:18:56 | ai_assistant | INFO     | logger_utils.py:16 | wrapper() | 🔄 开始执行: 执行单次语音识别
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | logger_utils.py:29 | wrapper() | ▶️ 进入函数: listen_and_recognize, 参数: args=(<Progress.app.voice_recognizer.SpeechRecognizer object at 0x000001E55219F230>,), kwargs={}
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | voice_recognizer.py:111 | listen_and_recognize() | 🎙️ 开始单次语音识别 (timeout=5.0s)...
+2025-10-22 12:18:56 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🔊 请说话...
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.5 |          |
+2025-10-22 12:18:56 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   2.6 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.8 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.5 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
+2025-10-22 12:18:57 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.2 |          |
+2025-10-22 12:18:58 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   1.1 |          |
+2025-10-22 12:18:58 | ai_assistant | DEBUG    | voice_recognizer.py:135 | listen_and_recognize() | 📊 音量:   0.3 |          |
