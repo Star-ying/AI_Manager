@@ -8,7 +8,6 @@ import threading
 import time
 import logging
 import json
-import numpy as np
 import os
 from vosk import Model, KaldiRecognizer
 import pyaudio
@@ -17,17 +16,15 @@ from database import config
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
 
-""" import config
-from utils.logger_utils import log_time, log_step, log_var, log_call
-from utils.logger_config import setup_logger """
-
 # --- 配置参数 ---
 VOICE_TIMEOUT = config.timeout  # 最大等待语音输入时间（秒）
 VOICE_PHRASE_TIMEOUT = config.phrase_timeout  # 单句话最长录音时间
-VOSK_MODEL_PATH = "./vosk-model-small-cn-0.22"  # 注意标准命名是 zh-cn
+VOSK_MODEL_PATH = "./vosk-model-small-cn-0.22"
 
 # --- 初始化日志器 ---
 logger = logging.getLogger("ai_assistant")
+# 定义最小有效音量阈值
+MIN_VOLUME_THRESHOLD = 600  # 可调（根据环境测试）
 
 
 class SpeechRecognizer:
@@ -43,16 +40,31 @@ class SpeechRecognizer:
         self.sample_rate = 16000  # Vosk 要求采样率 16kHz
         self.chunk_size = 1600     # 推荐帧大小（对应 ~100ms）
 
+        # 🔒 TTS 播放状态标志（由外部控制）
+        self._is_tts_playing = False
+        self._tts_lock = threading.Lock()
+
         self._load_model()
         self._init_audio_system()
+
+    @property
+    def is_tts_playing(self) -> bool:
+        with self._tts_lock:
+            return self._is_tts_playing
+
+    def set_tts_playing(self, status: bool):
+        """供 TTS 模块调用：通知当前是否正在播放"""
+        with self._tts_lock:
+            self._is_tts_playing = status
+        if not status:
+            logger.debug("🟢 TTS 播放结束，语音识别恢复")
 
     @log_step("加载 Vosk 离线模型")
     @log_time
     def _load_model(self):
         """加载本地 Vosk 模型"""
         if not os.path.exists(VOSK_MODEL_PATH):
-            raise FileNotFoundError(f"❌ Vosk 模型路径不存在: {VOSK_MODEL_PATH}\n"
-                                  "请从 https://alphacephei.com/vosk/models 下载中文小模型并解压至此路径")
+            raise FileNotFoundError(f"❌ Vosk 模型路径不存在: {VOSK_MODEL_PATH}\n","请从 https://alphacephei.com/vosk/models 下载中文小模型并解压至此路径")
 
         try:
             logger.info(f"📦 正在加载模型: {VOSK_MODEL_PATH}")
@@ -100,20 +112,24 @@ class SpeechRecognizer:
     @log_step("执行单次语音识别")
     @log_time
     def listen_and_recognize(self, timeout=None) -> str:
-        """
-        单次语音识别：阻塞直到识别完成或超时
-        """
         timeout = timeout or VOICE_TIMEOUT
         start_time = time.time()
         in_speech = False
         result_text = ""
 
         logger.debug(f"🎙️ 开始单次语音识别 (timeout={timeout:.1f}s)...")
+
+        # 🔴 如果正在播放 TTS，直接返回空
+        if self.is_tts_playing:
+            logger.info("🔇 TTS 正在播放，跳过本次识别")
+            return ""
+
         logger.info("🔊 请说话...")
 
         stream = None
         try:
-            # 打开音频流
+            recognizer = KaldiRecognizer(self.model, self.sample_rate)
+
             stream = self.audio.open(
                 format=pyaudio.paInt16,
                 channels=1,
@@ -121,34 +137,27 @@ class SpeechRecognizer:
                 input=True,
                 frames_per_buffer=self.chunk_size
             )
-            # 重置识别器状态
-            self.recognizer.Reset()
 
             while (time.time() - start_time) < timeout:
+                # 再次检查播放状态（可能中途开始）
+                if self.is_tts_playing:
+                    logger.info("🔇 TTS 开始播放，中断识别")
+                    break
+
                 data = stream.read(self.chunk_size, exception_on_overflow=False)
 
-                # 分析音量（可视化反馈）
-                audio_np = np.frombuffer(data, dtype=np.int16)
-                volume = np.abs(audio_np).mean()
-                
-                bar = "█" * int(volume // 20)
-                logger.debug(f"📊 音量: {volume:5.1f} |{bar:10}|")
-
-                # 将音频送入 Vosk
-                if self.recognizer.AcceptWaveform(data):
-                    final_result = json.loads(self.recognizer.Result())
+                if recognizer.AcceptWaveform(data):
+                    final_result = json.loads(recognizer.Result())
                     text = final_result.get("text", "").strip()
                     if text:
                         result_text = text
                         break
                 else:
-                    partial = json.loads(self.recognizer.PartialResult())
-                    partial_text = partial.get("partial", "")
-                    if partial_text.strip():
-                        in_speech = True  # 标记已经开始说话
+                    partial = json.loads(recognizer.PartialResult())
+                    if partial.get("partial", "").strip():
+                        in_speech = True
 
-                # 如果还没开始说话，则允许超时；否则继续等待说完
-                if not in_speech and (time.time() - start_time) > timeout:
+                if not in_speech and (time.time() - start_time) >= timeout:
                     logger.info("💤 超时未检测到语音输入")
                     break
 
@@ -166,7 +175,6 @@ class SpeechRecognizer:
             self._last_text = ""
             return ""
         finally:
-            # 确保资源释放
             if stream:
                 try:
                     stream.stop_stream()
@@ -216,7 +224,6 @@ class SpeechRecognizer:
 
         logger.info("✅ 语音监听已停止")
 
-    @log_time
     def _background_listen(self, language=None):
         """后台循环监听线程"""
         logger.debug("🎧 后台监听线程已启动")
@@ -236,24 +243,23 @@ class SpeechRecognizer:
 
         try:
             while self.is_listening:
+                # 🔴 检查是否正处于 TTS 播放中 → 跳过本次读取
+                if self.is_tts_playing:
+                    time.sleep(0.1)  # 减少 CPU 占用
+                    continue
+
                 try:
                     data = stream.read(self.chunk_size, exception_on_overflow=False)
 
-                    # 关键：先送入数据
                     if self.recognizer.AcceptWaveform(data):
-                        # 已完成一句话识别
                         result_json = self.recognizer.Result()
                         result_dict = json.loads(result_json)
                         text = result_dict.get("text", "").strip()
                         if text and self.callback:
                             logger.info(f"🔔 回调触发: '{text}'")
                             self.callback(text)
-
-                        # 🟢 完成后立即重置识别器状态
                         self.recognizer.Reset()
-
                     else:
-                        # 获取部分结果（可用于实时显示）
                         partial = json.loads(self.recognizer.PartialResult())
                         partial_text = partial.get("partial", "")
                         if partial_text.strip():
@@ -261,7 +267,7 @@ class SpeechRecognizer:
 
                 except Exception as e:
                     logger.exception("Background listening error")
-                time.sleep(0.05)  # 小延迟降低 CPU 占用
+                time.sleep(0.05)
 
         finally:
             if stream:
@@ -270,37 +276,5 @@ class SpeechRecognizer:
             logger.debug("🔚 后台监听线程退出")
 
 
-# ======================
-# 示例用法（测试）
-# ======================
-def on_recognized(text):
-    print(f"\n🔔 回调收到: '{text}'")
-    if any(word in text for word in ["退出", "停止", "关闭", "拜拜"]):
-        print("👋 收到退出指令，关闭监听...")
-        recognizer.stop_listening()
 
-if __name__ == "__main__":
-
-    recognizer = SpeechRecognizer()
-    
-    # 测试麦克风
-    if not recognizer.is_available():
-        print("🔴 麦克风不可用，请检查设备")
-        exit(1)
-
-    print("🎤 测试开始，请说一句话...")
-
-    # ✅ 方式一：测试单次识别
-    text = recognizer.listen_and_recognize(timeout=5)
-    print(f"你说了: {text}")
-
-    # ✅ 方式二：测试持续监听（推荐）
-    # recognizer.start_listening(callback=on_recognized)
-
-    # 保持主线程运行
-    try:
-        while recognizer.is_listening:
-            time.sleep(1)
-    except KeyboardInterrupt:
-        print("\n🛑 用户中断")
-        recognizer.stop_listening()
+recognizer = SpeechRecognizer()

@@ -1,79 +1,265 @@
-# AI Manager - 语音控制AI助手
+🎤 AI 语音助手系统
+🧠 基于 Python 的智能交互式语音控制系统
+🔊 “你说的，我都懂” —— 离线识别 · 在线理解 · 即时响应
 
-一个基于大模型的语音控制应用，可以通过语音对话控制电脑执行各种任务。
+📋 项目概述
+这是一个基于 Python 开发的模块化智能语音助手系统，融合了 离线语音识别（ASR）、大模型意图理解（LLM）、文本转语音（TTS） 和 系统级控制能力。支持跨平台运行（Windows / macOS / Linux），具备高扩展性与稳定性。
 
-## 🏗️ 项目架构
+🎯 核心理念：
 
-本项目采用**混合架构**设计：
-- **Java后端**: 提供REST API、数据库管理、日志系统
-- **Python核心**: 语音识别、AI助手、系统控制、语音合成
+✅ 完全本地化语音识别（Vosk）
 
-## 🚀 快速开始（Windows）
+✅ 接入云端智能大脑（通义千问）
 
-### 环境要求
-- Java 17+（后端服务，已内置 Maven Wrapper：mvnw.cmd）
-- 可选：Python 3.8+（仅用于开发机打包Python核心为exe，最终用户无需Python）
+✅ 零代码侵入式系统控制
 
-### 安装和运行
+✅ 模块解耦，易于二次开发和集成
 
-#### 1. 启动Java后端服务（Windows）
-```cmd
-cd ai-manager-backend
-mvnw.cmd clean package
-mvnw.cmd spring-boot:run
-```
+🏗️ 系统架构图
 
-或使用脚本：
-```cmd
-scripts\build.bat --clean
-```
++------------------+
+|     用户语音      |
++--------↓---------+
+         ↓
++------------------+     +------------------+
+|  语音识别模块     | --> |   AI 助手模块     |
+| (Offline ASR)    |     | (LLM 决策引擎)    |
++--------↓---------+     +--------↓---------+
+         ↓                        ↓
++------------------+     +------------------+
+| 文本转语音模块    | ←---| 系统控制模块      |
+| (TTS Engine)     |     | (System Control) |
++------------------+     +------------------+
 
-#### 2. 一键运行（最终用户）
-打包完成后，用户在Windows上双击 `start_all.bat` 即可运行（零配置）。
 
-## 📁 项目结构（摘要）
-```
-AI_Manager/
-├── ai-manager-backend/          # Java后端服务
-│   ├── pom.xml                  # Maven依赖管理
-│   ├── mvnw.cmd                 # Windows Maven Wrapper
-│   ├── scripts/                 # Windows脚本工具
-│   └── src/                     # Java源代码
-├── Progress/                    # Python核心（开发机上用于打包）
-├── scripts/windows/             # Windows 一键启动与打包脚本
-├── my_resources/                # 资源文件
-└── config.json                  # 配置文件
-```
+🧱 核心模块详解
+1. 🖥️ 主程序入口 main.py
+🚀 系统启动中枢，协调所有模块工作流
 
-## 🔧 依赖管理
+初始化语音识别 & TTS 引擎
 
-- Java后端依赖使用Maven管理，详见：[Java后端使用指南](ai-manager-backend/README.md)
-- 迁移与说明：[依赖管理迁移指南](MIGRATION_GUIDE.md)
+启动主循环监听用户输入
 
-## 🎯 功能特性
+处理异常中断（Ctrl+C）、资源释放
 
-- 🎤 语音识别与理解（中文）
-- 🤖 AI助手（通义千问）
-- 🔊 语音合成反馈
-- 💻 系统控制（音乐、文件、应用）
-- 📝 文本生成/总结/翻译
-- 🔄 多步骤任务编排
-- 🧠 上下文记忆
-- 📊 数据管理
-- 🔒 依赖与日志管理
+实现“唤醒词 → 识别 → 决策 → 执行 → 回复”闭环
 
-## 📚 文档
-- [Java后端使用指南](ai-manager-backend/README.md)
-- [依赖管理迁移指南](MIGRATION_GUIDE.md)
-- [依赖管理策略](ai-manager-backend/docs/development/DEPENDENCY_MANAGEMENT.md)
-- [项目结构说明](ai-manager-backend/PROJECT_STRUCTURE.md)
+2. 🔊 语音识别模块 voice_recognizer.py
+🎙️ 基于 Vosk 的离线中文语音识别引擎
 
-## 🤝 贡献
-1. Fork项目
-2. 创建功能分支
-3. 提交更改
-4. 推送到分支
-5. 创建Pull Request
+特性	描述
+✅ 离线识别	使用 Vosk 小模型（vosk-model-small-cn-0.22）
+🔄 双模式	支持单次识别 + 持续监听
+⚠️ 自语音规避	与 TTS 播放互斥，防止回声误触发
+📊 音量反馈	实时输出音量均值用于 UI 显示
+🔐 安全释放	自动关闭音频流，避免资源泄漏
+🔧 技术参数：
 
-## 📄 许可证
-MIT License
+采样率： 16,000 Hz
+
+帧大小： 1600 字节（约 100ms）
+
+模型路径：./vosk-model-small-cn-0.22
+
+3. 🤖 AI 助手模块 qwen_assistant.py
+💬 联接通义千问 API，实现自然语言到任务指令的翻译
+
+🧠 功能亮点：
+
+意图分类：判断是“系统操作”还是“闲聊问答”
+
+结构化解析：将语句转换为 JSON 计划（含动作、参数、执行顺序）
+
+上下文记忆：保留最近对话历史提升连贯性
+
+多任务编排：支持并行/串行任务调度
+
+📌 示例输入：
+
+“打开浏览器，然后播放音乐，并5分钟后提醒我吃饭”
+
+✅ 输出计划：
+
+[
+  {"action": "open_app", "target": "chrome"},
+  {"action": "play_music"},
+  {"action": "set_timer", "delay": 300, "message": "吃饭"}
+]
+
+🔐 依赖配置：
+
+需在 config.json 中设置 QWEN_API_KEY
+
+4. 🛠️ 系统控制模块 system_controller.py
+⚙️ 执行 AI 解析出的任务指令
+
+📦 支持的功能类别：
+
+类别	具体功能
+🎵 音乐控制	播放、暂停、停止、恢复
+📂 文件操作	创建、读取、写入 .txt 文件
+💼 应用启动	浏览器、记事本、计算器、终端等
+⏰ 定时提醒	设置延迟执行的提醒任务
+🖥️ 系统信息	获取 CPU、内存、磁盘使用率
+🧩 工具扩展	支持注册自定义 AI 工具函数
+⚡ 支持两种执行模式：
+
+串行执行：按顺序一步步完成
+
+并行执行：多个非阻塞任务同时进行（如播放音乐 + 发送通知）
+
+5. 🔊 文本转语音模块 text_to_speech.py
+🗣️ 高保真语音播报，支持多线程安全播放
+
+平台	引擎
+Windows	pyttsx3 + SAPI5（系统自带）
+macOS/Linux	espeak-ng 或 edge-tts（推荐网络版）
+✨ 特性：
+
+多线程异步播报，不阻塞主流程
+
+自动管理播放状态锁（避免与 ASR 冲突）
+
+支持调节语速、音色（Windows 下可用 Xiaoyi/Xiaohan 等神经语音）
+
+🔒 关键机制：
+
+recognizer.set_tts_playing(True)
+engine.say("你好，正在为你打开浏览器")
+engine.runAndWait()
+recognizer.set_tts_playing(False)
+
+6. 🧰 工具与日志模块
+📝 日志系统 utils/logger_config.py
+多级别日志：DEBUG, INFO, WARNING, ERROR
+
+自动轮转：每日生成新日志文件（logs/app_2025-04-05.log）
+
+彩色终端输出（带时间戳、模块名、等级标识）
+
+🧪 AI 工具管理 utils/ai_tools.py
+注册外部工具函数供 LLM 调用
+
+提供 schema 描述（名称、参数、说明）
+
+实现动态绑定与错误兜底
+
+🗃️ 配置管理 database/config.py
+
+统一管理超时时间、API 密钥、路径等全局变量
+
+可替换为 JSON/YAML 配置文件
+
+🔬 核心工作流程
+
+graph TD
+    A[🎤 用户说话] --> B{是否在TTS播放？}
+    B -- 是 --> C[🔇 忽略音频]
+    B -- 否 --> D[🎙️ 捕获语音片段]
+    D --> E[🧠 Vosk 识别为文本]
+    E --> F[🤖 发送给 Qwen 分析意图]
+    F --> G{是系统命令吗？}
+    G -- 是 --> H[⚙️ 系统控制器执行任务]
+    G -- 否 --> I[💬 返回聊天回复]
+    H --> J[📢 TTS 播报结果]
+    I --> J
+    J --> A
+
+🚀 快速开始指南
+📦 环境准备
+
+# 1. 安装依赖
+pip install vosk pyaudio pyttsx3 edge-tts python-dotenv psutil playsound
+
+# 2. 下载中文语音模型（必须）
+unzip vosk-model-small-cn-0.22.zip -d .
+
+# 3. 配置 API 密钥
+echo "QWEN_API_KEY=your_api_key_here" > .env
+
+▶️ 运行项目
+
+python main.py
+
+🔊 你会听到：
+
+“语音助手已启动，请说‘你好’来唤醒我。”
+
+🧪 使用示例
+
+你说的话	系统行为
+“打开浏览器”	启动 Chrome 或 Edge
+“播放音乐”	调用默认播放器播放背景音乐
+“创建 test.txt 内容为‘Hello World’”	生成文件
+“现在几点了？”	调用 LLM 回答当前时间
+“5分钟后提醒我喝水”	设置定时器
+“退出”	安全退出程序
+
+🔐 安全与健壮性设计
+
+机制	        说明
+🧱 资源安全释放	自动关闭麦克风流、TTS 引擎
+🧵 线程同步锁	防止 ASR/TTS 同时运行造成冲突
+🛑 异常捕获	所有模块均有 try-except 包裹
+🔻 降级策略	若 LLM 失败则返回本地应答
+📁 权限最小化	不请求无关系统权限
+
+📁 项目结构
+
+Progress/
+├── app/
+│   ├── voice_recognizer.py     # 语音识别（离线）
+│   ├── qwen_assistant.py       # AI决策核心
+│   ├── text_to_speech.py      # 语音合成
+│   └── system_controller.py   # 系统控制执行
+├── utils/
+│   ├── logger_config.py       # 日志配置
+│   ├── logger_utils.py        # 日志装饰器工具
+│   └── ai_tools.py            # AI工具注册中心
+├── database/
+│   └── config.py              # 全局配置
+├── .env                       # API密钥存储
+├── requirements.txt           # 依赖清单
+└── main.py                    # 主程序入口
+
+🎨 视觉优化亮点
+
+特性	                 效果
+🎨 Emoji 图标引导	 提升可读性与亲和力
+🌈 分区清晰	         每个模块独立区块
+🔗 目录导航友好	          GitHub 渲染自动生成 TOC
+🖋️ 代码高亮	          所有代码块使用语法标注
+📈 Mermaid 流程图        直观展示交互逻辑
+
+📝 注意事项
+
+🔑 需配置有效的 QWEN_API_KEY
+
+🎧 建议使用外接麦克风减少回声干扰
+
+🔇 TTS 播放期间无法识别语音（正常行为）
+
+💡 优化方向：
+
+1.加入关键词唤醒（如“嘿小助”）
+
+2.支持语音打断（TTS 可被语音中断）
+
+3.添加 GUI 界面（Tkinter / PyQt）
+
+4.集成 Whisper.cpp 实现更高精度离线识别
+
+🌟 总结
+本项目是一个 轻量级、可扩展、生产就绪的语音助手框架，适合：
+
+1.学习语音交互系统原理
+
+2.构建智能家居控制终端
+
+3.开发桌面自动化助手
+
+4.作为毕业设计或开源项目基础
+
+🚀 一句话总结：
+
+“听得到、听得懂、做得到、说得清” —— 这就是我们的 AI 语音助手！

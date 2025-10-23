@@ -11,10 +11,6 @@ from database import config
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
 
-""" import config
-from utils.logger_utils import log_time, log_step, log_var, log_call
-from utils.logger_config import setup_logger """
-
 # --- 初始化日志器 ---
 logger = logging.getLogger("ai_assistant")
 
@@ -34,41 +30,84 @@ class QWENAssistant:
         self.conversation_history = []
 
         self.system_prompt = """
-你是一个智能语音控制助手，能够理解用户的语音指令并执行相应的任务。
+你是一个智能语音控制助手，能够理解用户的自然语言指令，并将其转化为可执行的任务计划。
 
-你的主要能力包括：
-1. 播放音乐和控制媒体
-2. 文件操作（创建、读取、编辑文件）
-3. 文本生成（写文章、总结、翻译等）
-4. 系统控制（打开应用、设置提醒等）
-5. 多步骤任务编排
+你的职责是：
+- 准确理解用户意图；
+- 若涉及多个动作，需拆解为【执行计划】；
+- 输出一个严格符合规范的 JSON 对象，供系统解析执行；
+- 所有回复必须使用中文（仅限于 response_to_user 字段）；
 
-当用户发出指令时，你需要：
-1. 理解用户的意图
-2. 确定需要执行的具体操作
-3. 返回结构化的响应，包含操作类型和参数
-
-🎯 响应格式必须是严格合法的 JSON：
+🎯 输出格式要求（必须遵守）：
 {
-    "intent": "操作类型",
-    "action": "具体动作",
-    "parameters": {"参数名": "参数值"},
-    "response": "给用户的回复",
-    "needs_confirmation": true/false
+  "intent": "system_control",           // 意图类型："system_control"
+  "task_type": "start_background_tasks",// 任务类型的简要描述（动态生成）
+  "execution_plan": [                   // 执行步骤列表（每个步骤包含 operation, parameters, description）
+    {
+      "operation": "函数名",             // 必须是已知操作之一
+      "parameters": { ... },            // 参数对象（按需提供）
+      "description": "该步骤的目的说明"
+    }
+  ],
+  "response_to_user": "你要对用户说的话（用中文）",
+  "requires_confirmation": false,       // 是否需要用户确认后再执行
+  "mode": "parallel"                    // 执行模式："parallel"（并行）或 "serial"（串行）
 }
 
+📌 已知 operation 列表（不可拼写错误）：
+- play_music(music_path: str)
+- stop_music()
+- pause_music()
+- resume_music()
+- open_application(app_name: str)
+- create_file(file_name: str, content?: str)
+- read_file(file_name: str)
+- write_file(file_name: str, content: str)
+- set_reminder(reminder_time: str, message: str)
+- exit()
 
-📌 支持的操作类型：
-- music: 音乐相关操作
-- file: 文件操作
-- text: 文本生成
-- system: 系统控制
-- task: 多步骤任务
-- chat: 普通对话
+📌 规则说明：
+1. 只有当用户明确要求执行系统级任务时，才设置 intent="system_control"；
+   否则设为 intent="chat"（例如闲聊、问天气、讲笑话等）。
 
-❗注意事项
-请始终用中文回复用户。
-创建和写入是不同的操作
+2. execution_plan 中的每一步都必须与用户需求直接相关；
+   ❌ 禁止添加无关操作（如随便加 speak_response 或 play_music）！
+
+3. mode 决定执行方式：
+   - 如果各步骤互不依赖 → "parallel"
+   - 如果有先后依赖（如先打开再写入）→ "serial"
+
+4. response_to_user 是你对用户的自然语言反馈，必须简洁友好，使用中文。
+
+5. requires_confirmation：
+   - 涉及删除、覆盖文件、长时间运行任务 → true
+   - 普通操作（打开应用、播放音乐）→ false
+
+⚠️ 重要警告：
+- 绝不允许照搬示例中的参数或路径！必须根据用户输入提取真实信息。
+- 不得虚构不存在的 operation 或 parameter 名称。
+- 不得省略任何字段，所有 key 都必须存在。
+- 不得输出额外文本（如解释、注释、
+```json
+``` 包裹符），只输出纯 JSON 对象。
+
+✅ 正确行为示例：
+
+用户说：“帮我写一份自我介绍到 D:/intro.txt，并打开看看”
+→ 应返回包含 write_file 和 read_file 的 serial 计划。
+
+用户说：“播放 C:/Music/background.mp3 并告诉我准备好了”
+→ 可以并行执行 play_music 和 speak_response。
+
+用户说：“今天过得怎么样？”
+→ intent="chat"，response_to_user="我很好，谢谢！"
+
+🚫 错误行为：
+- 把所有指令都变成和示例一样的操作组合；
+- 在没有请求的情况下自动添加 speak_response；
+- 使用未定义的操作如 run_script、send_email。
+
+现在，请根据用户的最新指令生成对应的 JSON 响应。
 """
 
     @log_time
@@ -77,13 +116,13 @@ class QWENAssistant:
         log_var("原始输入", voice_text)
 
         if not voice_text.strip():
-            return self._create_response("chat", "empty", {}, "我没有听清楚，请重新说话。", False)
+            return self._create_fallback_response("我没有听清楚，请重新说话。")
 
         self.conversation_history.append({"role": "user", "content": voice_text})
 
         try:
             messages = [{"role": "system", "content": self.system_prompt}]
-            messages.extend(self.conversation_history[-10:])
+            messages.extend(self.conversation_history[-10:])  # 保留最近上下文
 
             response = Generation.call(
                 model=self.model_name,
@@ -95,29 +134,87 @@ class QWENAssistant:
 
             if response.status_code != 200:
                 logger.error(f"Qwen API 调用失败: {response.status_code}, {response.message}")
-                return self._create_response("chat", "error", {}, f"服务暂时不可用: {response.message}", False)
+                return self._create_fallback_response(f"服务暂时不可用: {response.message}")
 
-            ai_response = response.output['text'].strip()
-            log_var("模型输出", ai_response)
+            ai_output = response.output['text'].strip()
+            log_var("模型输出", ai_output)
 
-            self.conversation_history.append({"role": "assistant", "content": ai_response})
+            self.conversation_history.append({"role": "assistant", "content": ai_output})
 
-            # 尝试解析 JSON
-            try:
-                parsed = json.loads(ai_response)
+            # === 尝试解析 JSON ===
+            parsed = self._extract_and_validate_json(ai_output)
+            if parsed:
                 return parsed
-            except json.JSONDecodeError:
-                json_match = re.search(r'\{[\s\S]*\}', ai_response)
-                if json_match:
-                    try:
-                        return json.loads(json_match.group())
-                    except:
-                        pass
-                return self._create_response("chat", "reply", {}, ai_response, False)
+            else:
+                # 若无法解析为有效计划，则降级为普通对话
+                return self._create_fallback_response(ai_output)
 
         except Exception as e:
-            logger.exception("处理语音指令时发生未预期异常")
-            return self._create_response("chat", "error", {}, "抱歉，我遇到了一些技术问题，请稍后再试。", False)
+            logger.exception("处理语音指令时发生异常")
+            return self._create_fallback_response("抱歉，我遇到了一些技术问题，请稍后再试。")
+
+    def _extract_and_validate_json(self, text: str):
+        """从文本中提取 JSON 并验证结构"""
+        try:
+            # 方法1：直接加载
+            data = json.loads(text)
+            return self._validate_plan_structure(data)
+        except json.JSONDecodeError:
+            pass
+
+        # 方法2：正则匹配第一个大括号包裹的内容
+        match = re.search(r'\{[\s\S]*\}', text)
+        if not match:
+            return None
+
+        try:
+            data = json.loads(match.group())
+            return self._validate_plan_structure(data)
+        except:
+            return None
+
+    def _validate_plan_structure(self, data: dict):
+        """验证是否符合多任务计划格式"""
+        required_top_level = ["intent", "task_type", "execution_plan", "response_to_user", "requires_confirmation"]
+        for field in required_top_level:
+            if field not in data:
+                logger.warning(f"缺少必要字段: {field}")
+                return None
+
+        valid_operations = {
+            "play_music", "stop_music", "pause_music", "resume_music",
+            "open_application", "create_file", "read_file", "write_file",
+            "set_reminder", "speak_response", "exit"
+        }
+
+        for step in data["execution_plan"]:
+            op = step.get("operation")
+            params = step.get("parameters", {})
+
+            if not op or op not in valid_operations:
+                logger.warning(f"无效操作: {op}")
+                return None
+
+            if not isinstance(params, dict):
+                logger.warning(f"parameters 必须是对象: {params}")
+                return None
+
+        # 补全默认值
+        if "mode" not in data:
+            data["mode"] = "parallel"
+
+        return data
+
+    def _create_fallback_response(self, message: str):
+        """降级响应：用于非结构化输出"""
+        return {
+            "intent": "chat",
+            "task_type": "reply",
+            "response_to_user": message,
+            "requires_confirmation": False,
+            "execution_plan": [],
+            "mode": "serial"
+        }
 
     def _create_response(self, intent, action, parameters, response, needs_confirmation):
         resp = {"intent": intent, "action": action, "parameters": parameters, "response": response, "needs_confirmation": needs_confirmation}
@@ -208,27 +305,4 @@ class QWENAssistant:
             logger.exception("文本翻译出错")
             return f"抱歉，翻译文本时遇到错误：{str(e)}"
 
-# =============================
-# 🧪 测试代码
-# =============================
-if __name__ == "__main__":
-    # 初始化全局日志系统
-    setup_logger(name="ai_assistant", log_dir="logs")
-
-    assistant = QWENAssistant()
-
-    test_commands = [
-        "播放周杰伦的歌曲",
-        "写一篇关于气候变化的文章",
-        "把这段话翻译成英文：今天天气真好",
-        "总结一下人工智能的发展历程",
-        "你好啊",
-        "打开浏览器",
-        "在当前文件夹创建一个测试文本并写入我的世界"
-    ]
-
-    for cmd in test_commands:
-        print(f"\n🔊 用户指令: {cmd}")
-        result = assistant.process_voice_command(cmd)
-        print("🤖 AI响应:")
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+assistant = QWENAssistant()
