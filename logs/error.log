@@ -35,3 +35,910 @@ Traceback (most recent call last):
     from utils.ai_tools import call_llm_to_choose_function  # 假设已定义
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ModuleNotFoundError: No module named 'utils'
+2025-10-22 15:32:00 | ai_assistant | ERROR    | text_to_speech.py:81 | _speech_worker() | ❌ 语音工作线程异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 75, in _speech_worker
+    self.engine.runAndWait()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-22 15:32:24 | ai_assistant | ERROR    | text_to_speech.py:81 | _speech_worker() | ❌ 语音工作线程异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 75, in _speech_worker
+    self.engine.runAndWait()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-22 23:24:36 | ai_assistant | ERROR    | text_to_speech.py:81 | _speech_worker() | ❌ 语音工作线程异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 75, in _speech_worker
+    self.engine.runAndWait()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-22 23:24:52 | ai_assistant | ERROR    | text_to_speech.py:81 | _speech_worker() | ❌ 语音工作线程异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 75, in _speech_worker
+    self.engine.runAndWait()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 219, in runAndWait
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:12:50 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:17:01 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:17:33 | ai_assistant | ERROR    | system_controller.py:236 | _run() | ❌ 创建文件失败
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 231, in _run
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\python\Lib\os.py", line 227, in makedirs
+    mkdir(name, mode)
+    ~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 系统找不到指定的路径。: ''
+2025-10-23 08:20:10 | ai_assistant | ERROR    | system_controller.py:608 | run_single_step() | 执行 create_file 失败
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 603, in run_single_step
+    result = func(**safe_params)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\ai_tools.py", line 52, in wrapper
+    return func(*args, **kwargs)
+TypeError: SystemController.create_file() missing 1 required positional argument: 'file_name'
+2025-10-23 08:20:24 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:20:45 | ai_assistant | ERROR    | system_controller.py:608 | run_single_step() | 执行 create_file 失败
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 603, in run_single_step
+    result = func(**safe_params)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\ai_tools.py", line 52, in wrapper
+    return func(*args, **kwargs)
+TypeError: SystemController.create_file() missing 1 required positional argument: 'file_name'
+2025-10-23 08:33:10 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:38:44 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:39:38 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:44:32 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:46:12 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:48:53 | ai_assistant | ERROR    | text_to_speech.py:90 | _event_loop_worker() | 💥 TTS 线程异常: run loop already started
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\text_to_speech.py", line 72, in _event_loop_worker
+    self.engine.startLoop(False)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "e:\python\Lib\site-packages\pyttsx3\engine.py", line 238, in startLoop
+    raise RuntimeError(msg)
+RuntimeError: run loop already started
+2025-10-23 08:51:27 | ai_assistant | CRITICAL | main.py:60 | initialize_tts_engine() | 🔴 初始化 TTS 失败: 'TTSEngine' object has no attribute 'is_available'
+2025-10-23 08:51:27 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'initialize_tts_engine' 执行失败，耗时: 0.001s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 55, in initialize_tts_engine
+    if not tts_engine.is_available():
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TTSEngine' object has no attribute 'is_available'
+2025-10-23 08:51:27 | ai_assistant | ERROR    | main.py:169 | main() | ❌ 主程序运行时发生未预期异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 132, in main
+    tts_engine = initialize_tts_engine()
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 55, in initialize_tts_engine
+    if not tts_engine.is_available():
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TTSEngine' object has no attribute 'is_available'
+2025-10-23 08:58:46 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 '_speak_response' 执行失败，耗时: 0.001s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 55, in _speak_response
+    if not self.tts_engine.is_available():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TTSEngine' object has no attribute 'is_available'
+2025-10-23 08:58:46 | ai_assistant | ERROR    | system_controller.py:573 | execute_from_ai_decision() | 💥 执行 _speak_response 时发生异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 541, in execute_from_ai_decision
+    result = func(**safe_args)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\ai_tools.py", line 52, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 55, in _speak_response
+    if not self.tts_engine.is_available():
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TTSEngine' object has no attribute 'is_available'
+2025-10-23 09:29:36 | ai_assistant | ERROR    | system_controller.py:64 | _speak_response() | 💥 播报异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 60, in _speak_response
+    logger.info(f"📢 播报: {message["response_to_user"]}")
+                            ~~~~~~~^^^^^^^^^^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+2025-10-23 09:55:04 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_from_ai_decision' 执行失败，耗时: 0.001s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 09:55:04 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 2.736s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 109, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 09:55:04 | ai_assistant | ERROR    | main.py:150 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 145, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 109, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 09:55:26 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_from_ai_decision' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 09:55:26 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 4.034s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 109, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 09:55:26 | ai_assistant | ERROR    | main.py:150 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 145, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 109, in handle_single_interaction
+    result = executor.execute_from_ai_decision(text)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 500, in execute_from_ai_decision
+    log_var(user_input)
+    ~~~~~~~^^^^^^^^^^^^
+TypeError: log_var() missing 1 required positional argument: 'value'
+2025-10-23 11:17:17 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:17 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:18 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:18 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:18 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:18 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:19 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:19 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:19 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:19 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:20 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:20 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:20 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:20 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:21 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:21 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:21 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:21 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:22 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:22 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:22 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:22 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:23 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:23 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:23 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:23 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:24 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:24 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:24 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 11:17:24 | ai_assistant | ERROR    | main.py:99 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 94, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 12:31:26 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_from_ai_decision' 执行失败，耗时: 0.002s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 12:31:26 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 4.958s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 48, in handle_single_interaction
+    result = executor.execute_from_ai_decision(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 12:31:26 | ai_assistant | ERROR    | main.py:83 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 78, in main
+    handle_single_interaction(recognizer,executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 48, in handle_single_interaction
+    result = executor.execute_from_ai_decision(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 12:31:41 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_from_ai_decision' 执行失败，耗时: 0.002s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 12:31:41 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 2.718s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 48, in handle_single_interaction
+    result = executor.execute_from_ai_decision(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 12:31:41 | ai_assistant | ERROR    | main.py:83 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 78, in main
+    handle_single_interaction(recognizer,executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 48, in handle_single_interaction
+    result = executor.execute_from_ai_decision(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 481, in execute_from_ai_decision
+    if "execution_plan" in decision and isinstance(decision["execution_plan"], list):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'QWENAssistant' is not iterable
+2025-10-23 13:34:04 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:04 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:04 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:04 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:05 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:05 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:05 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:05 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:06 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:06 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:06 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:06 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:07 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:07 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:07 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:07 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:08 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:08 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:08 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 0.000s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:34:08 | ai_assistant | ERROR    | main.py:82 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 77, in main
+    handle_single_interaction(recognizer, assistant, tts_engine, executor)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+TypeError: handle_single_interaction() takes 3 positional arguments but 4 were given
+2025-10-23 13:35:46 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_task_plan' 执行失败，耗时: 0.001s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 13:35:46 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 5.330s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 44, in handle_single_interaction
+    result = executor.execute_task_plan(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 13:35:46 | ai_assistant | ERROR    | main.py:78 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 73, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 44, in handle_single_interaction
+    result = executor.execute_task_plan(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 13:36:02 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'execute_task_plan' 执行失败，耗时: 0.001s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 13:36:02 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 3.763s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 44, in handle_single_interaction
+    result = executor.execute_task_plan(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 13:36:02 | ai_assistant | ERROR    | main.py:78 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 73, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 44, in handle_single_interaction
+    result = executor.execute_task_plan(assistant)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\app\system_controller.py", line 472, in execute_task_plan
+    execution_plan = plan.get("execution_plan", [])
+                     ^^^^^^^^
+AttributeError: 'QWENAssistant' object has no attribute 'get'
+2025-10-23 16:20:41 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 6.501s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:20:41 | ai_assistant | ERROR    | main.py:87 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 75, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:20:50 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 8.089s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:20:50 | ai_assistant | ERROR    | main.py:87 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 75, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:21:00 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 9.341s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:21:00 | ai_assistant | ERROR    | main.py:87 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 75, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:21:05 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 4.680s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 16:21:05 | ai_assistant | ERROR    | main.py:87 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 75, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 47, in handle_single_interaction
+    ai_reply = str(result["response_to_user"])
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_to_user'
+2025-10-23 17:17:14 | ai_assistant | ERROR    | logger_utils.py:38 | wrapper() | ❌ 函数 'handle_single_interaction' 执行失败，耗时: 5.260s
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 55, in handle_single_interaction
+    tts_engine.speak(ai_reply)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: TextToSpeechEngine.speak() takes 1 positional argument but 2 were given
+2025-10-23 17:17:14 | ai_assistant | ERROR    | main.py:86 | main() | ⚠️ 单次交互过程中发生异常，已降级处理
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 74, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 55, in handle_single_interaction
+    tts_engine.speak(ai_reply)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: TextToSpeechEngine.speak() takes 1 positional argument but 2 were given
+2025-10-23 17:17:14 | ai_assistant | ERROR    | main.py:105 | main() | ❌ 主程序运行时发生未预期异常
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 74, in main
+    handle_single_interaction()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 17, in wrapper
+    return func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\Progress\utils\logger_utils.py", line 32, in wrapper
+    result = func(*args, **kwargs)
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 55, in handle_single_interaction
+    tts_engine.speak(ai_reply)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: TextToSpeechEngine.speak() takes 1 positional argument but 2 were given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "f:\程序员的日常\python\AI_Manager\main.py", line 89, in main
+    tts_engine.speak(error_msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: TextToSpeechEngine.speak() takes 1 positional argument but 2 were given

@@ -8,24 +8,22 @@ import subprocess
 import platform
 import threading
 import time
-from typing import Any, Dict
 import psutil
 import pygame
 from datetime import datetime
 import logging
 import schedule
+from typing import Dict, Any, Tuple
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
-
-from Progress.app.utils.ai_tools import call_llm_to_choose_function
+# from Progress.app.text_to_speech import tts_engine
 from database import config
 from Progress.utils.ai_tools import FUNCTION_SCHEMA, ai_callable
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
 
-""" import config
-from utils.logger_utils import log_time, log_step, log_var, log_call
-from utils.logger_config import setup_logger """
-
+# 终结型任务白名单（只能出现在最后）
+TERMINAL_OPERATIONS = {"exit"}
 RESOURCE_PATH = config.resource_path
 DEFAULT_MUSIC_PATH = os.path.join(RESOURCE_PATH, config.music_path)
 DEFAULT_DOCUMENT_PATH = os.path.join(RESOURCE_PATH, config.doc_path)
@@ -36,34 +34,11 @@ logger = logging.getLogger("ai_assistant")
 class SystemController:
     def __init__(self):
         self.system = platform.system()
+        # self.tts_engine = tts_engine
         self.music_player = None
         self._init_music_player()
-
-    @ai_callable(
-        description="使用语音合成技术播报一段文本回复用户",
-        params={
-            "message": "要朗读的文本内容"
-        },
-        intent="response",
-        action="speak"
-    )
-    @log_step("语音回复用户")
-    @log_time
-    def _speak_response(self, message: str):
-        """
-        AI 回复用户的语音播报接口
-        """
-        if not self.tts_engine.is_available():
-            logger.warning("🔊 TTS 引擎不可用")
-            return False, "TTS 引擎未就绪"
-
-        try:
-            logger.info(f"📢 播报: {message}")
-            success = self.tts_engine.speak(message, interrupt=True)
-            return success, "语音已播放" if success else "播放失败"
-        except Exception as e:
-            logger.exception("💥 播报异常")
-            return False, str(e)
+        self.task_counter = 0
+        self.scheduled_tasks = {}
 
     @log_step("初始化音乐播放器")
     @log_time
@@ -80,12 +55,13 @@ class SystemController:
     @log_time    
     @ai_callable(
         description="播放音乐文件或指定歌手的歌曲",
-        params={"path": "音乐文件路径", "artist": "歌手名称"},
+        params={"artist": "歌手名称"},
         intent="music",
-        action="play"
+        action="play",
+        concurrent=True
     )
-    def play_music(self, music_path=None):
-        target_path = music_path or DEFAULT_MUSIC_PATH
+    def play_music(self):
+        target_path = DEFAULT_MUSIC_PATH
         if not os.path.exists(target_path):
             msg = f"📁 路径不存在: {target_path}"
             logger.warning(msg)
@@ -98,9 +74,8 @@ class SystemController:
             return False, msg
 
         try:
-            self.stop_music()
             self.music_player.load(music_files[0])
-            self.music_player.play()
+            self.music_player.play(-1)
             success_msg = f"🎶 正在播放: {os.path.basename(music_files[0])}"
             logger.info(success_msg)
             return True, success_msg
@@ -156,157 +131,228 @@ class SystemController:
         description="打开应用程序或浏览器访问网址",
         params={"app_name": "应用名称（如 记事本、浏览器）", "url": "网页地址"},
         intent="system",
-        action="open_app"
+        action="open_app",
+        concurrent=True
     )
     def open_application(self, app_name: str, url: str = None):
-        """
-        AI 调用入口：打开指定应用程序
-        参数由 AI 解析后传入
-        """
-        # === 别名映射表 ===
-        alias_map = {
-            # 浏览器相关
-            "浏览器": "browser", "browser": "browser",
-            "chrome": "browser", "google chrome": "browser", "谷歌浏览器": "browser",
-            "edge": "browser", "firefox": "browser", "safari": "browser",
+        def _run():
+            """
+            AI 调用入口：打开指定应用程序
+            参数由 AI 解析后传入
+            """
+            # === 别名映射表 ===
+            alias_map = {
+                # 浏览器相关
+                "浏览器": "browser", "browser": "browser",
+                "chrome": "browser", "google chrome": "browser", "谷歌浏览器": "browser",
+                "edge": "browser", "firefox": "browser", "safari": "browser",
 
-            # 文本编辑器
-            "记事本": "text_editor", "notepad": "text_editor", "text_editer": "text_editor", "文本编辑器": "text_editor",
+                # 文本编辑器
+                "记事本": "text_editor", "notepad": "text_editor", "text_editer": "text_editor", "文本编辑器": "text_editor",
 
-            # 文件管理器
-            "文件管理器": "explorer", "explorer": "explorer", "finder": "explorer",
+                # 文件管理器
+                "文件管理器": "explorer", "explorer": "explorer", "finder": "explorer",
 
-            # 计算器
-            "计算器": "calc", "calc": "calc", "calculator": "calc",
+                # 计算器
+                "计算器": "calc", "calc": "calc", "calculator": "calc",
 
-            # 终端
-            "终端": "terminal", "terminal": "terminal", "cmd": "terminal", "powershell": "terminal",
-            "shell": "terminal", "命令行": "terminal"
-        }
+                # 终端
+                "终端": "terminal", "terminal": "terminal", "cmd": "terminal", "powershell": "terminal",
+                "shell": "terminal", "命令行": "terminal"
+            }
 
-        app_key = alias_map.get(app_name.strip())
-        if not app_key:
-            error_msg = f"🚫 不支持的应用: {app_name}。支持的应用有：浏览器、记事本、计算器、终端、文件管理器等。"
-            logger.warning(error_msg)
-            return False, error_msg
+            app_key = alias_map.get(app_name.strip())
+            if not app_key:
+                error_msg = f"🚫 不支持的应用: {app_name}。支持的应用有：浏览器、记事本、计算器、终端、文件管理器等。"
+                logger.warning(error_msg)
+                return False, error_msg
 
-        try:
-            if app_key == "browser":
-                target_url = url or "https://www.baidu.com"
-                success, msg = self._get_browser_command(target_url)
-                logger.info(f"🌐 {msg}")
-                return success, msg
-            else:
-                # 获取对应命令生成函数
-                cmd_func_name = f"_get_{app_key}_command"
-                cmd_func = getattr(self, cmd_func_name, None)
-                if not cmd_func:
-                    return False, f"❌ 缺少命令生成函数: {cmd_func_name}"
+            try:
+                if app_key == "browser":
+                    target_url = url or "https://www.baidu.com"
+                    success, msg = self._get_browser_command(target_url)
+                    logger.info(f"🌐 {msg}")
+                    return success, msg
+                else:
+                    # 获取对应命令生成函数
+                    cmd_func_name = f"_get_{app_key}_command"
+                    cmd_func = getattr(self, cmd_func_name, None)
+                    if not cmd_func:
+                        return False, f"❌ 缺少命令生成函数: {cmd_func_name}"
 
-                cmd = cmd_func()
-                subprocess.Popen(cmd, shell=True)
-                success_msg = f"🚀 已发送指令打开 {app_name}"
-                logger.info(success_msg)
-                return True, success_msg
+                    cmd = cmd_func()
+                    subprocess.Popen(cmd, shell=True)
+                    success_msg = f"🚀 已发送指令打开 {app_name}"
+                    logger.info(success_msg)
+                    return True, success_msg
 
-        except Exception as e:
-            logger.exception(f"💥 启动应用失败: {app_name}")
-            return False, f"启动失败: {str(e)}"
+            except Exception as e:
+                logger.exception(f"💥 启动应用失败: {app_name}")
+                return False, f"启动失败: {str(e)}"
+        thread = threading.Thread(target=_run,daemon=True)
+        thread.start()
+        return True,f"正在尝试打开{app_name}..."
 
     @ai_callable(
         description="创建一个新文本文件并写入内容",
-        params={"file_path": "文件路径", "content": "要写入的内容"},
+        params={"file_name": "文件名称", "content": "要写入的内容"},
         intent="file",
-        action="create"
+        action="create",
+        concurrent=True
     )
-    def create_file(self, file_path, content=""):
-        try:
-            os.makedirs(os.path.dirname(file_path), exist_ok=True)
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            return True, f"文件已创建: {file_path}"
-        except Exception as e:
-            logger.exception("❌ 创建文件失败")
-            return False, f"创建失败: {str(e)}"
+    def create_file(self, file_name, content=""):
+        def _run():
+            file_path = DEFAULT_DOCUMENT_PATH + "/" + file_name
+            try:
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                return True, f"文件已创建: {file_path}"
+            except Exception as e:
+                logger.exception("❌ 创建文件失败")
+                return False, f"创建失败: {str(e)}"
+        thread = threading.Thread(target=_run, daemon=True)
+        thread.start()
+        return True, f"正在尝试创建文件并写入文本..."
     
     @ai_callable(
         description="读取文本文件内容",
-        params={"file_path": "文件路径"},
+        params={"file_name": "文件名称"},
         intent="file",
-        action="read"
+        action="read",
+        concurrent=True
     )
-    def read_file(self, file_path):
-        """读取文件"""
-        try:
-            with open(DEFAULT_DOCUMENT_PATH+file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            return True, content
-        except Exception as e:
-            return False, f"读取文件失败: {str(e)}"
+    def read_file(self, file_name):
+        def _run():
+            file_path = DEFAULT_DOCUMENT_PATH + "/" + file_name
+            """读取文件"""
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                return True, content
+            except Exception as e:
+                return False, f"读取文件失败: {str(e)}"
+        thread = threading.Thread(target=_run,daemon=True)
+        thread.start()
+        return True,f"正在尝试读取文件..."
     
     @ai_callable(
         description="读取文本文件内容",
-        params={"file_path": "文件路径","content":"写入的内容"},
+        params={"file_name": "文件名称","content":"写入的内容"},
         intent="file",
-        action="write"
+        action="write",
+        concurrent=True
     )
-    def write_file(self, file_path, content):
-        """写入文件"""
-        try:
-            with open(DEFAULT_DOCUMENT_PATH+file_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            return True, f"文件已保存: {file_path}"
-        except Exception as e:
-            return False, f"写入文件失败: {str(e)}"
+    def write_file(self, file_name, content):
+        def _run():
+            """写入文件"""
+            try:
+                with open(DEFAULT_DOCUMENT_PATH+"/"+file_name, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                return True, f"文件已保存: {file_name}"
+            except Exception as e:
+                return False, f"写入文件失败: {str(e)}"
+        thread = threading.Thread(target=_run,daemon=True)
+        thread.start()
+        return True,f"正在尝试向{file_name}写入文本..."
     
     @ai_callable(
         description="获取当前系统信息，包括操作系统、CPU、内存等。",
         params={},
         intent="system",
-        action="get_system_info"
+        action="get_system_info",
+        concurrent=True
     )
     def get_system_info(self):
-        """获取系统信息"""
-        try:
-            info = {
-                "操作系统": platform.system(),
-                "系统版本": platform.version(),
-                "处理器": platform.processor(),
-                "内存使用率": f"{psutil.virtual_memory().percent}%",
-                "CPU使用率": f"{psutil.cpu_percent()}%",
-                "磁盘使用率": f"{psutil.disk_usage('/').percent}%"
-            }
-            return True, info
-        except Exception as e:
-            return False, f"获取系统信息失败: {str(e)}"
+        def _run():
+            """获取系统信息"""
+            try:
+                info = {
+                    "操作系统": platform.system(),
+                    "系统版本": platform.version(),
+                    "处理器": platform.processor(),
+                    "内存使用率": f"{psutil.virtual_memory().percent}%",
+                    "CPU使用率": f"{psutil.cpu_percent()}%",
+                    "磁盘使用率": f"{psutil.disk_usage('/').percent}%"
+                }
+                return True, info
+            except Exception as e:
+                return False, f"获取系统信息失败: {str(e)}"
+        thread = threading.Thread(target=_run,daemon=True)
+        thread.start()
+        return True,f"正在尝试获取系统信息..."
     
     @ai_callable(
         description="设置一个定时提醒",
         params={"message": "提醒内容", "delay_minutes": "延迟分钟数"},
         intent="system",
-        action="set_reminder"
+        action="set_reminder",
+        concurrent=True
     )
     def set_reminder(self, message, delay_minutes):
-        """设置提醒"""
-        try:
-            self.task_counter += 1
-            task_id = f"reminder_{self.task_counter}"
-            
-            def reminder_job():
-                print(f"提醒: {message}")
-                # 这里可以添加通知功能
-            
-            schedule.every(delay_minutes).minutes.do(reminder_job)
-            self.scheduled_tasks[task_id] = {
-                "message": message,
-                "delay": delay_minutes,
-                "created": datetime.now()
-            }
-            
-            return True, f"提醒已设置: {delay_minutes}分钟后提醒 - {message}"
-        except Exception as e:
-            return False, f"设置提醒失败: {str(e)}"
+        def _run():
+            """设置提醒"""
+            try:
+                self.task_counter += 1
+                task_id = f"reminder_{self.task_counter}"
+                
+                def reminder_job():
+                    print(f"提醒: {message}")
+                    # 这里可以添加通知功能
+                
+                schedule.every(delay_minutes).minutes.do(reminder_job)
+                self.scheduled_tasks[task_id] = {
+                    "message": message,
+                    "delay": delay_minutes,
+                    "created": datetime.now()
+                }
+                
+                return True, f"提醒已设置: {delay_minutes}分钟后提醒 - {message}"
+            except Exception as e:
+                return False, f"设置提醒失败: {str(e)}"
+        thread = threading.Thread(target=_run,daemon=True)
+        thread.start()
+        return True,f"正在设置提醒..."
     
+    @ai_callable(
+        description="退出应用",
+        params={},
+        intent="system",
+        action="exit",
+        concurrent=False
+    )
+    def exit(self):
+        logger.info("🛑 用户请求退出，准备关闭语音助手...")
+        return {
+            "success": True,
+            "operation": "exit",
+            "message": "正在关闭语音助手，再见！",
+            "should_exit": True  # ✅ 关键字段：向主程序发送退出信号
+        }
+
+    @ai_callable(
+        description="并发执行多个任务",
+        params={"tasks": "任务列表，每个包含operation和arguments"},
+        intent="system",
+        action="execute_concurrent",
+        concurrent=True
+    )
+    def _run_parallel_tasks(self, tasks: list):
+        def _run_single(task):
+            op = task.get("operation")
+            args = task.get("arguments",{})
+            func = getattr(self,op,None)
+            if func and callable(func):
+                try:
+                    func(**args)
+                except Exception as e:
+                    logger.error(f"执行任务{op}失败：{e}")
+        for task in tasks:
+            thread = threading.Thread(target=_run_single,args=(task,),daemon=True)
+            thread.start()
+        
+        return True,f"已并发执行{len(tasks)}个任务"
+
     def run_scheduled_tasks(self):
         """运行定时任务"""
         schedule.run_pending()
@@ -379,6 +425,7 @@ class TaskOrchestrator:
         self.system_controller = system_controller
         self.function_map = self._build_function_map()
         self.running_scheduled_tasks = False
+        self.last_result = None
         logger.info(f"🔧 任务编排器已加载 {len(self.function_map)} 个可调用函数")
 
     def _build_function_map(self) -> Dict[str, callable]:
@@ -434,106 +481,119 @@ class TaskOrchestrator:
             thread.start()
             logger.info("⏰ 已启动定时任务监听循环")
 
-    def execute_from_ai_decision(self, user_input: str) -> Dict[str, Any]:
+    @log_step("执行多任务计划")
+    @log_time
+    def execute_task_plan(self, plan: dict = None) -> Dict[str, Any]:
         """
-        主入口：接收用户输入 → AI 决策 → 执行函数 → 返回结构化结果
+        执行由多个 operation 组成的任务计划
+        支持 serial / parallel 模式
+        ✅ 特性：终结型任务（如 exit）将被延迟到最后执行，且仅执行一次
         """
-        from utils.ai_tools import call_llm_to_choose_function  # 假设已定义
+        execution_plan = plan.get("execution_plan", [])
+        mode = plan.get("mode", "parallel").lower()
+        response_to_user = plan.get("response_to_user", "任务已提交。")
 
-        # Step 1: AI 决策（模拟或真实 LLM）
-        decision = call_llm_to_choose_function(user_input)
-        if not decision:
+        if not execution_plan:
             return {
-                "success": False,
-                "message": "抱歉，我没有理解您的请求。",
-                "data": None
+                "success": True,
+                "message": response_to_user,
+                "operation": "task_plan"
             }
 
-        func_name = decision.get("function")
-        args = decision.get("arguments", {})
+        # === 阶段 1: 分离普通任务与终结任务 ===
+        normal_steps = []
+        terminal_step = None
 
-        if not func_name:
-            return {
-                "success": False,
-                "message": "AI 返回的函数名为空。",
-                "data": None
-            }
-
-        # Step 2: 查找函数
-        func = self.function_map.get(func_name)
-        if not func:
-            logger.warning(f"❌ 函数不存在: {func_name}")
-            return {
-                "success": False,
-                "message": f"系统不支持操作：{func_name}",
-                "data": None
-            }
-
-        # Step 3: 参数预处理（类型转换）
-        try:
-            safe_args = self._convert_arg_types(func, args)
-        except Exception as e:
-            logger.warning(f"参数转换失败: {e}")
-            safe_args = args  # 使用原始参数
-
-        # Step 4: 执行函数
-        try:
-            logger.info(f"🚀 正在执行: {func_name}({safe_args})")
-            result = func(**safe_args)
-
-            # 统一返回格式：(success: bool, message: str 或 dict)
-            if isinstance(result, tuple):
-                success, msg = result
-            elif isinstance(result, dict):
-                success = result.get("success", False)
-                msg = result.get("message", str(result))
+        for step in execution_plan:
+            op = step.get("operation")
+            if op in TERMINAL_OPERATIONS:
+                if terminal_step is not None:
+                    logger.warning(f"⚠️ 多个终结任务发现，仅保留最后一个: {op}")
+                terminal_step = step  # 只保留最后一个 exit 类任务
             else:
-                success = True
-                msg = str(result)
+                normal_steps.append(step)
 
-            # === 特殊逻辑：如果设置了提醒，启动后台调度循环 ===
-            if func_name == "set_reminder" and success:
-                self._start_scheduled_task_loop()
+        results = []
+        all_success = True
 
-            # 返回标准格式
-            return {
-                "success": success,
-                "message": msg,
-                "data": None,
-                "operation": func_name,
-                "input": args
+        # === 阶段 2: 执行普通任务（根据 mode 并行或串行）===
+        if normal_steps:
+            def run_single_step(step: dict) -> Tuple[bool, str]:
+                op = step.get("operation")
+                params = step.get("parameters", {})
+                func = self.function_map.get(op)
+                if not func:
+                    msg = f"不支持的操作: {op}"
+                    logger.warning(f"⚠️ {msg}")
+                    return False, msg
+
+                try:
+                    safe_params = self._convert_arg_types(func, params)
+                    result = func(**safe_params)
+                    if isinstance(result, tuple):
+                        success, message = result
+                        return bool(success), str(message)
+                    return True, str(result)
+                except Exception as e:
+                    logger.exception(f"执行 {op} 失败")
+                    return False, str(e)
+
+            if mode == "parallel":
+                with ThreadPoolExecutor() as executor:
+                    future_to_step = {executor.submit(run_single_step, step): step for step in normal_steps}
+                    for future in as_completed(future_to_step):
+                        res = future.result()
+                        results.append(res)
+                        if not res[0]:
+                            all_success = False  # 记录失败，但不停止（除非你想中断）
+            else:  # serial
+                for step in normal_steps:
+                    res = run_single_step(step)
+                    results.append(res)
+                    if not res[0]:
+                        all_success = False
+                        break  # 串行模式下遇到失败立即中断
+
+        # === 阶段 3: 执行终结任务（仅当存在且前面成功时才执行）===
+        terminal_result = None
+        if terminal_step:
+            op = terminal_step["operation"]
+            logger.info(f"🔧 开始执行终结任务: {op}")
+
+            # 单独执行 exit 等任务
+            terminal_result_tuple = run_single_step(terminal_step)
+            terminal_result = {
+                "success": terminal_result_tuple[0],
+                "message": terminal_result_tuple[1],
+                "operation": op
             }
+            results.append(terminal_result_tuple)  # 用于汇总
+            if not terminal_result_tuple[0]:
+                all_success = False
 
-        except TypeError as e:
-            error_msg = f"参数错误，请检查输入格式: {str(e)}"
-            logger.error(error_msg)
-            return {
-                "success": False,
-                "message": error_msg,
-                "data": None
-            }
-        except Exception as e:
-            logger.exception(f"💥 执行 {func_name} 时发生异常")
-            return {
-                "success": False,
-                "message": f"执行失败：{str(e)}",
-                "data": None
-            }
-        
-if __name__ == "__main__":
-    controller = SystemController()
-    orchestrator = TaskOrchestrator(controller)
+        # === 汇总结果 ===
+        messages = [r[1] for r in results]
+        final_message = " | ".join(messages) if messages else response_to_user
 
-    test_inputs = [
-        "播放我的音乐",
-        "打开记事本",
-        "创建 test.txt 文件，内容是 hello",
-        "告诉我电脑用了多少内存",
-        "10分钟后提醒我喝水",
-        "停止音乐"
-    ]
+        response = {
+            "success": all_success,
+            "message": final_message.strip(),
+            "data": {
+                "step_results": results,
+                "terminal_executed": bool(terminal_step),
+                "plan_mode": mode
+            },
+            "operation": "task_plan",
+            "input": plan
+        }
 
-    for inp in test_inputs:
-        print(f"\n👤 用户: {inp}")
-        result = orchestrator.execute_from_ai_decision(inp)
-        print(f"🤖 AI 助手: {result['message']}")
+        # 如果终结任务被执行且要求退出，则附加 should_exit 标志
+        if terminal_result and terminal_result["success"] and terminal_step["operation"] == "exit":
+            response["should_exit"] = True
+            
+        self.last_result = response
+        return response
+
+
+controller = SystemController()
+executor = TaskOrchestrator(controller)
