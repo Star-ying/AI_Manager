@@ -16,7 +16,6 @@ import schedule
 from typing import Dict, Any, Tuple
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# from Progress.app.text_to_speech import tts_engine
 from database import config
 from Progress.utils.ai_tools import FUNCTION_SCHEMA, ai_callable
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
@@ -34,7 +33,6 @@ logger = logging.getLogger("ai_assistant")
 class SystemController:
     def __init__(self):
         self.system = platform.system()
-        # self.tts_engine = tts_engine
         self.music_player = None
         self._init_music_player()
         self.task_counter = 0
