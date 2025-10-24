@@ -2,6 +2,7 @@
 【系统控制模块】System Controller
 提供音乐播放、文件操作、应用启动、定时提醒等本地系统级功能
 """
+
 import inspect
 import os
 import subprocess
@@ -13,19 +14,36 @@ import pygame
 from datetime import datetime
 import logging
 import schedule
-from typing import Dict, Any, Tuple
+from typing import Optional, Dict, Any, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from database import config
+from database.config import config
 from Progress.utils.ai_tools import FUNCTION_SCHEMA, ai_callable
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
+from dataclasses import dataclass
+
+@dataclass
+class TaskResult:
+    success: bool
+    message: str
+    operation: str
+    data: dict = None
+    timestamp: float = None
+
+    def to_dict(self) -> dict:
+        return {
+            "success": self.success,
+            "message": self.message,
+            "operation": self.operation,
+            "data": self.data or {}
+        }
 
 # 终结型任务白名单（只能出现在最后）
 TERMINAL_OPERATIONS = {"exit"}
-RESOURCE_PATH = config.resource_path
-DEFAULT_MUSIC_PATH = os.path.join(RESOURCE_PATH, config.music_path)
-DEFAULT_DOCUMENT_PATH = os.path.join(RESOURCE_PATH, config.doc_path)
+RESOURCE_PATH = config.get("paths","resource_path")
+DEFAULT_MUSIC_PATH = os.path.join(RESOURCE_PATH, config.get("paths","resources","music_path"))
+DEFAULT_DOCUMENT_PATH = os.path.join(RESOURCE_PATH, config.get("paths","resources","document_path"))
 
 logger = logging.getLogger("ai_assistant")
 
@@ -479,18 +497,32 @@ class TaskOrchestrator:
             thread.start()
             logger.info("⏰ 已启动定时任务监听循环")
 
+    def run_single_step(self,step: dict) -> TaskResult:
+        op = step.get("operation")
+        params = step.get("parameters", {})
+        func = self.function_map.get(op)
+        if not func:
+            msg = f"不支持的操作: {op}"
+            logger.warning(f"⚠️ {msg}")
+            return TaskResult(False, msg, op)
+
+        try:
+            safe_params = self._convert_arg_types(func, params)
+            result = func(**safe_params)
+            if isinstance(result, tuple):
+                success, message = result
+                return TaskResult(bool(success), str(message), op)
+            return TaskResult(True, str(result), op)
+        except Exception as e:
+            logger.exception(f"执行 {op} 失败")
+            return TaskResult(False, str(e), op)
+        
     @log_step("执行多任务计划")
     @log_time
     def execute_task_plan(self, plan: dict = None) -> Dict[str, Any]:
-        """
-        执行由多个 operation 组成的任务计划
-        支持 serial / parallel 模式
-        ✅ 特性：终结型任务（如 exit）将被延迟到最后执行，且仅执行一次
-        """
         execution_plan = plan.get("execution_plan", [])
         mode = plan.get("mode", "parallel").lower()
         response_to_user = plan.get("response_to_user", "任务已提交。")
-
         if not execution_plan:
             return {
                 "success": True,
@@ -507,91 +539,71 @@ class TaskOrchestrator:
             if op in TERMINAL_OPERATIONS:
                 if terminal_step is not None:
                     logger.warning(f"⚠️ 多个终结任务发现，仅保留最后一个: {op}")
-                terminal_step = step  # 只保留最后一个 exit 类任务
+                terminal_step = step
             else:
                 normal_steps.append(step)
 
-        results = []
+        # 存储所有结果（全部为 TaskResult 对象）
+        all_results: List[TaskResult] = []
         all_success = True
 
-        # === 阶段 2: 执行普通任务（根据 mode 并行或串行）===
+        # === 阶段 2: 执行普通任务 ===
         if normal_steps:
-            def run_single_step(step: dict) -> Tuple[bool, str]:
-                op = step.get("operation")
-                params = step.get("parameters", {})
-                func = self.function_map.get(op)
-                if not func:
-                    msg = f"不支持的操作: {op}"
-                    logger.warning(f"⚠️ {msg}")
-                    return False, msg
-
-                try:
-                    safe_params = self._convert_arg_types(func, params)
-                    result = func(**safe_params)
-                    if isinstance(result, tuple):
-                        success, message = result
-                        return bool(success), str(message)
-                    return True, str(result)
-                except Exception as e:
-                    logger.exception(f"执行 {op} 失败")
-                    return False, str(e)
-
             if mode == "parallel":
                 with ThreadPoolExecutor() as executor:
-                    future_to_step = {executor.submit(run_single_step, step): step for step in normal_steps}
+                    future_to_step = {
+                        executor.submit(self.run_single_step, step): step
+                        for step in normal_steps
+                    }
                     for future in as_completed(future_to_step):
-                        res = future.result()
-                        results.append(res)
-                        if not res[0]:
-                            all_success = False  # 记录失败，但不停止（除非你想中断）
-            else:  # serial
+                        res: TaskResult = future.result()
+                        all_results.append(res)
+                        if not res.success:
+                            all_success = False
+            else: # serial
                 for step in normal_steps:
-                    res = run_single_step(step)
-                    results.append(res)
-                    if not res[0]:
+                    res: TaskResult = self.run_single_step(step)
+                    all_results.append(res)
+                    if not res.success:
                         all_success = False
-                        break  # 串行模式下遇到失败立即中断
+                        break
 
-        # === 阶段 3: 执行终结任务（仅当存在且前面成功时才执行）===
-        terminal_result = None
-        if terminal_step:
-            op = terminal_step["operation"]
-            logger.info(f"🔧 开始执行终结任务: {op}")
+        # === 阶段 3: 执行终结任务（仅当前面成功）===
+        final_terminal_result: Optional[TaskResult] = None
+        should_exit_flag = False
 
-            # 单独执行 exit 等任务
-            terminal_result_tuple = run_single_step(terminal_step)
-            terminal_result = {
-                "success": terminal_result_tuple[0],
-                "message": terminal_result_tuple[1],
-                "operation": op
-            }
-            results.append(terminal_result_tuple)  # 用于汇总
-            if not terminal_result_tuple[0]:
+        if terminal_step and all_success:
+            final_terminal_result = self.run_single_step(terminal_step)
+            all_results.append(final_terminal_result)
+
+            if not final_terminal_result.success:
                 all_success = False
+            elif final_terminal_result.operation == "exit":
+                should_exit_flag = True  # ← 只在这里标记
 
-        # === 汇总结果 ===
-        messages = [r[1] for r in results]
+        # === 构造最终响应 ===
+        messages = [r.message for r in all_results if r.message]
         final_message = " | ".join(messages) if messages else response_to_user
 
         response = {
             "success": all_success,
             "message": final_message.strip(),
-            "data": {
-                "step_results": results,
-                "terminal_executed": bool(terminal_step),
-                "plan_mode": mode
-            },
             "operation": "task_plan",
-            "input": plan
+            "input": plan,
+            "step_results": [r.to_dict() for r in all_results],  # ✅ 统一输出格式
+            "data": {
+                "plan_mode": mode,
+                "terminal_executed": terminal_step is not None,
+                "result_count": len(all_results)
+            }
         }
 
-        # 如果终结任务被执行且要求退出，则附加 should_exit 标志
-        if terminal_result and terminal_result["success"] and terminal_step["operation"] == "exit":
+        # ✅ 在顶层添加控制流标志（由业务逻辑决定）
+        if should_exit_flag:
             response["should_exit"] = True
-            
+
         self.last_result = response
         return response
-
 
 controller = SystemController()
 executor = TaskOrchestrator(controller)

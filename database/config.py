@@ -117,29 +117,11 @@ config.update_key("shortcuts",key = "exit",value = "Ctrl+C")
 config.update_key("shortcuts",key = "select_all",value = "Shift+Alt+A")
 
 #修改资源路径
-config.set_resource_path("./resoures") """
+config.set_resource_path("./resoures")
 
 #获取设置配置
 display = config.get("display")
 
 # 获取 AI_model 配置
 api_key = config.get("ai_model", "api_key")
-model = config.get("ai_model", "model")
-
-# 获取语音识别设置
-lang = config.get("voice_recognition", "language")
-timeout = config.get("voice_recognition", "timeout")
-phrase_timeout = config.get("voice_recognition","phrase_timeout")
-
-# 获取 TTS 设置
-rate = config.get("tts", "rate")
-volume = config.get("tts", "volume")
-
-# 获取路径
-resource_path = config.get("paths","resource_path")
-music_path = config.get("paths", "resources", "default_music_path")
-doc_path = config.get("paths", "resources", "default_document_path")
-
-# 获取应用信息
-app_name = config.get("app", "name")
-app_version = config.get("app", "version")
+model = config.get("ai_model", "model") """

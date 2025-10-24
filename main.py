@@ -1,8 +1,7 @@
 """
 【AI语音助手】主程序入口
 集成语音识别、Qwen 意图理解、TTS 与动作执行
-✅ 已修复：不再访问 _last_text 私有字段
-✅ 增强：异常防护、类型提示、唤醒词预留接口
+✅ 使用 AI 动态控制下一轮监听超时时间（expect_follow_up）
 """
 
 import sys
@@ -11,9 +10,9 @@ import logging
 
 # --- 导入日志工具 ---
 from Progress.utils.logger_config import setup_logger
-from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
+from Progress.utils.logger_utils import log_call, log_time, log_step, log_var
 
-# --- 显式导入各模块核心类 ---
+# --- 显式导入各模块核心实例 ---
 from Progress.app.voice_recognizer import recognizer
 from Progress.app.qwen_assistant import assistant
 from Progress.app.text_to_speech import tts_engine
@@ -23,25 +22,24 @@ from database import config
 # --- 初始化全局日志器 ---
 logger = logging.getLogger("ai_assistant")
 
-@log_step("处理一次语音交互")
+@log_step("处理一次语音交互（AI动态控制等待）")
 @log_time
 def handle_single_interaction():
-    """
-    单次完整交互：听 -> 识别 -> AI 决策 -> 执行 -> 回复
-    """
-    # 1. 听
-    text = recognizer.listen_and_recognize(timeout=5)
+    # ✅ 显式传入动态超时
+    text = recognizer.listen_and_recognize(timeout=recognizer.current_timeout)
+
     if not text:
-        logger.info("🔇 未检测到有效语音")
-        return
+        logger.info("🔇 未检测到语音")
+        return False
 
     logger.info(f"🗣️ 用户说: '{text}'")
 
-    # 2. AI决策
-    decition = assistant.process_voice_command(text)
+    decision = assistant.process_voice_command(text)
+    expect_follow_up = decision.get("expect_follow_up", False)
 
     # 3. 构造回复语句
-    result = executor.execute_task_plan(decition)
+    result = executor.execute_task_plan(decision)
+    
     if result["success"]:
         ai_reply = str(result["message"])
         logger.info(f"✅ 操作成功: {result['operation']} -> {ai_reply}")
@@ -50,9 +48,18 @@ def handle_single_interaction():
         ai_reply = f"抱歉，{error_msg if '抱歉' not in error_msg else error_msg[3:]}"
         logger.warning(f"❌ 执行失败: {error_msg}")
 
-    # 4. 说
+    # 🔁 动态设置下一次识别的等待策略
+    if expect_follow_up:
+        recognizer.current_timeout = 8
+        logger.debug(f"🧠 AI 预期后续提问，已设置下次等待时间为 {recognizer.current_timeout}s")
+    else:
+        recognizer.current_timeout = 3
+        logger.debug(f"🔚 AI 认为对话结束，已设置下次等待时间为 {recognizer.current_timeout}s")
+
     logger.info(f"🤖 回复: {ai_reply}")
     tts_engine.speak(ai_reply)
+
+    return result.get("should_exit", False)
 
 @log_step("启动 AI 语音助手")
 @log_time
@@ -69,31 +76,24 @@ def main():
         log_call("🛑 说出‘退出’、‘关闭’、‘停止’或‘拜拜’来结束程序")
         log_call("—" * 50 + "\n")
 
-        while True:    
+        while True:
             try:
-                handle_single_interaction()
+                should_exit = handle_single_interaction()
+                if should_exit:
+                    break  # 退出主循环
 
-                # 🚩 检查上一次执行的结果是否有退出请求
-                last_result = executor.last_result  # 假设 TaskOrchestrator 记录了 last_result
-                if last_result and last_result.get("should_exit"):
-                    logger.info("🎯 接收到退出指令，即将终止程序...")
-                    break  # 跳出循环，进入清理流程
-                
             except KeyboardInterrupt:
-                logger.info("🛑 用户主动中断 (Ctrl+C)，准备退出...")
-                raise  # 让 main 捕获并退出
+                logger.info("🛑 用户主动中断 (Ctrl+C)")
+                break
             except Exception as e:
                 logger.exception("⚠️ 单次交互过程中发生异常，已降级处理")
                 error_msg = "抱歉，我在处理刚才的操作时遇到了一点问题。"
                 logger.info(f"🗣️ 回复: {error_msg}")
                 tts_engine.speak(error_msg)
-                last_text = recognizer.last_text.lower()
-                exit_keywords = ['退出', '关闭', '停止', '拜拜', '再见']
-                if any(word in last_text for word in exit_keywords):
-                    logger.info("🎯 用户请求退出，程序即将终止")
-                    break
 
             time.sleep(0.5)
+
+        # 清理资源
         tts_engine.stop()
         logger.info("👋 语音助手已安全退出")
 
