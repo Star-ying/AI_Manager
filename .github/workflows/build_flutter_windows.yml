@@ -1,0 +1,38 @@
+name: Build Flutter Windows App
+
+on:
+  push:
+    branches: [ main, windows-build ]
+  pull_request:
+    branches: [ main, windows-build ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+        
+    - name: Enable Windows desktop support
+      run: flutter config --enable-windows-desktop
+      
+    - name: Change to frontend directory
+      run: cd UI/frontend
+      
+    - name: Get Flutter dependencies
+      run: cd UI/frontend && flutter pub get
+      
+    - name: Build Windows app
+      run: cd UI/frontend && flutter build windows --release --target-platform windows-x64
+      
+    - name: Upload Windows build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: flutter-windows-build
+        path: UI/frontend/build/windows/x64/runner/Release/
