@@ -270,3 +270,4 @@ Copyright (C) 2025 com.aiassistant. All rights reserved.
 >>>>>>> 17897a1 (build(构建): 成功构建macOS平台应用)
 # Test trigger
 # Test build
+# Test build with updated artifact action
