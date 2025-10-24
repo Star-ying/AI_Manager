@@ -1,0 +1,90 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter pub get --no-example
+
+## exception
+
+PathExistsException: PathExistsException: Cannot create link, path = '/Users/tk/Documents/AI_Manager/UI/frontend/windows/flutter/ephemeral/.plugin_symlinks/flutter_volume_controller' (OS Error: File exists, errno = 17)
+
+```
+#0      _Link.throwIfError (dart:io/link.dart:358:7)
+#1      _Link.createSync (dart:io/link.dart:276:5)
+#2      ForwardingLink.createSync (package:file/src/forwarding/forwarding_link.dart:20:16)
+#3      ForwardingLink.createSync (package:file/src/forwarding/forwarding_link.dart:20:16)
+#4      _createPlatformPluginSymlinks (package:flutter_tools/src/flutter_plugins.dart:1143:12)
+#5      createPluginSymlinks (package:flutter_tools/src/flutter_plugins.dart:1060:5)
+#6      refreshPluginsList (package:flutter_tools/src/flutter_plugins.dart:1192:5)
+<asynchronous suspension>
+#7      FlutterProject.ensureReadyForPlatformSpecificTooling (package:flutter_tools/src/project.dart:369:5)
+<asynchronous suspension>
+#8      PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:395:9)
+<asynchronous suspension>
+#9      FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1559:27)
+<asynchronous suspension>
+#10     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#11     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#12     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:487:9)
+<asynchronous suspension>
+#13     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#14     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:422:5)
+<asynchronous suspension>
+#15     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:101:11)
+<asynchronous suspension>
+#16     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:154:19)
+<asynchronous suspension>
+#17     main (package:flutter_tools/executable.dart:103:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, 3.38.0-0.1.pre, on macOS 26.0.1 25A362 darwin-arm64, locale zh-Hans-CN) [1,038ms]
+    • Flutter version 3.38.0-0.1.pre on channel beta at /Users/tk/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 7e592fef32 (8 days ago), 2025-10-17 16:08:19 -0700
+    • Engine revision 060c2cc550
+    • Dart version 3.10.0 (build 3.10.0-290.1.beta)
+    • DevTools version 2.51.0
+    • Pub download mirror https://pub.flutter-io.cn
+    • Flutter download mirror https://storage.flutter-io.cn
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, omit-legacy-version-file, enable-lldb-debugging
+
+[!] Android toolchain - develop for Android devices (Android SDK version 35.0.1) [1,420ms]
+    • Android SDK at /Users/tk/Library/Android/sdk
+    • Emulator version 35.6.11.0 (build_id 13610412) (CL:N/A)
+    ✗ cmdline-tools component is missing.
+      Try installing or updating Android Studio.
+      Alternatively, download the tools from https://developer.android.com/studio#command-line-tools-only and make sure to set the ANDROID_HOME environment variable.
+      See https://developer.android.com/studio/command-line for more details.
+    ✗ Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/macos-android-setup for more details.
+
+[!] Xcode - develop for iOS and macOS (Xcode 26.0.1) [2.3s]
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 17A400
+    ✗ Unable to get list of installed Simulator runtimes.
+    • CocoaPods version 1.16.2
+
+[✓] Chrome - develop for the web [7ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Connected device (3 available) [6.0s]
+    • Tk (wireless) (mobile) • 00008140-0002488414E0801C • ios            • iOS 26.0.1 23A355
+    • macOS (desktop)        • macos                     • darwin-arm64   • macOS 26.0.1 25A362 darwin-arm64
+    • Chrome (web)           • chrome                    • web-javascript • Google Chrome 141.0.7390.123
+    ! Error: Browsing on the local area network for Katharsis. Ensure the device is unlocked and attached with a cable or associated with the same local area network as this Mac.
+      The device must be opted into Developer Mode to connect wirelessly. (code -27)
+
+[✓] Network resources [2.7s]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.
+```
