@@ -1,50 +1,132 @@
-name: build-windows-portable
+name: Build Cross-Platform Portable Bundles
 
 on:
   workflow_dispatch: {}
   push:
     branches: [main]
     paths:
-      - "ai-manager-backend/**"
       - "scripts/windows/**"
       - "Progress/**"
       - "config.json"
 
 jobs:
-  build-windows:
-    runs-on: windows-latest
+  build:
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 30
 
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        python-version: ['3.11', '3.13']
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: "temurin"
-          java-version: "17"
-
-      - name: Set up Python 3.11
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
 
-      - name: Show env
+      - name: Show environment
         run: |
-          java -version
+          echo "OS: ${{ runner.os }}"
+          echo "Runner OS: $RUNNER_OS"
           python --version
-          powershell $PSVersionTable
+          pip --version
+        shell: bash
+        if: ${{ !contains(matrix.os, 'windows') }}
 
-      - name: Build Windows portable bundle
+      - name: Show environment (PowerShell)
+        run: |
+          Write-Host "OS: Windows"
+          python --version
+          $PSVersionTable
+        shell: powershell
+        if: ${{ contains(matrix.os, 'windows') }}
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        shell: bash
+        if: ${{ !contains(matrix.os, 'windows') }}
+
+      - name: Install dependencies (Windows)
         shell: powershell
         run: |
-          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+          pip install --upgrade pip
+          if (Test-Path requirements.txt) { pip install -r requirements.txt }
+        if: ${{ contains(matrix.os, 'windows') }}
+
+      # =============================================
+      # 🛠️ 平台专属构建任务
+      # =============================================
+
+      - name: Build Windows portable bundle
+        if: ${{ contains(matrix.os, 'windows') }}
+        shell: powershell
+        run: |
+          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+          $ErrorActionPreference = 'Stop'
           .\scripts\windows\build_windows_portable.ps1
 
+      - name: Build Linux AppImage (example placeholder)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: |
+          echo "Building Linux portable bundle..."
+          python scripts/build_linux.py
+          mkdir -p dist/AI_Manager_Linux_Portable
+          echo "Dummy file" > dist/AI_Manager_Linux_Portable/app
+        shell: bash
+
+      - name: Build macOS App Bundle (example placeholder)
+        if: ${{ matrix.os == 'macos-latest' }}
+        run: |
+          echo "Building macOS app bundle..."
+          mkdir -p dist/AI_Manager_macOS_App
+          mkdir -p dist/AI_Manager_macOS_App/AI_Manager.app/Contents/MacOS
+          echo '#!/bin/bash\necho "Hello from macOS!"' > dist/AI_Manager_macOS_App/AI_Manager.app/Contents/MacOS/main
+          chmod +x dist/AI_Manager_macOS_App/AI_Manager.app/Contents/MacOS/main
+        shell: bash
+
+      # =============================================
+      # 📦 上传各平台产物
+      # =============================================
+
       - name: Upload artifact (Windows Offline Bundle)
+        if: ${{ contains(matrix.os, 'windows') }}
         uses: actions/upload-artifact@v4
         with:
-          name: AI_Manager_Windows_Offline
+          name: AI_Manager_Windows_Offline_py${{ matrix.python-version }}
           path: dist/AI_Manager_Windows_Offline/**
           if-no-files-found: error
+
+      - name: Upload artifact (Linux Portable)
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI_Manager_Linux_Portable_py${{ matrix.python-version }}
+          path: dist/AI_Manager_Linux_Portable/**
+          if-no-files-found: error
+
+      - name: Upload artifact (macOS App)
+        if: ${{ matrix.os == 'macos-latest' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI_Manager_macOS_App_py${{ matrix.python-version }}
+          path: dist/AI_Manager_macOS_App/**
+          if-no-files-found: error
+
+
+
