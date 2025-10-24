@@ -22,14 +22,17 @@ jobs:
     - name: Enable Windows desktop support
       run: flutter config --enable-windows-desktop
       
+    - name: Change to frontend directory
+      run: cd UI/frontend
+      
     - name: Get Flutter dependencies
-      run: flutter pub get
+      run: cd UI/frontend && flutter pub get
       
     - name: Build Windows app
-      run: flutter build windows --release --target-platform windows-x64
+      run: cd UI/frontend && flutter build windows --release --target-platform windows-x64
       
     - name: Upload Windows build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: windows-build
-        path: build/windows/x64/runner/Release/
+        path: UI/frontend/build/windows/x64/runner/Release/
