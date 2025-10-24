@@ -2,10 +2,13 @@
 cmake_minimum_required(VERSION 3.14)
 project(frontend LANGUAGES CXX)
 
+<<<<<<< HEAD
 # Force x64 architecture for compatibility
 set(CMAKE_VS_PLATFORM_NAME "x64")
 set(CMAKE_GENERATOR_PLATFORM "x64")
 
+=======
+>>>>>>> 911a5dc (feat: 升级Flutter框架以支持Arm64平台)
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
 set(BINARY_NAME "frontend")
