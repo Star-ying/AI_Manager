@@ -5,7 +5,11 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/windows/**"
+      - "UI/**"
+      - "vosk-model-small-cn-0.22/**"
+      - "resoureces/**"
+      - "database/**"
+      - "logs/**"
       - "Progress/**"
       - "config.json"
 
@@ -127,6 +131,8 @@ jobs:
           name: AI_Manager_macOS_App_py${{ matrix.python-version }}
           path: dist/AI_Manager_macOS_App/**
           if-no-files-found: error
+
+
 
 
 
