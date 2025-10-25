@@ -1,7 +1,9 @@
-vosk
-PyAudio
-pyttsx3
-psutil
-pygame
-schedule
-dashscope
+vosk>=0.3.45
+PyAudio>=0.2.14
+comtypes>=1.4.13
+pyttsx3>=2.90
+psutil>=5.0.0
+pygame>=2.6.0
+schedule>=1.2.0
+dashscope>=1.20.0
+flask>=3.1.2

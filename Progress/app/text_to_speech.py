@@ -1,7 +1,6 @@
 import threading
 import queue
 import comtypes.client
-from comtypes.gen import SpeechLib
 import pyttsx3
 from Progress.app.voice_recognizer import recognizer
 
@@ -41,7 +40,7 @@ class TextToSpeechEngine:
                     break
                 print(f"📢 正在播报: {text}")
                 try:
-                    self.speaker.Speak(text, SpeechLib.SVSFlagsAsync)
+                    self.speaker.Speak(text, 1)
                 except Exception as e:
                     print(f"🗣️ 播报失败: {e}")
                 self.queue.task_done()

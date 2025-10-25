@@ -5,6 +5,7 @@
 """
 
 import sys
+import threading
 import time
 import logging
 
@@ -18,6 +19,25 @@ from Progress.app.qwen_assistant import assistant
 from Progress.app.text_to_speech import tts_engine
 from Progress.app.system_controller import executor
 from database import config
+from api_server import create_api_server  # 新方式
+
+# 创建 API 服务（但不绑定具体实例）
+api_app, init_api_deps = create_api_server()
+
+def run_api_server(host='127.0.0.1', port=5000):
+    def start():
+        # ✅ 在这里才注入所有依赖
+        init_api_deps(
+            ass=assistant,
+            exec=executor,
+            tts=tts_engine,
+            rec=recognizer
+        )
+        api_app.run(host=host, port=port, debug=False, threaded=True, use_reloader=False)
+    
+    thread = threading.Thread(target=start, daemon=True)
+    thread.start()
+    logger.info(f"🌐 API 服务器已启动：http://{host}:{port}")
 
 # --- 初始化全局日志器 ---
 logger = logging.getLogger("ai_assistant")
@@ -65,6 +85,8 @@ def handle_single_interaction():
 @log_time
 def main():
     logger.info("🚀 正在启动 AI 语音助手系统...")
+
+    run_api_server(host='127.0.0.1', port=5000)
 
     try:
         tts_engine.start()

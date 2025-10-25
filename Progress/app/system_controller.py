@@ -339,12 +339,7 @@ class SystemController:
     )
     def exit(self):
         logger.info("🛑 用户请求退出，准备关闭语音助手...")
-        return {
-            "success": True,
-            "operation": "exit",
-            "message": "正在关闭语音助手，再见！",
-            "should_exit": True  # ✅ 关键字段：向主程序发送退出信号
-        }
+        return True,"正在关闭语音助手"
 
     @ai_callable(
         description="并发执行多个任务",
