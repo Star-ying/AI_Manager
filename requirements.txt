@@ -7,5 +7,7 @@ pyaudio
 schedule
 flask
 werkzeug
+flask_cors
+requests
 
 pyinstaller

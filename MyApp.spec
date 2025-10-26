@@ -7,13 +7,15 @@ from PyInstaller.utils.hooks import collect_all
 datas, binaries, hiddenimports = collect_all('vosk')
 
 a = Analysis(
-    ['main.py'],
+    ['launcher.py'],
     pathex=[],
     binaries=binaries,              # 👈 关键：加入 vosk 的 .dll/.so 文件
     datas=datas + [
         ('database', 'database'),
         ('Progress', 'Progress'),
         ('models','models'),
+        ('backend','backend'),
+        ('flutter','flutter'),
     ],
     hiddenimports=hiddenimports,    # 👈 自动包含 vosk 所需模块
     hookspath=[],
