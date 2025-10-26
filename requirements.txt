@@ -7,4 +7,6 @@ psutil>=5.9.6
 schedule>=1.2.0
 dashscope>=1.24.6
 vosk
-numpt
+numpy
+flask>=2.3.0
+flask-cors>=4.0.0

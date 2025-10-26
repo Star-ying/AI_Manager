@@ -88,10 +88,8 @@ class RecorderService {
       
       // 监听录音数据
       _recorderSubscription = _recorder!.onProgress?.listen((event) {
-        if (event != null) {
-          _volumeLevelController.add(event.decibels ?? 0.0);
-        }
-      });
+        _volumeLevelController.add(event.decibels ?? 0.0);
+            });
       
       return true;
     } catch (e) {
