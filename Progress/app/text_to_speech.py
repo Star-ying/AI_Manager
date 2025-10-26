@@ -77,15 +77,3 @@ class TextToSpeechEngine:
 
 tts_engine = TextToSpeechEngine()
 tts_engine.start()
-
-# if __name__ == "__main__":
-#     tts_engine = TextToSpeechEngine()
-#     tts_engine.start()
-
-#     try:
-#         tts_engine.speak("你好，我是AI助手。")
-#         tts_engine.speak("这是第二次说话，应该能正常播放。")
-#         tts_engine.speak("第三次测试，看看是不是还能响。")
-#         time.sleep(10)  # 给足够时间完成所有语音
-#     finally:
-#         tts_engine.stop()

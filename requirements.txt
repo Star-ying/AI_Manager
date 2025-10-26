@@ -1,26 +1,26 @@
-# ÓïÒôÊ¶±ð
+# è¯­éŸ³è¯†åˆ«
 vosk
 pyaudio
 
-# ´óÄ£ÐÍ½»»¥£¨Í¨ÒåÇ§ÎÊ£©
+# å¤§æ¨¡åž‹äº¤äº’ï¼ˆé€šä¹‰åƒé—®ï¼‰
 dashscope
 
-# ÎÄ±¾×ªÓïÒô
+# æ–‡æœ¬è½¬è¯­éŸ³
 pyttsx3
 
-# ÒôÆµ²¥·ÅÓëÌáÊ¾Òô
+# éŸ³é¢‘æ’­æ”¾ä¸Žæç¤ºéŸ³
 pygame
 
-# ÏµÍ³ÐÅÏ¢¼à¿Ø & ½ø³Ì¹ÜÀí
+# ç³»ç»Ÿä¿¡æ¯ç›‘æŽ§ & è¿›ç¨‹ç®¡ç†
 psutil
 
-# ¶¨Ê±ÈÎÎñµ÷¶È
+# å®šæ—¶ä»»åŠ¡è°ƒåº¦
 schedule
 
-# Windows COM Ö§³Ö£¨pyttsx3 ÒÀÀµ£©
+# Windows COM æ”¯æŒï¼ˆpyttsx3 ä¾èµ–ï¼‰
 comtypes
 
-# ÅäÖÃÎÄ¼þ½âÎö£¨¼ÙÉèÊ¹ÓÃ YAML£©
+# é…ç½®æ–‡ä»¶è§£æžï¼ˆå‡è®¾ä½¿ç”¨ YAMLï¼‰
 PyYAML
 
 flask

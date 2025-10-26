@@ -25,16 +25,16 @@ def log_time(func):
     def wrapper(*args, **kwargs):
         start = time.time()
         func_name = func.__name__
-        logger.debug(f"▶️ 进入函数: {func_name}, 参数: args={args}, kwargs={kwargs}")
+        logger.debug(f"▶️ 进入函数: {func_name}")
 
         try:
             result = func(*args, **kwargs)
             duration = time.time() - start
-            logger.debug(f"✅ 函数 '{func_name}' 执行完成，耗时: {duration:.3f}s")
+            logger.debug(f"✅ 函数 '{func_name}' 完成，耗时: {duration:.3f}s")
             return result
         except Exception as e:
             duration = time.time() - start
-            logger.error(f"❌ 函数 '{func_name}' 执行失败，耗时: {duration:.3f}s", exc_info=True)
+            logger.error(f"❌ 函数 '{func_name}' 失败，耗时: {duration:.3f}s", exc_info=True)
             raise
     return wrapper
 

@@ -24,7 +24,6 @@ from Progress.utils.logger_config import setup_logger
 from dataclasses import dataclass
 from Progress.utils.resource_helper import resource_path
 
-
 @dataclass
 class TaskResult:
     success: bool
@@ -41,19 +40,19 @@ class TaskResult:
             "data": self.data or {}
         }
 
+
 TERMINAL_OPERATIONS = {"exit"}
 
-# 从配置读取路径字符串
-RESOURCE_PATH_STR = config.get("paths", "resource_path")        # "./resources"
-MUSIC_PATH_STR = config.get("paths","resources", "music_path")         # "/Music" 或 "Music"
-DOCUMENT_PATH_STR = config.get("paths","resources", "document_path")   # "/Documents"
+# 从配置中读取原始字符串（注意 key 层级！）
+RESOURCE_PATH_STR = config.get("paths", "resource_path")           # "resources"
+MUSIC_REL_PATH = config.get("paths", "resources", "music_path")     # "Music" 或 "/Music"
+DOC_REL_PATH = config.get("paths", "resources", "document_path")     # "Documents"
 
 # 使用增强版 resource_path 函数自动解析这些字符串
-DEFAULT_MUSIC_PATH = resource_path(RESOURCE_PATH_STR, MUSIC_PATH_STR.lstrip("/\\"))
-DEFAULT_DOCUMENT_PATH = resource_path(RESOURCE_PATH_STR, DOCUMENT_PATH_STR.lstrip("/\\"))
+DEFAULT_MUSIC_PATH = resource_path(MUSIC_REL_PATH)
+DEFAULT_DOCUMENT_PATH = resource_path(DOC_REL_PATH)
 
 logger = logging.getLogger("ai_assistant")
-
 
 class SystemController:
     def __init__(self):

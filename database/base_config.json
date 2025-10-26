@@ -12,10 +12,10 @@
     "font_size": 12
   },
   "paths": {
-    "resource_path": "./resources",
+    "resource_path": "resources",
     "resources": {
-      "music_path": "/Music",
-      "document_path": "/Documents"
+      "music_path": "Music",
+      "document_path": "Documents"
     }
   },
   "ai_model": {
