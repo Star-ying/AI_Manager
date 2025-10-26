@@ -1,0 +1,27 @@
+# 使用Windows基础镜像
+FROM mcr.microsoft.com/windows:1809
+
+# 设置工作目录
+WORKDIR /app
+
+# 安装Chocolatey包管理器
+RUN @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))"
+
+# 使用Chocolatey安装Flutter
+RUN choco install flutter -y
+
+# 将Flutter添加到PATH
+RUN setx PATH "%PATH%;C:\Program Files\flutter\bin"
+
+# 复制项目文件
+COPY . .
+
+# 获取Flutter依赖
+RUN flutter config --enable-windows-desktop
+RUN flutter pub get
+
+# 构建Windows版本的应用程序
+RUN flutter build windows --release --target-platform windows-x64
+
+# 输出构建结果
+CMD ["echo", "Windows build completed in build/windows/x64/runner/Release/"]
