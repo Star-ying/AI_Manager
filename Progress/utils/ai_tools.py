@@ -2,8 +2,6 @@ from functools import wraps
 import inspect
 import logging
 
-from Progress.app.qwen_assistant import assistant
-
 # 全局注册表
 REGISTERED_FUNCTIONS = {}
 FUNCTION_SCHEMA = []

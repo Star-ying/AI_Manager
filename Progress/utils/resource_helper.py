@@ -1,5 +1,3 @@
-# utils/resource_helper.py
-
 import os
 import sys
 from typing import Optional

@@ -8,96 +8,123 @@ import re
 import logging
 import dashscope
 from dashscope import Generation
+from threading import Lock
 
 from database.config import config
 from Progress.utils.logger_utils import log_time, log_step, log_var
 from Progress.utils.logger_config import setup_logger
 
-# --- 初始化日志器 ---
+
+try:
+    from Progress.utils.ai_tools import FUNCTION_SCHEMA
+except ImportError:
+    FUNCTION_SCHEMA = []
+
 logger = logging.getLogger("ai_assistant")
 
 DASHSCOPE_API_KEY = config.get("ai_model", "api_key")
 DASHSCOPE_MODEL = config.get("ai_model", "model")
 
-class QWENAssistant:
-    def __init__(self):
-        if not DASHSCOPE_API_KEY:
-            raise ValueError("缺少 DASHSCOPE_API_KEY，请检查配置文件")
-        dashscope.api_key = DASHSCOPE_API_KEY
-        self.model_name = DASHSCOPE_MODEL or 'qwen-max'
-        logger.info(f"✅ QWENAssistant 初始化完成，使用模型: {self.model_name}")
-        self.conversation_history = []
 
-        self.system_prompt = """
+class QWENAssistant:
+    _instance = None
+    _initialized = False
+    _lock = Lock()  # 线程锁，保证线程安全
+
+    def __new__(cls):
+        if cls._instance is None:
+            with cls._lock:
+                # 双重检查锁定（Double-Checked Locking）
+                if cls._instance is None:
+                    cls._instance = super(QWENAssistant, cls).__new__(cls)
+        return cls._instance
+
+    def __init__(self):
+        # 防止重复初始化
+        if QWENAssistant._initialized:
+            return
+
+        with QWENAssistant._lock:
+            if QWENAssistant._initialized:
+                return
+
+            # === 正式初始化 ===
+            if not DASHSCOPE_API_KEY:
+                raise ValueError("缺少 DASHSCOPE_API_KEY，请检查配置文件")
+            dashscope.api_key = DASHSCOPE_API_KEY
+            self.model_name = DASHSCOPE_MODEL or 'qwen-max'
+            logger.info(f"✅ QWENAssistant 单例初始化完成，使用模型: {self.model_name}")
+
+            self.conversation_history = []
+
+            # 动态生成 operation 列表文本
+            operation_list_text = self._generate_operation_list()
+
+            # 构建 system prompt
+            self.system_prompt = f"""
 你是一个智能语音控制助手，能够理解用户的自然语言指令，并将其转化为可执行的任务计划。
 
-你的职责是：
-- 准确理解用户意图；
-- 若涉及多个动作，需拆解为【执行计划】；
-- 输出一个严格符合规范的 JSON 对象，供系统解析执行；
-- 所有回复必须使用中文（仅限于 response_to_user 字段）；
-
 🎯 输出格式要求（必须遵守）：
-{
-  "intent": "system_control",           // 意图类型："system_control"
-  "task_type": "start_background_tasks",// 任务类型的简要描述（动态生成）
-  "execution_plan": [                   // 执行步骤列表
-    {
+{{
+  "intent": "system_control",
+  "task_type": "start_background_tasks",
+  "execution_plan": [
+    {{
       "operation": "函数名",
-      "parameters": { ... },
+      "parameters": {{ ... }},
       "description": "该步骤的目的说明"
-    }
+    }}
   ],
   "response_to_user": "你要对用户说的话（用中文）",
   "requires_confirmation": false,
   "mode": "parallel",
-  "expect_follow_up": true              // 🔥 新增字段：是否预期用户会继续提问？
-}
+  "expect_follow_up": true
+}}
 
 📌 已知 operation 列表：
-- play_music()
-- stop_music()
-- pause_music()
-- resume_music()
-- open_application(app_name: str)
-- create_file(file_name: str, content: str)
-- read_file(file_name: str)
-- write_file(file_name: str, content: str)
-- set_reminder(reminder_time: str, message: str)
-- exit()
+{operation_list_text}
 
 📌 规则说明：
-1. intent="chat" 仅用于闲聊、问天气等非操作类请求。
-2. execution_plan 必须与用户需求直接相关，禁止虚构或添加无关操作。
-3. mode: 并行(parallel)/串行(serial)，按依赖关系选择。
-4. requires_confirmation: 删除、覆盖文件等高风险操作设为 true。
-5. expect_follow_up: ⚠️ 新增关键字段！
+1. intent="chat" 仅用于闲聊。
+2. execution_plan 必须与需求相关。
+3. mode: parallel/serial。
+4. requires_confirmation: 高风险操作设为 true。
+5. expect_follow_up: 根据上下文判断是否预期后续提问。
 
 🔥 关于 expect_follow_up 的判断标准：
-- 用户正在进行多步操作（如“帮我写一篇文章” → 可能接着说“保存到桌面”）→ True
-- 用户提出开放式问题（如“介绍一下人工智能”）→ True
-- 用户表达未完成感（如“还有呢？”、“然后呢？”、“接下来怎么办”）→ True
-- 明确结束语句（如“关闭程序”、“不用了”、“谢谢”）→ False
-- 单条命令已完成闭环（如“打开记事本”）且无延伸迹象 → False
-
-💡 示例：
-  用户：“我想学习 Python”
-  → expect_follow_up = True （用户可能继续问怎么学、推荐书籍等）
-
-  用户：“播放音乐”
-  → expect_follow_up = True （可能会切歌、暂停）
-
-  用户：“退出”
-  → expect_follow_up = False
+- 多步操作、开放式问题 → True
+- 明确结束语句 → False
 
 ⚠️ 重要警告：
-- 绝不允许省略任何字段；
-- 不得输出额外文本（如注释、解释）；
+- 不得输出额外文本；
 - 不允许使用未知 operation；
 - 必须返回纯 JSON。
 
 现在，请根据用户的最新指令生成对应的 JSON 响应。
 """
+
+            QWENAssistant._initialized = True
+
+    def _generate_operation_list(self) -> str:
+        """根据 FUNCTION_SCHEMA 生成操作列表描述"""
+        lines = []
+        for item in FUNCTION_SCHEMA:
+            name = item["name"]
+            desc = item["description"]
+            params_desc = item.get("parameters", {})
+            param_strs = [f"{k}: {v}" for k, v in params_desc.items()]
+            params_display = "(" + ", ".join(param_strs) + ")" if param_strs else "()"
+            lines.append(f"- {name}{params_display}：{desc}")
+        return "\n".join(lines) if lines else "- 无可用操作"
+
+    @classmethod
+    def get_instance(cls):
+        """提供公共访问点，确保初始化已完成"""
+        if cls._instance is None:
+            raise RuntimeError(
+                "QWENAssistant 尚未初始化！请先确保所有 @ai_callable 函数已注册，并手动触发一次实例化。"
+            )
+        return cls._instance
 
     @log_time
     @log_step("处理语音指令")
@@ -111,7 +138,7 @@ class QWENAssistant:
 
         try:
             messages = [{"role": "system", "content": self.system_prompt}]
-            messages.extend(self.conversation_history[-10:])  # 最近10轮上下文
+            messages.extend(self.conversation_history[-10:])
 
             response = Generation.call(
                 model=self.model_name,
@@ -130,13 +157,11 @@ class QWENAssistant:
 
             self.conversation_history.append({"role": "assistant", "content": ai_output})
 
-            # === 解析并验证 JSON ===
             parsed = self._extract_and_validate_json(ai_output)
             if parsed:
                 return parsed
             else:
-                # 降级响应：假设只是普通聊天
-                clean_text = re.sub(r'json[\s\S]*?|', '', ai_output).strip()
+                clean_text = re.sub(r'json[\s\S]*?\n|', '', ai_output).strip()
                 return self._create_fallback_response(clean_text, expect_follow_up=True)
 
         except Exception as e:
@@ -144,14 +169,12 @@ class QWENAssistant:
             return self._create_fallback_response("抱歉，我遇到了一些技术问题，请稍后再试。", expect_follow_up=False)
 
     def _extract_and_validate_json(self, text: str):
-        """从文本中提取 JSON 并验证结构（含 expect_follow_up）"""
         try:
             data = json.loads(text)
             return self._validate_plan_structure(data)
         except json.JSONDecodeError:
             pass
 
-        # 尝试正则提取第一个大括号内容
         match = re.search(r'\{[\s\S]*\}', text)
         if not match:
             return None
@@ -162,18 +185,13 @@ class QWENAssistant:
             return None
 
     def _validate_plan_structure(self, data: dict):
-        """验证结构并补全字段"""
         required_top_level = ["intent", "task_type", "execution_plan", "response_to_user", "requires_confirmation"]
         for field in required_top_level:
             if field not in data:
                 logger.warning(f"缺少必要字段: {field}")
                 return None
 
-        valid_operations = {
-            "play_music", "stop_music", "pause_music", "resume_music",
-            "open_application", "create_file", "read_file", "write_file",
-            "set_reminder", "exit"
-        }
+        valid_operations = {item["name"] for item in FUNCTION_SCHEMA} | {"exit"}
 
         for step in data["execution_plan"]:
             op = step.get("operation")
@@ -186,11 +204,9 @@ class QWENAssistant:
                 logger.warning(f"parameters 必须是对象: {params}")
                 return None
 
-        # 补全默认值
         if "mode" not in data:
             data["mode"] = "parallel"
         if "expect_follow_up" not in data:
-            # 启发式补全
             ending_words = ['退出', '关闭', '停止', '拜拜', '再见', '不用了', '谢谢']
             is_ending = any(word in data.get("response_to_user", "") for word in ending_words)
             data["expect_follow_up"] = not is_ending
@@ -198,7 +214,6 @@ class QWENAssistant:
         return data
 
     def _create_fallback_response(self, message: str, expect_follow_up: bool):
-        """降级响应，包含 expect_follow_up 字段"""
         return {
             "intent": "chat",
             "task_type": "reply",
@@ -206,7 +221,7 @@ class QWENAssistant:
             "requires_confirmation": False,
             "execution_plan": [],
             "mode": "serial",
-            "expect_follow_up": expect_follow_up  # 👈 新增
+            "expect_follow_up": expect_follow_up
         }
 
     @log_time
@@ -282,6 +297,3 @@ class QWENAssistant:
         except Exception as e:
             logger.exception("文本翻译出错")
             return f"抱歉，翻译文本时遇到错误：{str(e)}"
-
-# 实例化全局助手
-assistant = QWENAssistant()
