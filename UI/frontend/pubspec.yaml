@@ -1,0 +1,29 @@
+name: ai_assistant
+description: AI小助手应用程序，支持语音输入、音乐播放和音量控制
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  speech_to_text: ^6.6.0
+  audioplayers: ^5.2.1
+  file_picker: ^6.1.1
+  permission_handler: ^11.0.1
+  path_provider: ^2.1.1
+  provider: ^6.1.1
+  http: ^1.1.0
+  flutter_sound: ^9.2.13
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true

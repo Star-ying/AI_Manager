@@ -199,20 +199,24 @@ python main.py
 📁 权限最小化	不请求无关系统权限
 
 # 📁 项目结构
-
-Progress/
-├── app/
-│   ├── voice_recognizer.py     # 语音识别（离线）
-│   ├── qwen_assistant.py       # AI决策核心
-│   ├── text_to_speech.py      # 语音合成
-│   └── system_controller.py   # 系统控制执行
-├── utils/
-│   ├── logger_config.py       # 日志配置
-│   ├── logger_utils.py        # 日志装饰器工具
-│   └── ai_tools.py            # AI工具注册中心
+AI_Manager/
+|—— Progress/
+|   ├── app/
+|   │   ├── voice_recognizer.py    # 语音识别（离线）
+|   │   ├── qwen_assistant.py      # AI决策核心
+|   │   ├── text_to_speech.py      # 语音合成
+|   │   └── system_controller.py   # 系统控制执行
+|   └── utils/
+|       ├── logger_config.py       # 日志配置
+|       ├── logger_utils.py        # 日志装饰器工具
+|       |── ai_tools.py            # AI工具注册中心
+|       └── resource_helper.py     # 资源路径管理工具
 ├── database/
+|   |—— base_config.json       # 配置模板
 │   └── config.py              # 全局配置
 ├── .env                       # API密钥存储
+|—— api_server.py              # 前后端连接API工具
+|—— config.json                # 配置文件
 ├── requirements.txt           # 依赖清单
 └── main.py                    # 主程序入口
 
