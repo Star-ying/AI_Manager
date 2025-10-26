@@ -419,6 +419,7 @@ packages:
     description:
       name: meta
       sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+<<<<<<< HEAD
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.17.0"
@@ -442,6 +443,18 @@ packages:
       sha256: "75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5"
       url: "https://pub.flutter-io.cn"
     source: hosted
+=======
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.17.0"
+  path:
+    dependency: "direct main"
+    description:
+      name: path
+      sha256: "75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+>>>>>>> d1f379663cd03a6eaf40fc7582bd9dc373c4837b
     version: "1.9.1"
   path_provider:
 <<<<<<< HEAD
@@ -803,6 +816,7 @@ packages:
     source: hosted
     version: "2.2.0"
   vm_service:
+<<<<<<< HEAD
     dependency: transitive
     description:
       name: vm_service
@@ -821,6 +835,15 @@ packages:
     source: hosted
     version: "1.1.1"
 >>>>>>> d4e9506 (备份tk分支的rebase处理冲突后的状态)
+=======
+    dependency: transitive
+    description:
+      name: vm_service
+      sha256: "45caa6c5917fa127b5dbcfbd1fa60b14e583afdc08bfc96dda38886ca252eb60"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "15.0.2"
+>>>>>>> d1f379663cd03a6eaf40fc7582bd9dc373c4837b
   win32:
     dependency: transitive
     description:
@@ -848,6 +871,7 @@ packages:
 sdks:
   dart: ">=3.8.0-0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"
+<<<<<<< HEAD
 =======
       sha256: "7a3f37b05d989967cdddcbb571f1ea834867ae2faa29725fd085180e0883aa15"
       url: "https://pub.flutter-io.cn"
@@ -857,3 +881,5 @@ sdks:
   dart: ">=3.9.0 <4.0.0"
   flutter: ">=3.35.0"
 >>>>>>> d4e9506 (备份tk分支的rebase处理冲突后的状态)
+=======
+>>>>>>> d1f379663cd03a6eaf40fc7582bd9dc373c4837b
