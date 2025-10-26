@@ -20,117 +20,91 @@
 
 /* Begin PBXBuildFile section */
 		03FF65672874530A3E9AE6BAB1764A4A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
-		05F4B9B10E1CADAA2B13017B916FC67E /* SoundOutputManager+Goodies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269ACF62D96312230BFB99ED9E39E596 /* SoundOutputManager+Goodies.swift */; };
-		22D028226FCB457B64B45E924C767B72 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B69EE2D5FAAA478D841C3C71848CF1A /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */; };
-		3D659506BD43E2C3D539AC5C9D2A5151 /* SoundOutputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315980FE03D9BD19EA7393D7D48C29B9 /* SoundOutputManager.swift */; };
-		44705BB631D46D2E81BA720871125CD1 /* PathProviderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5C83497A27AB58D1A507D4D9F823A2 /* PathProviderPlugin.swift */; };
-		45AE8C8BA2B5BCA9F42C50FBF46D5A62 /* audioplayers_darwin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0914172B733ACBC4AE6B5653ABBD94 /* audioplayers_darwin-dummy.m */; };
+		44705BB631D46D2E81BA720871125CD1 /* PathProviderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE36B6D758262C3D4A1E3F85E47AE14B /* PathProviderPlugin.swift */; };
+		45AE8C8BA2B5BCA9F42C50FBF46D5A62 /* audioplayers_darwin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC374A9B4105E2F5FA1CD7CBA8E55D /* audioplayers_darwin-dummy.m */; };
 		508D7F2AB3F1A4F47936961776A542FE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
-		5C3A438D4EDED33CCEDFD65B7FAE1C48 /* SoundOutputManager+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DD42E2CC3234348A6CB370D672B67 /* SoundOutputManager+Properties.swift */; };
-		5DC96473A3FA6FC565AB21BAE87192DA /* flutter_volume_controller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 788C9D96E37BEBE51E0075D0E7A371C8 /* flutter_volume_controller-dummy.m */; };
-		6C9A9FCF6BEC9EC6583E3F02FD82F6D1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE414C3492DD7DA37895718B60EBADC6 /* Sound.swift */; };
-		71AB341D77169E98247B4BE117F175E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
-		790245DBB5FF91014B0CF9F3C83C0402 /* SpeechToTextMacosPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6F1FA36D288BA88951F901F955F0 /* SpeechToTextMacosPlugin.swift */; };
-		79A02FA9C5E5F00717C34875038AE3ED /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53611FC72E9D96204A446FC8A8081E71 /* AudioContext.swift */; };
-		88BF2EE80F571E6268B59B5CCE5FD890 /* AudioplayersDarwinPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEC8C6DF284C499D8E92DBFCF136BDD /* AudioplayersDarwinPlugin.m */; };
-		897CEBAEA4C7C723A6A49F41AEE1D100 /* WrappedMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BC2684FA116BCE28E43739B486B086 /* WrappedMediaPlayer.swift */; };
-		8BBF1EBB0CFC6E2011CAE16A92C5634E /* FlutterVolumeControllerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3E2C87E7A749CFA92D38BFFF50BD53 /* FlutterVolumeControllerPlugin.swift */; };
-		8CF8BBCD500B36225A92C641ACF3D19E /* path_provider_foundation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 62710F1F3D840723C85B5857FA4B1A96 /* path_provider_foundation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93B1FD7B1724630C678A4B34C63FA48B /* speech_to_text_macos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 257DA6C2C8CE13A35F5E77C6A41F6F77 /* speech_to_text_macos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94315ECBABE038B13C07839031CB05FF /* AudioplayersDarwinPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 39DC7F9B710924440D8A8BD2749A0DA8 /* AudioplayersDarwinPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		991762466B2953FA3B077A64D7F4DD3A /* VolumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C53264F7C540955DD6F24E0E89F22 /* VolumeController.swift */; };
-		AAA7BBB04EC9570B5E9A3C2BD6256CC5 /* SwiftAudioplayersDarwinPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DB7359F29C7FB8237FB5353E5A6B59 /* SwiftAudioplayersDarwinPlugin.swift */; };
+		6CD02BF3E586951C76657B89776337B0 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */; };
+		70415F0A246F2F86D0B10FF3FCA1D391 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		790245DBB5FF91014B0CF9F3C83C0402 /* SpeechToTextMacosPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DBE0BB83640D544F12EB4759E2CD49 /* SpeechToTextMacosPlugin.swift */; };
+		79A02FA9C5E5F00717C34875038AE3ED /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2EE6B3C241906D035985E1DAD8035 /* AudioContext.swift */; };
+		88BF2EE80F571E6268B59B5CCE5FD890 /* AudioplayersDarwinPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0A5AA77375E9E761540940DD9AEA9D /* AudioplayersDarwinPlugin.m */; };
+		897CEBAEA4C7C723A6A49F41AEE1D100 /* WrappedMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8044911EACE70785422E1BF47F729 /* WrappedMediaPlayer.swift */; };
+		8CF8BBCD500B36225A92C641ACF3D19E /* path_provider_foundation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7055D8CC6F52E6347F7B23A51E1BF555 /* path_provider_foundation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		905E74E4B4F9D30B1C2815944A36746D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E5E544E47FF3815725369BC2C1E03D50 /* PrivacyInfo.xcprivacy */; };
+		93B1FD7B1724630C678A4B34C63FA48B /* speech_to_text_macos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4105C1E24A1D6F84243C791C1489AFEB /* speech_to_text_macos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94315ECBABE038B13C07839031CB05FF /* AudioplayersDarwinPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA42C340822DC80415DA27E194055F7 /* AudioplayersDarwinPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA7BBB04EC9570B5E9A3C2BD6256CC5 /* SwiftAudioplayersDarwinPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EE74C5C7D71A6E25790BF6D1CBE695 /* SwiftAudioplayersDarwinPlugin.swift */; };
 		AB2360155AAA5B3839A6945322BDF039 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
 		B375EA128E6579366091BAA390BBDD34 /* Pods-RunnerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */; };
-		C304B45A8D9EB3696461DF55B702B9B8 /* VolumeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E467EA26EC8CCF56082245EB8E219 /* VolumeListener.swift */; };
 		C3AA58D6B02587C2FA014355CE33D7AD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
-		CC97E199886F17B93F3617318E01DC01 /* speech_to_text_macos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4401691FF86C9DA3A79B6C83E61D5CE5 /* speech_to_text_macos-dummy.m */; };
-		CEE3728DDE58B98D4635A9211AC2C21F /* BridgedCasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983EE434D67333F67D81B01CA28646E8 /* BridgedCasts.swift */; };
-		D4337362D17961F4A00078B6CC525A4F /* flutter_volume_controller-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08CAD52F70282A55E06DFE569CF36186 /* flutter_volume_controller-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5AE12FC755096CFA659265AB1E5A985 /* messages.g.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C338D232F9227AA1CCFF16ED0B687C1 /* messages.g.swift */; };
-		D87186A221F4586E2400FD6A0EA177C3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4DC3A457350C820A53BC1D285BFFD2 /* Utils.swift */; };
-		D927EEDC366028FC86F83F441B7D9D59 /* path_provider_foundation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 937BC28FC88B78F9463FBC59EF395058 /* path_provider_foundation-dummy.m */; };
-		DEE9BB3F8F71747DE5041B9268EBE7A0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
-		EB29F21465DE40E601C490BB09C450BC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 561A0832A2C5E079BC8A09391908B153 /* PrivacyInfo.xcprivacy */; };
+		CC97E199886F17B93F3617318E01DC01 /* speech_to_text_macos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B64015658DDB36722CCAD07A69DDA75 /* speech_to_text_macos-dummy.m */; };
+		D5AE12FC755096CFA659265AB1E5A985 /* messages.g.swift in Sources */ = {isa = PBXBuildFile; fileRef = B126B75F6FDBAE73DA03CEE49EC4E3B2 /* messages.g.swift */; };
+		D87186A221F4586E2400FD6A0EA177C3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC0CABAF1FCEC1911A9FFB7D408AA5 /* Utils.swift */; };
+		D927EEDC366028FC86F83F441B7D9D59 /* path_provider_foundation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A385F663E894ED31DEE982E0B4D2FCC3 /* path_provider_foundation-dummy.m */; };
+		E3169B7BC19FDFC50589DF6BFCFD63F2 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB2DC96CDCF638AB89007D2DB0F3119A /* Pods-RunnerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6F6BC7EA9ECB62AE23829907FFD35D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BD48672711C340EF8C930CEB2A0832 /* Constants.swift */; };
 		F80A3CC09313BCB322F7461EFE315E12 /* path_provider_foundation-path_provider_foundation_privacy in Resources */ = {isa = PBXBuildFile; fileRef = 3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */; };
-		FFEC632089741D562C7A8544595BB2F3 /* audioplayers_darwin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D57AFF0A173E39F53181C2ADE6101189 /* audioplayers_darwin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFEC632089741D562C7A8544595BB2F3 /* audioplayers_darwin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 66674CF5ECC4EB16663EB3387EE4CBC6 /* audioplayers_darwin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0CE625B019048D55BF28BD0E300DC2A7 /* PBXContainerItemProxy */ = {
+		173DAFE49E61DDEEE044691FE6B5167E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
 			remoteInfo = FlutterMacOS;
 		};
-		0F4B99298E737654F1292AC7DCB248AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 35F55791B4A13521349D20E456BFCA90;
-			remoteInfo = speech_to_text_macos;
-		};
-		31994AF42B5E5271C6A0D3328A2E1FDA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 67C6B567311D7E870E2D1A0DA187FE3B;
-			remoteInfo = audioplayers_darwin;
-		};
-		36E0316036982E9DF33789CEECBB9A63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E34851F4A0FF40E6FF3940A3E09D7F99;
-			remoteInfo = flutter_volume_controller;
-		};
-		53CF01D38A421B181A8CC820B29E2E7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 56F581DDCB0A032454E604885E17AE3C;
-			remoteInfo = path_provider_foundation;
-		};
-		56E849B52F77E5C08F8F865930E382E1 /* PBXContainerItemProxy */ = {
+		645CFBA151AFB23D61D263B348B0515D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
 			remoteInfo = FlutterMacOS;
 		};
-		76700484FF9ADB53F827A3B83D041732 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8B74B458B450D74B75744B87BD747314;
-			remoteInfo = "Pods-Runner";
-		};
-		C7B9244D2A48B333677EFEC8B0F97B6D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
-			remoteInfo = FlutterMacOS;
-		};
-		C8573199F9DEF1360572E0B2A807BF64 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
-			remoteInfo = FlutterMacOS;
-		};
-		DA6C0ADBCCBF7F662C4A6B96079E2C08 /* PBXContainerItemProxy */ = {
+		7A3C083EFB7EFD36139CD6C6F8302CD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CACE6618E7996464E38687E13F67D945;
 			remoteInfo = "path_provider_foundation-path_provider_foundation_privacy";
 		};
-		DBF23829A0CC4DBC17FA26A6E9E76697 /* PBXContainerItemProxy */ = {
+		A255182BF24B73CA36D4FEBD77F77B4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B74B458B450D74B75744B87BD747314;
+			remoteInfo = "Pods-Runner";
+		};
+		A4F3467F7DE7D2741FF8E35351B33FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C6B567311D7E870E2D1A0DA187FE3B;
+			remoteInfo = audioplayers_darwin;
+		};
+		D0D069AB04F9C1B2275EB3142C9874BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F55791B4A13521349D20E456BFCA90;
+			remoteInfo = speech_to_text_macos;
+		};
+		D45A4A2BD1433E55587F4233E8798F7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56F581DDCB0A032454E604885E17AE3C;
+			remoteInfo = path_provider_foundation;
+		};
+		DC69ACA572E5483F110F8E47924E772B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		FC1DDD3D49F32250A51EECA847F6CD61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -140,93 +114,74 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01BD48672711C340EF8C930CEB2A0832 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/Constants.swift"; sourceTree = "<group>"; };
 		01E45A15AB8BA1B99F116F1BE1C66960 /* audioplayers_darwin */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = audioplayers_darwin; path = audioplayers_darwin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
-		05281B6F8199120A24ABA0F59C36704A /* flutter_volume_controller */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_volume_controller; path = flutter_volume_controller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		08CAD52F70282A55E06DFE569CF36186 /* flutter_volume_controller-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_volume_controller-umbrella.h"; sourceTree = "<group>"; };
 		0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
-		0C0660DFA7B72258C5A8BF825AB699A2 /* speech_to_text_macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = speech_to_text_macos.debug.xcconfig; sourceTree = "<group>"; };
-		0C338D232F9227AA1CCFF16ED0B687C1 /* messages.g.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = messages.g.swift; path = "../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/messages.g.swift"; sourceTree = "<group>"; };
-		0D5C83497A27AB58D1A507D4D9F823A2 /* PathProviderPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathProviderPlugin.swift; path = "../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/PathProviderPlugin.swift"; sourceTree = "<group>"; };
+		0DC598FFB4EA2CBB657D59496EF56631 /* FlutterMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.debug.xcconfig; sourceTree = "<group>"; };
+		0E3F1904C07AA14D261520F6F00EA8AA /* speech_to_text_macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = speech_to_text_macos.release.xcconfig; sourceTree = "<group>"; };
 		11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunnerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
-		1E3333DF2DFA2B564BAB35CF73226F2F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/LICENSE"; sourceTree = "<group>"; };
-		1F0914172B733ACBC4AE6B5653ABBD94 /* audioplayers_darwin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "audioplayers_darwin-dummy.m"; sourceTree = "<group>"; };
-		205BCC8ECEF31E73B1402661D9CB104B /* path_provider_foundation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-prefix.pch"; sourceTree = "<group>"; };
-		234213C157E6A5AA5429772B6C3A613D /* audioplayers_darwin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayers_darwin.debug.xcconfig; sourceTree = "<group>"; };
-		241020C3438BF872B503416DAF6E49B0 /* FlutterMacOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlutterMacOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		257DA6C2C8CE13A35F5E77C6A41F6F77 /* speech_to_text_macos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "speech_to_text_macos-umbrella.h"; sourceTree = "<group>"; };
-		269ACF62D96312230BFB99ED9E39E596 /* SoundOutputManager+Goodies.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SoundOutputManager+Goodies.swift"; path = "../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/ISSoundAdditions/SoundOutputManager+Goodies.swift"; sourceTree = "<group>"; };
-		2F3E2C87E7A749CFA92D38BFFF50BD53 /* FlutterVolumeControllerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlutterVolumeControllerPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/FlutterVolumeControllerPlugin.swift"; sourceTree = "<group>"; };
-		315980FE03D9BD19EA7393D7D48C29B9 /* SoundOutputManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SoundOutputManager.swift; path = "../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/ISSoundAdditions/SoundOutputManager.swift"; sourceTree = "<group>"; };
-		3246557B4889DA08B5CA732DE79CFDE5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/LICENSE"; sourceTree = "<group>"; };
-		3691A424956CA0C8CA3AB26B72463001 /* flutter_volume_controller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_volume_controller.debug.xcconfig; sourceTree = "<group>"; };
-		37263271C0C7C5A7F1C3A0C2619C840F /* path_provider_foundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.debug.xcconfig; sourceTree = "<group>"; };
-		39DC7F9B710924440D8A8BD2749A0DA8 /* AudioplayersDarwinPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AudioplayersDarwinPlugin.h; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioplayersDarwinPlugin.h"; sourceTree = "<group>"; };
-		3CEB6591A34A51E0CD927647097817D0 /* audioplayers_darwin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayers_darwin-prefix.pch"; sourceTree = "<group>"; };
+		31A3E32E287CCAF517E355D53888E4F4 /* speech_to_text_macos.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = speech_to_text_macos.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos/speech_to_text_macos.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		333224A430DE0EA26A10C0B344F98788 /* speech_to_text_macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = speech_to_text_macos.debug.xcconfig; sourceTree = "<group>"; };
 		3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "path_provider_foundation-path_provider_foundation_privacy"; path = path_provider_foundation_privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF9EBB7BC57DD986A9305DD5453B8A5 /* speech_to_text_macos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = speech_to_text_macos; path = speech_to_text_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4401691FF86C9DA3A79B6C83E61D5CE5 /* speech_to_text_macos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "speech_to_text_macos-dummy.m"; sourceTree = "<group>"; };
-		4473E45E88A57068725C0CAF184C59F1 /* speech_to_text_macos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "speech_to_text_macos-prefix.pch"; sourceTree = "<group>"; };
-		44BC2684FA116BCE28E43739B486B086 /* WrappedMediaPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WrappedMediaPlayer.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/WrappedMediaPlayer.swift"; sourceTree = "<group>"; };
+		4105C1E24A1D6F84243C791C1489AFEB /* speech_to_text_macos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "speech_to_text_macos-umbrella.h"; sourceTree = "<group>"; };
+		41B9F96A1753ACFD1E705384F4E3C195 /* speech_to_text_macos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "speech_to_text_macos-prefix.pch"; sourceTree = "<group>"; };
 		499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
-		4A208BE233B90DDB4D3E7F4BCAF6DB14 /* FlutterMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.debug.xcconfig; sourceTree = "<group>"; };
-		4C4DC3A457350C820A53BC1D285BFFD2 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/Utils.swift"; sourceTree = "<group>"; };
 		4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunnerTests-dummy.m"; sourceTree = "<group>"; };
-		53611FC72E9D96204A446FC8A8081E71 /* AudioContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioContext.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioContext.swift"; sourceTree = "<group>"; };
-		561A0832A2C5E079BC8A09391908B153 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
-		5986BDBDE2A30ECDBB486CD5C980AC64 /* speech_to_text_macos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "speech_to_text_macos-Info.plist"; sourceTree = "<group>"; };
-		5B78053C66307B961273A26C7B145F74 /* path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
-		5EBF8D1F0D71EAB3320AB0DC4BD61ECF /* path_provider_foundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = path_provider_foundation.modulemap; sourceTree = "<group>"; };
-		5FEC8C6DF284C499D8E92DBFCF136BDD /* AudioplayersDarwinPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AudioplayersDarwinPlugin.m; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioplayersDarwinPlugin.m"; sourceTree = "<group>"; };
-		61D84F6092581FAF97D2BDEB0EE196C0 /* speech_to_text_macos.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = speech_to_text_macos.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos/speech_to_text_macos.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		62710F1F3D840723C85B5857FA4B1A96 /* path_provider_foundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-umbrella.h"; sourceTree = "<group>"; };
+		51DBE0BB83640D544F12EB4759E2CD49 /* SpeechToTextMacosPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpeechToTextMacosPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos/Classes/SpeechToTextMacosPlugin.swift"; sourceTree = "<group>"; };
+		5BEC374A9B4105E2F5FA1CD7CBA8E55D /* audioplayers_darwin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "audioplayers_darwin-dummy.m"; sourceTree = "<group>"; };
+		62EB161861B34CE31EB91D145C5F1E7D /* path_provider_foundation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-prefix.pch"; sourceTree = "<group>"; };
+		63B62DCF3D3FB47D20698343E26DA452 /* FlutterMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.release.xcconfig; sourceTree = "<group>"; };
+		63C2EE6B3C241906D035985E1DAD8035 /* AudioContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioContext.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioContext.swift"; sourceTree = "<group>"; };
+		66674CF5ECC4EB16663EB3387EE4CBC6 /* audioplayers_darwin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayers_darwin-umbrella.h"; sourceTree = "<group>"; };
+		669D11AA80BB78420F6C4B378AE87AD2 /* path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
 		669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Runner"; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B324319FFDA507EFAD4ED7420951E1F /* flutter_volume_controller.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_volume_controller.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/flutter_volume_controller.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		68AC0CABAF1FCEC1911A9FFB7D408AA5 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/Utils.swift"; sourceTree = "<group>"; };
 		6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-RunnerTests"; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7055D8CC6F52E6347F7B23A51E1BF555 /* path_provider_foundation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_foundation-umbrella.h"; sourceTree = "<group>"; };
+		7094B88E91D01B1961B151AB71B804F7 /* FlutterMacOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlutterMacOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
-		75385EFE33DFEE1BA06252E8E2DFF59B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/LICENSE"; sourceTree = "<group>"; };
-		755306B9490978853C60A08A1FB7AE90 /* audioplayers_darwin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayers_darwin.release.xcconfig; sourceTree = "<group>"; };
 		773BFCE41424EB8EBB72EF3F6A5FB719 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
-		788C9D96E37BEBE51E0075D0E7A371C8 /* flutter_volume_controller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_volume_controller-dummy.m"; sourceTree = "<group>"; };
-		79981964535247C68E78F10039725812 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/LICENSE"; sourceTree = "<group>"; };
 		79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7B6D8C22F0071BDA2FAB9334C501F931 /* audioplayers_darwin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "audioplayers_darwin-Info.plist"; sourceTree = "<group>"; };
-		80673A51D25D523CE6C799CD2F1AB3E2 /* flutter_volume_controller-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_volume_controller-Info.plist"; sourceTree = "<group>"; };
-		85DB7359F29C7FB8237FB5353E5A6B59 /* SwiftAudioplayersDarwinPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAudioplayersDarwinPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/SwiftAudioplayersDarwinPlugin.swift"; sourceTree = "<group>"; };
-		85FB6F1FA36D288BA88951F901F955F0 /* SpeechToTextMacosPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpeechToTextMacosPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos/Classes/SpeechToTextMacosPlugin.swift"; sourceTree = "<group>"; };
-		8A45167ED37060A1B521EAEEC13F09B6 /* audioplayers_darwin.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = audioplayers_darwin.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/audioplayers_darwin.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.release.xcconfig; sourceTree = "<group>"; };
-		8C8E467EA26EC8CCF56082245EB8E219 /* VolumeListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeListener.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/VolumeListener.swift"; sourceTree = "<group>"; };
-		937BC28FC88B78F9463FBC59EF395058 /* path_provider_foundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "path_provider_foundation-dummy.m"; sourceTree = "<group>"; };
-		941DD42E2CC3234348A6CB370D672B67 /* SoundOutputManager+Properties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SoundOutputManager+Properties.swift"; path = "../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/ISSoundAdditions/SoundOutputManager+Properties.swift"; sourceTree = "<group>"; };
-		983EE434D67333F67D81B01CA28646E8 /* BridgedCasts.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BridgedCasts.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/BridgedCasts.swift"; sourceTree = "<group>"; };
+		7E61ACC3E03270EED9557DBB2E08CF5D /* path_provider_foundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = path_provider_foundation.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7EC8044911EACE70785422E1BF47F729 /* WrappedMediaPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WrappedMediaPlayer.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/WrappedMediaPlayer.swift"; sourceTree = "<group>"; };
+		87F85EAA04A688CD25EEB2C7BD3FA0C1 /* audioplayers_darwin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayers_darwin-prefix.pch"; sourceTree = "<group>"; };
+		8A0A5AA77375E9E761540940DD9AEA9D /* AudioplayersDarwinPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AudioplayersDarwinPlugin.m; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioplayersDarwinPlugin.m"; sourceTree = "<group>"; };
+		8B64015658DDB36722CCAD07A69DDA75 /* speech_to_text_macos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "speech_to_text_macos-dummy.m"; sourceTree = "<group>"; };
+		8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.release.xcconfig; sourceTree = "<group>"; };
+		900E3CD1499703BB5EC6BBBC4885AFFA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/LICENSE"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunnerTests-umbrella.h"; sourceTree = "<group>"; };
 		9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		A05E07BE5846C03425FC2D3B2370BF11 /* flutter_volume_controller.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_volume_controller.modulemap; sourceTree = "<group>"; };
-		AA3403695C79DB3851CF0B434174B017 /* speech_to_text_macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = speech_to_text_macos.release.xcconfig; sourceTree = "<group>"; };
+		A385F663E894ED31DEE982E0B4D2FCC3 /* path_provider_foundation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "path_provider_foundation-dummy.m"; sourceTree = "<group>"; };
+		AAA42C340822DC80415DA27E194055F7 /* AudioplayersDarwinPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AudioplayersDarwinPlugin.h; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/AudioplayersDarwinPlugin.h"; sourceTree = "<group>"; };
 		AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
-		ACC47E721F56C1F2CC9479DD1F0AC7DA /* audioplayers_darwin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = audioplayers_darwin.modulemap; sourceTree = "<group>"; };
 		AE157A33FEF959A214796BFF348717F6 /* path_provider_foundation */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = path_provider_foundation; path = path_provider_foundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00A5ECAED4CA0C16FF7C65365BC0334 /* Pods-RunnerTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-Info.plist"; sourceTree = "<group>"; };
 		B0BD57AB3672E53828D11C2A3368023A /* Pods-RunnerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RunnerTests.modulemap"; sourceTree = "<group>"; };
-		B2862D350D8680C8FF2A3375E6530A80 /* FlutterMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.release.xcconfig; sourceTree = "<group>"; };
+		B126B75F6FDBAE73DA03CEE49EC4E3B2 /* messages.g.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = messages.g.swift; path = "../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/messages.g.swift"; sourceTree = "<group>"; };
 		B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		BBB116AE5DE48A3D0351D6506B48D5AC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/LICENSE"; sourceTree = "<group>"; };
+		BDF5DB27635088CF927270BB02AA5FEA /* speech_to_text_macos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = speech_to_text_macos.modulemap; sourceTree = "<group>"; };
+		BE36B6D758262C3D4A1E3F85E47AE14B /* PathProviderPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathProviderPlugin.swift; path = "../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/PathProviderPlugin.swift"; sourceTree = "<group>"; };
 		C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
-		C4352CA2F7AF059846DF415FAD912C2C /* speech_to_text_macos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = speech_to_text_macos.modulemap; sourceTree = "<group>"; };
 		C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
-		C64C53264F7C540955DD6F24E0E89F22 /* VolumeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeController.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/VolumeController.swift"; sourceTree = "<group>"; };
-		D02111C855ACB70CFAA049E497352191 /* flutter_volume_controller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_volume_controller.release.xcconfig; sourceTree = "<group>"; };
-		D0B0695EF770921E5B52CD91C226D81A /* flutter_volume_controller-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_volume_controller-prefix.pch"; sourceTree = "<group>"; };
-		D57AFF0A173E39F53181C2ADE6101189 /* audioplayers_darwin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "audioplayers_darwin-umbrella.h"; sourceTree = "<group>"; };
-		DF7F8A054653341369F442023FD7704F /* path_provider_foundation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = path_provider_foundation.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CBE3063C36CBD0D2845CE4DCB4BC4C14 /* path_provider_foundation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = path_provider_foundation.modulemap; sourceTree = "<group>"; };
+		D40E8DE312FDFA47659A8099139B2D46 /* audioplayers_darwin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayers_darwin.debug.xcconfig; sourceTree = "<group>"; };
+		D73AF0413F0DB7BABAD1EB3107D68AD7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/LICENSE"; sourceTree = "<group>"; };
+		E3EE74C5C7D71A6E25790BF6D1CBE695 /* SwiftAudioplayersDarwinPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAudioplayersDarwinPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/Classes/SwiftAudioplayersDarwinPlugin.swift"; sourceTree = "<group>"; };
+		E5E544E47FF3815725369BC2C1E03D50 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources/path_provider_foundation/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		E69E35B83F0075E73BC4028E81E6EE30 /* audioplayers_darwin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = audioplayers_darwin.modulemap; sourceTree = "<group>"; };
 		E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
-		EB904C32DDF205A81336598FFC761487 /* ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
 		ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EE414C3492DD7DA37895718B60EBADC6 /* Sound.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = "../../../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos/Classes/ISSoundAdditions/Sound.swift"; sourceTree = "<group>"; };
+		ED79AACC96228F20743A8BC843151288 /* audioplayers_darwin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = audioplayers_darwin.release.xcconfig; sourceTree = "<group>"; };
+		EF4A95C59D068FE410ACD1D25B4A266F /* path_provider_foundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_foundation.debug.xcconfig; sourceTree = "<group>"; };
+		F7E4B6A8ED4D2E5AE4742BBCF7BC2DA4 /* audioplayers_darwin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "audioplayers_darwin-Info.plist"; sourceTree = "<group>"; };
+		FB97AD14FEDB0890D082583A65DA1D04 /* ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist"; sourceTree = "<group>"; };
+		FDFF1A7D159B2186B517163461C9818E /* speech_to_text_macos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "speech_to_text_macos-Info.plist"; sourceTree = "<group>"; };
+		FFECB32D88515ECC80D512288873477F /* audioplayers_darwin.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = audioplayers_darwin.podspec; path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos/audioplayers_darwin.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,26 +193,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3833963B89083A58FAC876C50DA196CC /* Frameworks */ = {
+		1B8F6CFF52ABF69EABA65810E942F0AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75D6CABE95860BF5ADF227980CBE1768 /* Frameworks */ = {
+		9276D3F41ECA46FBACFB49A098810804 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71AB341D77169E98247B4BE117F175E2 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		774294D745B43266F61B36D561E391C0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DEE9BB3F8F71747DE5041B9268EBE7A0 /* Cocoa.framework in Frameworks */,
+				70415F0A246F2F86D0B10FF3FCA1D391 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,268 +235,164 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00D0C9A7B7C036DBC49FB78AE7454386 /* plugins */ = {
+		042229DF748B4C3E260C2EFB3C8987F3 /* speech_to_text_macos */ = {
 			isa = PBXGroup;
 			children = (
-				2907AABFC06E4F13689E3EAA4E190691 /* flutter_volume_controller */,
+				82B1CBCB9C368064427BB107B6C99484 /* .. */,
+				136A62DC51777785DAC75BB770114BC2 /* Pod */,
+				105896D892D35B9C22D51BD26CB015D3 /* Support Files */,
 			);
-			name = plugins;
-			path = plugins;
+			name = speech_to_text_macos;
+			path = ../Flutter/ephemeral/.symlinks/plugins/speech_to_text_macos/macos;
 			sourceTree = "<group>";
 		};
-		016319E4460108052B7B5886CE69A7B3 /* Support Files */ = {
+		070B8489B8127C99E21EA195BD4CC236 /* audioplayers_darwin */ = {
 			isa = PBXGroup;
 			children = (
-				ACC47E721F56C1F2CC9479DD1F0AC7DA /* audioplayers_darwin.modulemap */,
-				1F0914172B733ACBC4AE6B5653ABBD94 /* audioplayers_darwin-dummy.m */,
-				7B6D8C22F0071BDA2FAB9334C501F931 /* audioplayers_darwin-Info.plist */,
-				3CEB6591A34A51E0CD927647097817D0 /* audioplayers_darwin-prefix.pch */,
-				D57AFF0A173E39F53181C2ADE6101189 /* audioplayers_darwin-umbrella.h */,
-				234213C157E6A5AA5429772B6C3A613D /* audioplayers_darwin.debug.xcconfig */,
-				755306B9490978853C60A08A1FB7AE90 /* audioplayers_darwin.release.xcconfig */,
+				FBA8B17B365697A5B709A8E63903994F /* macos */,
 			);
-			name = "Support Files";
-			path = "../../../../../../Pods/Target Support Files/audioplayers_darwin";
+			name = audioplayers_darwin;
+			path = audioplayers_darwin;
 			sourceTree = "<group>";
 		};
-		03C0FFE0937A681DBDBD64BF9927D9F3 /* .. */ = {
+		09A13226BF8420E342D927B04FB61125 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				A634AE10B3FDBF8F0CB824A2854A3A05 /* .. */,
+				FE02E9A0984F79B5DCBDA1FD6DF4B029 /* .. */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		04862F61C0D7E04EBAECB7D0B44700EC /* audioplayers_darwin */ = {
+		0A38200960CBDA48E30E41BDBC2C751E /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				4AC17D799E15AF1FECFFEB85A2221D2B /* .. */,
-				3CD374C7633AAA61BDF30D61EA01F67D /* Pod */,
-				016319E4460108052B7B5886CE69A7B3 /* Support Files */,
+				F1C179FC0D24A029881B6ECAAB252AE0 /* .. */,
 			);
-			name = audioplayers_darwin;
-			path = ../Flutter/ephemeral/.symlinks/plugins/audioplayers_darwin/macos;
+			name = ..;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		0557EF447237AB62375B0F08DCA09D56 /* path_provider_foundation */ = {
+		0BF44CE50AA1898ED0032CF5BED358AF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7EE9548BD4CF03B3C260F1BC675409BD /* darwin */,
+				0DC598FFB4EA2CBB657D59496EF56631 /* FlutterMacOS.debug.xcconfig */,
+				63B62DCF3D3FB47D20698343E26DA452 /* FlutterMacOS.release.xcconfig */,
 			);
-			name = path_provider_foundation;
-			path = path_provider_foundation;
+			name = "Support Files";
+			path = "../../Pods/Target Support Files/FlutterMacOS";
 			sourceTree = "<group>";
 		};
-		09FF93537B9BCFFC3C9856F0F9506E06 /* frontend */ = {
+		0F4A3981044C5B5C2464E7DA94B53600 /* plugins */ = {
 			isa = PBXGroup;
 			children = (
-				C949142CFD8EDAF7ADE582DC56491986 /* macos */,
+				070B8489B8127C99E21EA195BD4CC236 /* audioplayers_darwin */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		105896D892D35B9C22D51BD26CB015D3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5DB27635088CF927270BB02AA5FEA /* speech_to_text_macos.modulemap */,
+				8B64015658DDB36722CCAD07A69DDA75 /* speech_to_text_macos-dummy.m */,
+				FDFF1A7D159B2186B517163461C9818E /* speech_to_text_macos-Info.plist */,
+				41B9F96A1753ACFD1E705384F4E3C195 /* speech_to_text_macos-prefix.pch */,
+				4105C1E24A1D6F84243C791C1489AFEB /* speech_to_text_macos-umbrella.h */,
+				333224A430DE0EA26A10C0B344F98788 /* speech_to_text_macos.debug.xcconfig */,
+				0E3F1904C07AA14D261520F6F00EA8AA /* speech_to_text_macos.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/speech_to_text_macos";
+			sourceTree = "<group>";
+		};
+		136A62DC51777785DAC75BB770114BC2 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				BBB116AE5DE48A3D0351D6506B48D5AC /* LICENSE */,
+				31A3E32E287CCAF517E355D53888E4F4 /* speech_to_text_macos.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		138F4CF82CE4CBCDF87DE8B0DBE3EE2B /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				B0B612EBC0B253B79FD99D48BCAE2D24 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		1396E61C2314600B3641633D667E6096 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				75942B3469B74C64DB586158BED40C1A /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1427190B5F75D8CBA34E096B9543A3C1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBE3063C36CBD0D2845CE4DCB4BC4C14 /* path_provider_foundation.modulemap */,
+				A385F663E894ED31DEE982E0B4D2FCC3 /* path_provider_foundation-dummy.m */,
+				669D11AA80BB78420F6C4B378AE87AD2 /* path_provider_foundation-Info.plist */,
+				62EB161861B34CE31EB91D145C5F1E7D /* path_provider_foundation-prefix.pch */,
+				7055D8CC6F52E6347F7B23A51E1BF555 /* path_provider_foundation-umbrella.h */,
+				EF4A95C59D068FE410ACD1D25B4A266F /* path_provider_foundation.debug.xcconfig */,
+				8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */,
+				FB97AD14FEDB0890D082583A65DA1D04 /* ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/path_provider_foundation";
+			sourceTree = "<group>";
+		};
+		1671D6505C79141C2A7EA37E1C3E6AA4 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				B36F5E9B7DDCB1F17B3740BEE47BD0B8 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos";
+			sourceTree = "<group>";
+		};
+		17E2F7833042105D6B703847F0DA5ADA /* frontend */ = {
+			isa = PBXGroup;
+			children = (
+				B673F2AC5E8C063C9E607F13B2E42014 /* macos */,
 			);
 			name = frontend;
 			path = frontend;
 			sourceTree = "<group>";
 		};
-		0D164929481CA802FB13FAB20551C031 /* Products */ = {
+		1CED78FF58B98E7056F992388DD87B75 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				01E45A15AB8BA1B99F116F1BE1C66960 /* audioplayers_darwin */,
-				05281B6F8199120A24ABA0F59C36704A /* flutter_volume_controller */,
-				AE157A33FEF959A214796BFF348717F6 /* path_provider_foundation */,
-				3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */,
-				669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */,
-				6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */,
-				3DF9EBB7BC57DD986A9305DD5453B8A5 /* speech_to_text_macos */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		12AE3A8467BD617F02DC63229A128932 /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				29D10DF08BB0AEA64BA5908A248BEE99 /* Flutter */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		16F0BC6CA96C980856DB7F77BE4D8641 /* path_provider_foundation */ = {
-			isa = PBXGroup;
-			children = (
-				BD79D78593E3A807EA329536D513D3B8 /* Sources */,
-			);
-			name = path_provider_foundation;
-			path = path_provider_foundation;
-			sourceTree = "<group>";
-		};
-		174243E7D3334EE3EDEE4BAAFF5DF087 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				3607FAB3298761018E64DC1D9B66295F /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		19952900EA0DE02600F048DDBB19B648 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				E9788C33D507CB4328E888F651A95CDC /* .. */,
-			);
-			name = ..;
-			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos";
-			sourceTree = "<group>";
-		};
-		1A289FA560F407C49F168FBE9DC4378C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				561A0832A2C5E079BC8A09391908B153 /* PrivacyInfo.xcprivacy */,
-			);
-			name = Resources;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		1BCE3485869AAE800792EE5612E8C115 /* speech_to_text_macos */ = {
-			isa = PBXGroup;
-			children = (
-				D4A4540A0728821BFB4E33805085241D /* macos */,
-			);
-			name = speech_to_text_macos;
-			path = speech_to_text_macos;
-			sourceTree = "<group>";
-		};
-		1CCBF15666A13E27EA380D81F3C19B12 /* path_provider_foundation */ = {
-			isa = PBXGroup;
-			children = (
-				985A9765E6FEAFEFC922F5900772A454 /* darwin */,
-			);
-			name = path_provider_foundation;
-			path = path_provider_foundation;
-			sourceTree = "<group>";
-		};
-		1CFA187CBA0B27AA2A943B5D6DB1FF65 /* ephemeral */ = {
-			isa = PBXGroup;
-			children = (
-				F7A55A82A7B9EFA6B1A4CCE0D93454F7 /* .symlinks */,
-			);
-			name = ephemeral;
-			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		22DF025C8C8AFBE716FC45A92BBB9AAB /* Flutter */ = {
-			isa = PBXGroup;
-			children = (
-				B43173DEC278F0525064DA7D0B0CC969 /* ephemeral */,
-			);
-			name = Flutter;
-			path = Flutter;
-			sourceTree = "<group>";
-		};
-		252F0E5D556964CA2360F3EE06979766 /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				58A28C4DBDFE9D99E63AC14D06116A9A /* Flutter */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		2593B08DEA8075CAE04DBA637E7FC9CB /* ISSoundAdditions */ = {
-			isa = PBXGroup;
-			children = (
-				EE414C3492DD7DA37895718B60EBADC6 /* Sound.swift */,
-				315980FE03D9BD19EA7393D7D48C29B9 /* SoundOutputManager.swift */,
-				269ACF62D96312230BFB99ED9E39E596 /* SoundOutputManager+Goodies.swift */,
-				941DD42E2CC3234348A6CB370D672B67 /* SoundOutputManager+Properties.swift */,
-			);
-			name = ISSoundAdditions;
-			path = ISSoundAdditions;
-			sourceTree = "<group>";
-		};
-		2706205D880AF77F18A858609B654CA7 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				B2065DB21B4947C4104BAF27C29406CA /* .. */,
-			);
-			name = ..;
-			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/flutter_volume_controller-1.3.3/macos";
-			sourceTree = "<group>";
-		};
-		27DC19F97A9A934E92490F77EB0CD6F7 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				03C0FFE0937A681DBDBD64BF9927D9F3 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		27EECDA2ECBD45A1822E658E8079A2AB /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				FA9C8D62AD79D8B0DC0B4535AC7D2D3F /* Documents */,
-			);
-			name = ..;
-			path = .;
-			sourceTree = "<group>";
-		};
-		2907AABFC06E4F13689E3EAA4E190691 /* flutter_volume_controller */ = {
-			isa = PBXGroup;
-			children = (
-				87015650BA90245FE227F39BCAD9A909 /* macos */,
-			);
-			name = flutter_volume_controller;
-			path = flutter_volume_controller;
-			sourceTree = "<group>";
-		};
-		29227F45A7619E750EA78F01C64DDBB0 /* plugins */ = {
-			isa = PBXGroup;
-			children = (
-				9D2FB8A8F594214155C7760F10EE7B8D /* audioplayers_darwin */,
-			);
-			name = plugins;
-			path = plugins;
-			sourceTree = "<group>";
-		};
-		29D10DF08BB0AEA64BA5908A248BEE99 /* Flutter */ = {
-			isa = PBXGroup;
-			children = (
-				5919FD8FFF2FC144DEDAFAB151947D6F /* ephemeral */,
-			);
-			name = Flutter;
-			path = Flutter;
-			sourceTree = "<group>";
-		};
-		2A54AF5DBA7A0C3D01576D3159BDF209 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				53611FC72E9D96204A446FC8A8081E71 /* AudioContext.swift */,
-				39DC7F9B710924440D8A8BD2749A0DA8 /* AudioplayersDarwinPlugin.h */,
-				5FEC8C6DF284C499D8E92DBFCF136BDD /* AudioplayersDarwinPlugin.m */,
-				85DB7359F29C7FB8237FB5353E5A6B59 /* SwiftAudioplayersDarwinPlugin.swift */,
-				4C4DC3A457350C820A53BC1D285BFFD2 /* Utils.swift */,
-				44BC2684FA116BCE28E43739B486B086 /* WrappedMediaPlayer.swift */,
+				51DBE0BB83640D544F12EB4759E2CD49 /* SpeechToTextMacosPlugin.swift */,
 			);
 			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		2B7BFED4B8C23B0412DC69EFAB94F0F9 /* Documents */ = {
+		21E3920FF521DD4FFA8F3ADD5E00B6D4 /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
-				E48786044413B19512C7B290E153C890 /* AI_Manager */,
+				5453A85CA9B52B8E8DE4FD6CC675A956 /* plugins */,
 			);
-			name = Documents;
-			path = Documents;
+			name = .symlinks;
+			path = .symlinks;
 			sourceTree = "<group>";
 		};
-		2C9835232413ED3FF62C531C6E2E5BA8 /* macos */ = {
+		2B9CE0391D0193DAAFEEB526410ABEAB /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				22DF025C8C8AFBE716FC45A92BBB9AAB /* Flutter */,
+				C7F118EAC166BD36D6822745FA843FB0 /* .. */,
 			);
-			name = macos;
-			path = macos;
+			name = ..;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */ = {
@@ -561,94 +404,69 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		3607FAB3298761018E64DC1D9B66295F /* .. */ = {
+		30E2A464B6BF46507C7E6AC6660316DC /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				B5E2B63B5F3B5B1C8F611839CE7ED5E0 /* .. */,
+				C892F380416888D8465BB787A5F0C2FF /* .. */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		39B734A6BCBFE6A4772114B664757A07 /* Flutter */ = {
+		3D1AB078664D5EEA23AACB7A614820F7 /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
-				E488B291CFB2883CEAA1F0E529C25D1A /* ephemeral */,
+				E6094FE65627F68C54561D6AAC01AFC1 /* ephemeral */,
 			);
 			name = Flutter;
 			path = Flutter;
 			sourceTree = "<group>";
 		};
-		39CBECDDCCB428D52ADCFE425B6FB7D2 /* path_provider_foundation */ = {
+		421DF35BBC7E1AC1531271A8D779A562 /* frontend */ = {
 			isa = PBXGroup;
 			children = (
-				722AF089E2FEB414318433F07FF0550C /* Sources */,
+				FFCE16F94021B411B115E860DD51FFCB /* macos */,
+			);
+			name = frontend;
+			path = frontend;
+			sourceTree = "<group>";
+		};
+		4250A3E44B73EFDF2565591DFA90047A /* audioplayers_darwin */ = {
+			isa = PBXGroup;
+			children = (
+				1671D6505C79141C2A7EA37E1C3E6AA4 /* .. */,
+				999F31A975D3DEC7B20DEFF794251463 /* Pod */,
+				54E8EB4EAF2E37AB57E06578DDD74402 /* Support Files */,
+			);
+			name = audioplayers_darwin;
+			path = ../Flutter/ephemeral/.symlinks/plugins/audioplayers_darwin/macos;
+			sourceTree = "<group>";
+		};
+		42CFB9A3B5A07147FB7227BD3DA531AD /* path_provider_foundation */ = {
+			isa = PBXGroup;
+			children = (
+				FB05DAA94B7DA167A7F2103630A8D1E4 /* darwin */,
 			);
 			name = path_provider_foundation;
 			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
-		3CD374C7633AAA61BDF30D61EA01F67D /* Pod */ = {
+		4560E5353F9EB7DA67388D9D94052A74 /* AI_Manager */ = {
 			isa = PBXGroup;
 			children = (
-				8A45167ED37060A1B521EAEEC13F09B6 /* audioplayers_darwin.podspec */,
-				1E3333DF2DFA2B564BAB35CF73226F2F /* LICENSE */,
+				EA1E3F5601F76F502B0EFE8BCE42DF1E /* UI */,
 			);
-			name = Pod;
+			name = AI_Manager;
+			path = AI_Manager;
 			sourceTree = "<group>";
 		};
-		3E1C9ED557014C7B11EE727A327D4DC7 /* UI */ = {
+		4F2E94E6BE3F6BD65211FA1A3D15248A /* speech_to_text_macos */ = {
 			isa = PBXGroup;
 			children = (
-				8AFA3767A062A71E8EE08AE8E8F46B2E /* frontend */,
+				DCD459B0C6F09B2CA1DE0A35981894E5 /* macos */,
 			);
-			name = UI;
-			path = UI;
-			sourceTree = "<group>";
-		};
-		4004FC570981EF90EBF8C452FC86C0D6 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				70A3676AD134324BDAE78B7C08AF5621 /* frontend */,
-			);
-			name = UI;
-			path = UI;
-			sourceTree = "<group>";
-		};
-		45CAAE5A8491C3BFD013CF1AF334C7EE /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				39B734A6BCBFE6A4772114B664757A07 /* Flutter */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		4AC17D799E15AF1FECFFEB85A2221D2B /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				EA42D33A0AB2BA1D45C8A61E9D19C61E /* .. */,
-			);
-			name = ..;
-			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/audioplayers_darwin-5.0.2/macos";
-			sourceTree = "<group>";
-		};
-		4ACFC6A6CDFAC1F9B0AD1E812C592A79 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				75385EFE33DFEE1BA06252E8E2DFF59B /* LICENSE */,
-				DF7F8A054653341369F442023FD7704F /* path_provider_foundation.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		4B9D72DAEBA13426C742E477F242F3D1 /* .symlinks */ = {
-			isa = PBXGroup;
-			children = (
-				00D0C9A7B7C036DBC49FB78AE7454386 /* plugins */,
-			);
-			name = .symlinks;
-			path = .symlinks;
+			name = speech_to_text_macos;
+			path = speech_to_text_macos;
 			sourceTree = "<group>";
 		};
 		537E840C4F4E30B706FD9D64B15C53A7 /* Pods-RunnerTests */ = {
@@ -668,77 +486,65 @@
 			path = "Target Support Files/Pods-RunnerTests";
 			sourceTree = "<group>";
 		};
-		53AFDC79E0BC5C3AEDE6E2B07DE355DB /* plugins */ = {
+		5453A85CA9B52B8E8DE4FD6CC675A956 /* plugins */ = {
 			isa = PBXGroup;
 			children = (
-				1BCE3485869AAE800792EE5612E8C115 /* speech_to_text_macos */,
+				4F2E94E6BE3F6BD65211FA1A3D15248A /* speech_to_text_macos */,
 			);
 			name = plugins;
 			path = plugins;
 			sourceTree = "<group>";
 		};
-		55CD5C32C544020A0D35019D2257C423 /* Flutter */ = {
+		546BF621070CCC5BCA2066008733A237 /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
-				1CFA187CBA0B27AA2A943B5D6DB1FF65 /* ephemeral */,
+				0F4A3981044C5B5C2464E7DA94B53600 /* plugins */,
 			);
-			name = Flutter;
-			path = Flutter;
+			name = .symlinks;
+			path = .symlinks;
 			sourceTree = "<group>";
 		};
-		58A28C4DBDFE9D99E63AC14D06116A9A /* Flutter */ = {
+		54E8EB4EAF2E37AB57E06578DDD74402 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D2DA2E0D241E59F6AB61F839F9BC8B1D /* ephemeral */,
-			);
-			name = Flutter;
-			path = Flutter;
-			sourceTree = "<group>";
-		};
-		58F47F6C7AA85F4AF1A5939B5EFEBB0B /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				09FF93537B9BCFFC3C9856F0F9506E06 /* frontend */,
-			);
-			name = UI;
-			path = UI;
-			sourceTree = "<group>";
-		};
-		5919FD8FFF2FC144DEDAFAB151947D6F /* ephemeral */ = {
-			isa = PBXGroup;
-			children = (
-				E4B30244DC5C302188364BBECA7640C9 /* .symlinks */,
-			);
-			name = ephemeral;
-			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		5AD51D798A1EB443827ED1583F3C8492 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				C59D6749893101BAB0D51A9ADA8674FF /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		5BE0252776354A5C0552E23812375468 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				174243E7D3334EE3EDEE4BAAFF5DF087 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		6A695921A823185C9083C8AE66A520FE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4A208BE233B90DDB4D3E7F4BCAF6DB14 /* FlutterMacOS.debug.xcconfig */,
-				B2862D350D8680C8FF2A3375E6530A80 /* FlutterMacOS.release.xcconfig */,
+				E69E35B83F0075E73BC4028E81E6EE30 /* audioplayers_darwin.modulemap */,
+				5BEC374A9B4105E2F5FA1CD7CBA8E55D /* audioplayers_darwin-dummy.m */,
+				F7E4B6A8ED4D2E5AE4742BBCF7BC2DA4 /* audioplayers_darwin-Info.plist */,
+				87F85EAA04A688CD25EEB2C7BD3FA0C1 /* audioplayers_darwin-prefix.pch */,
+				66674CF5ECC4EB16663EB3387EE4CBC6 /* audioplayers_darwin-umbrella.h */,
+				D40E8DE312FDFA47659A8099139B2D46 /* audioplayers_darwin.debug.xcconfig */,
+				ED79AACC96228F20743A8BC843151288 /* audioplayers_darwin.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../../Pods/Target Support Files/FlutterMacOS";
+			path = "../../../../../../Pods/Target Support Files/audioplayers_darwin";
+			sourceTree = "<group>";
+		};
+		6133A9B094FA0008079DFB7879EA014F /* FlutterMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				9DAECEA085DE019A3204ECA2E15B2A08 /* Pod */,
+				0BF44CE50AA1898ED0032CF5BED358AF /* Support Files */,
+			);
+			name = FlutterMacOS;
+			path = ../Flutter/ephemeral;
+			sourceTree = "<group>";
+		};
+		67242BD52DD65F87E33DC7C2A1DBF756 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				F19972F774E9E7D0BB8D6D9A35E52D2E /* AI_Manager */,
+			);
+			name = Documents;
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		68AF26EAB20ED9588650FF2A5C29F512 /* AI_Manager */ = {
+			isa = PBXGroup;
+			children = (
+				72E1B61679385087E4B52AB22A9BBAFE /* UI */,
+			);
+			name = AI_Manager;
+			path = AI_Manager;
 			sourceTree = "<group>";
 		};
 		6CF8013CA832F8AB5DDAE0156C97FD88 /* OS X */ = {
@@ -749,489 +555,401 @@
 			name = "OS X";
 			sourceTree = "<group>";
 		};
-		70A3676AD134324BDAE78B7C08AF5621 /* frontend */ = {
+		6D8D9A66C132FBB4CB54B452DDC0809E /* path_provider_foundation */ = {
 			isa = PBXGroup;
 			children = (
-				2C9835232413ED3FF62C531C6E2E5BA8 /* macos */,
-			);
-			name = frontend;
-			path = frontend;
-			sourceTree = "<group>";
-		};
-		722AF089E2FEB414318433F07FF0550C /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				EEC0A7606962006B97F649B58E063A52 /* path_provider_foundation */,
-			);
-			name = Sources;
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		731764FA798FB8DBDA950CE511953EDD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A05E07BE5846C03425FC2D3B2370BF11 /* flutter_volume_controller.modulemap */,
-				788C9D96E37BEBE51E0075D0E7A371C8 /* flutter_volume_controller-dummy.m */,
-				80673A51D25D523CE6C799CD2F1AB3E2 /* flutter_volume_controller-Info.plist */,
-				D0B0695EF770921E5B52CD91C226D81A /* flutter_volume_controller-prefix.pch */,
-				08CAD52F70282A55E06DFE569CF36186 /* flutter_volume_controller-umbrella.h */,
-				3691A424956CA0C8CA3AB26B72463001 /* flutter_volume_controller.debug.xcconfig */,
-				D02111C855ACB70CFAA049E497352191 /* flutter_volume_controller.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../../../../../../Pods/Target Support Files/flutter_volume_controller";
-			sourceTree = "<group>";
-		};
-		74B8B3FB716E64E5CF1E330902737A3B /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				A8F1056B07B45A04F706B8651B9B15B0 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		79D328562011E3030780905754631059 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5EBF8D1F0D71EAB3320AB0DC4BD61ECF /* path_provider_foundation.modulemap */,
-				937BC28FC88B78F9463FBC59EF395058 /* path_provider_foundation-dummy.m */,
-				5B78053C66307B961273A26C7B145F74 /* path_provider_foundation-Info.plist */,
-				205BCC8ECEF31E73B1402661D9CB104B /* path_provider_foundation-prefix.pch */,
-				62710F1F3D840723C85B5857FA4B1A96 /* path_provider_foundation-umbrella.h */,
-				37263271C0C7C5A7F1C3A0C2619C840F /* path_provider_foundation.debug.xcconfig */,
-				8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */,
-				EB904C32DDF205A81336598FFC761487 /* ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../../../../../../Pods/Target Support Files/path_provider_foundation";
-			sourceTree = "<group>";
-		};
-		7AE93AD625CC38A7D4AF2F4DF8950204 /* flutter_volume_controller */ = {
-			isa = PBXGroup;
-			children = (
-				2706205D880AF77F18A858609B654CA7 /* .. */,
-				A0C07516D9ACF44F0D016246C921C54A /* Pod */,
-				731764FA798FB8DBDA950CE511953EDD /* Support Files */,
-			);
-			name = flutter_volume_controller;
-			path = ../Flutter/ephemeral/.symlinks/plugins/flutter_volume_controller/macos;
-			sourceTree = "<group>";
-		};
-		7C66DFF8B05BBA30EA442D470F730B59 /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				F4741A28E794E209A46D2849D4188C4F /* AI_Manager */,
-			);
-			name = Documents;
-			path = Documents;
-			sourceTree = "<group>";
-		};
-		7EE9548BD4CF03B3C260F1BC675409BD /* darwin */ = {
-			isa = PBXGroup;
-			children = (
-				16F0BC6CA96C980856DB7F77BE4D8641 /* path_provider_foundation */,
-			);
-			name = darwin;
-			path = darwin;
-			sourceTree = "<group>";
-		};
-		87015650BA90245FE227F39BCAD9A909 /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				DB4529CE7027BC56ED43EA0BBD34FF77 /* Classes */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		8AFA3767A062A71E8EE08AE8E8F46B2E /* frontend */ = {
-			isa = PBXGroup;
-			children = (
-				45CAAE5A8491C3BFD013CF1AF334C7EE /* macos */,
-			);
-			name = frontend;
-			path = frontend;
-			sourceTree = "<group>";
-		};
-		8D2B0BFD2949C70E8EA66A3AA66DAB6D /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				FC2682456966E98A82B1B9C613094544 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		8F1570C1408E0DC466D5FD8D405E5F56 /* frontend */ = {
-			isa = PBXGroup;
-			children = (
-				12AE3A8467BD617F02DC63229A128932 /* macos */,
-			);
-			name = frontend;
-			path = frontend;
-			sourceTree = "<group>";
-		};
-		907C8C08F1F1144F99FA6832E72C64CD /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				F468D7C9DEC34CACEC2819D49599CA89 /* AI_Manager */,
-			);
-			name = Documents;
-			path = Documents;
-			sourceTree = "<group>";
-		};
-		90AB0AAD9936791921152C8FDFB617A4 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				241020C3438BF872B503416DAF6E49B0 /* FlutterMacOS.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		97A5180B6EE518A5612D39339BD36B9B /* path_provider_foundation */ = {
-			isa = PBXGroup;
-			children = (
-				DD56B88B332C374E56686226942ACC0F /* .. */,
-				4ACFC6A6CDFAC1F9B0AD1E812C592A79 /* Pod */,
-				79D328562011E3030780905754631059 /* Support Files */,
-			);
-			name = path_provider_foundation;
-			path = ../Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin;
-			sourceTree = "<group>";
-		};
-		985A9765E6FEAFEFC922F5900772A454 /* darwin */ = {
-			isa = PBXGroup;
-			children = (
-				39CBECDDCCB428D52ADCFE425B6FB7D2 /* path_provider_foundation */,
-			);
-			name = darwin;
-			path = darwin;
-			sourceTree = "<group>";
-		};
-		9D2FB8A8F594214155C7760F10EE7B8D /* audioplayers_darwin */ = {
-			isa = PBXGroup;
-			children = (
-				A09AC75E160AE4920F15B6D6870B65F2 /* macos */,
-			);
-			name = audioplayers_darwin;
-			path = audioplayers_darwin;
-			sourceTree = "<group>";
-		};
-		9DEF71541C3DDA4166A174EC869381C2 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				2B7BFED4B8C23B0412DC69EFAB94F0F9 /* Documents */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		9F7B083BE3E7A6F4BE185AE7EBFB8F1E /* AI_Manager */ = {
-			isa = PBXGroup;
-			children = (
-				58F47F6C7AA85F4AF1A5939B5EFEBB0B /* UI */,
-			);
-			name = AI_Manager;
-			path = AI_Manager;
-			sourceTree = "<group>";
-		};
-		9FD535D15BA9E50AB075223A1CB65999 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				C724A9BD09590C4FD38F1A1CC0313132 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		A09AC75E160AE4920F15B6D6870B65F2 /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				2A54AF5DBA7A0C3D01576D3159BDF209 /* Classes */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		A0AC8A221FD8B9247D5C4C01EF770A1B /* .symlinks */ = {
-			isa = PBXGroup;
-			children = (
-				AE09D705A8713ABD46384BD2F500B61D /* plugins */,
-			);
-			name = .symlinks;
-			path = .symlinks;
-			sourceTree = "<group>";
-		};
-		A0C07516D9ACF44F0D016246C921C54A /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				6B324319FFDA507EFAD4ED7420951E1F /* flutter_volume_controller.podspec */,
-				79981964535247C68E78F10039725812 /* LICENSE */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		A0F5DE829A85D7A7DB64ED1FEAD39875 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				8F1570C1408E0DC466D5FD8D405E5F56 /* frontend */,
-			);
-			name = UI;
-			path = UI;
-			sourceTree = "<group>";
-		};
-		A19F7B238B92B6170A4CD20C4FC0084B /* .symlinks */ = {
-			isa = PBXGroup;
-			children = (
-				53AFDC79E0BC5C3AEDE6E2B07DE355DB /* plugins */,
-			);
-			name = .symlinks;
-			path = .symlinks;
-			sourceTree = "<group>";
-		};
-		A3820832947DB726C66D62B85DD8DAB8 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				04862F61C0D7E04EBAECB7D0B44700EC /* audioplayers_darwin */,
-				7AE93AD625CC38A7D4AF2F4DF8950204 /* flutter_volume_controller */,
-				FC838369E138A47CD4260C54315E5858 /* FlutterMacOS */,
-				97A5180B6EE518A5612D39339BD36B9B /* path_provider_foundation */,
-				A9E48302C3134DCE1355AA5C1F4F5C08 /* speech_to_text_macos */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		A634AE10B3FDBF8F0CB824A2854A3A05 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				27EECDA2ECBD45A1822E658E8079A2AB /* .. */,
-				907C8C08F1F1144F99FA6832E72C64CD /* Documents */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		A8F1056B07B45A04F706B8651B9B15B0 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				8D2B0BFD2949C70E8EA66A3AA66DAB6D /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		A9E48302C3134DCE1355AA5C1F4F5C08 /* speech_to_text_macos */ = {
-			isa = PBXGroup;
-			children = (
-				19952900EA0DE02600F048DDBB19B648 /* .. */,
-				E991339632774496A344B1752917518F /* Pod */,
-				BCBB0F93C1BCAE35157D95EA8AACE7A8 /* Support Files */,
-			);
-			name = speech_to_text_macos;
-			path = ../Flutter/ephemeral/.symlinks/plugins/speech_to_text_macos/macos;
-			sourceTree = "<group>";
-		};
-		AB5F55BFCA8F736875DB0F76C416918C /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				F7D8D57F13FFCCF1DC2F8437316B9163 /* frontend */,
-			);
-			name = UI;
-			path = UI;
-			sourceTree = "<group>";
-		};
-		ABDF3F3D67B23AEB554905A68C1DC438 /* path_provider_foundation */ = {
-			isa = PBXGroup;
-			children = (
-				1A289FA560F407C49F168FBE9DC4378C /* Resources */,
+				B126B75F6FDBAE73DA03CEE49EC4E3B2 /* messages.g.swift */,
+				BE36B6D758262C3D4A1E3F85E47AE14B /* PathProviderPlugin.swift */,
 			);
 			name = path_provider_foundation;
 			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
-		AE09D705A8713ABD46384BD2F500B61D /* plugins */ = {
+		7263E3FBD0B3D443A22B576AD45E3999 /* path_provider_foundation */ = {
 			isa = PBXGroup;
 			children = (
-				1CCBF15666A13E27EA380D81F3C19B12 /* path_provider_foundation */,
+				741BED081B3FA81DB936DC1417C2AA3B /* Sources */,
 			);
-			name = plugins;
-			path = plugins;
+			name = path_provider_foundation;
+			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
-		B0172BD368ED1605A0BC99B0D4092E0A /* .. */ = {
+		72E1B61679385087E4B52AB22A9BBAFE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9DEF71541C3DDA4166A174EC869381C2 /* .. */,
+				421DF35BBC7E1AC1531271A8D779A562 /* frontend */,
 			);
-			name = ..;
-			path = ..;
+			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		B2065DB21B4947C4104BAF27C29406CA /* .. */ = {
+		73203740CB39F020B52960721F79B2EF /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5AD51D798A1EB443827ED1583F3C8492 /* .. */,
+				88ADDD390DB8F626A36A34FBABD6C4F0 /* frontend */,
 			);
-			name = ..;
-			path = ..;
+			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		B43173DEC278F0525064DA7D0B0CC969 /* ephemeral */ = {
+		73EAB1E0FD2475ECED6E0E9F4FC81C21 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				4B9D72DAEBA13426C742E477F242F3D1 /* .symlinks */,
-			);
-			name = ephemeral;
-			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		B5E2B63B5F3B5B1C8F611839CE7ED5E0 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				7C66DFF8B05BBA30EA442D470F730B59 /* Documents */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		BAAC4B01F94A6FCE5F9F2920473C97A7 /* AI_Manager */ = {
-			isa = PBXGroup;
-			children = (
-				A0F5DE829A85D7A7DB64ED1FEAD39875 /* UI */,
-			);
-			name = AI_Manager;
-			path = AI_Manager;
-			sourceTree = "<group>";
-		};
-		BCBB0F93C1BCAE35157D95EA8AACE7A8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C4352CA2F7AF059846DF415FAD912C2C /* speech_to_text_macos.modulemap */,
-				4401691FF86C9DA3A79B6C83E61D5CE5 /* speech_to_text_macos-dummy.m */,
-				5986BDBDE2A30ECDBB486CD5C980AC64 /* speech_to_text_macos-Info.plist */,
-				4473E45E88A57068725C0CAF184C59F1 /* speech_to_text_macos-prefix.pch */,
-				257DA6C2C8CE13A35F5E77C6A41F6F77 /* speech_to_text_macos-umbrella.h */,
-				0C0660DFA7B72258C5A8BF825AB699A2 /* speech_to_text_macos.debug.xcconfig */,
-				AA3403695C79DB3851CF0B434174B017 /* speech_to_text_macos.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../../../../../../Pods/Target Support Files/speech_to_text_macos";
-			sourceTree = "<group>";
-		};
-		BD79D78593E3A807EA329536D513D3B8 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				ABDF3F3D67B23AEB554905A68C1DC438 /* path_provider_foundation */,
+				6D8D9A66C132FBB4CB54B452DDC0809E /* path_provider_foundation */,
 			);
 			name = Sources;
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		C59D6749893101BAB0D51A9ADA8674FF /* .. */ = {
+		741BED081B3FA81DB936DC1417C2AA3B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B0172BD368ED1605A0BC99B0D4092E0A /* .. */,
+				94E161E8716F15D616384B17CE64F319 /* path_provider_foundation */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		75942B3469B74C64DB586158BED40C1A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				B64D834507A52E2EA0235CACBDE1375F /* .. */,
+				D1BA2F796A913B019EE644317507506C /* Documents */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		C724A9BD09590C4FD38F1A1CC0313132 /* .. */ = {
+		7C5D4B6CE751EB4B8D0659C2D2D9B70B /* AI_Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D22FAD3FADCF0F8C3F43D7FCC865EC49 /* .. */,
+				BF62B7D9158AFD25AE742CFC255CE3D9 /* UI */,
+			);
+			name = AI_Manager;
+			path = AI_Manager;
+			sourceTree = "<group>";
+		};
+		80ED9E9771D049E0B4A0A790F7AE05B9 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				09A13226BF8420E342D927B04FB61125 /* .. */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		C949142CFD8EDAF7ADE582DC56491986 /* macos */ = {
+		82B1CBCB9C368064427BB107B6C99484 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				55CD5C32C544020A0D35019D2257C423 /* Flutter */,
+				ACB2510E8F98BE49977DFF8CA567FC22 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/speech_to_text_macos-1.1.0/macos";
+			sourceTree = "<group>";
+		};
+		839DF4E9F4AAE16ABAB137199375C0C3 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				A6DB98EA8D430E525AD1D644340C103C /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		85E06E607DD4F870D1D94FA14AAA38E8 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				546BF621070CCC5BCA2066008733A237 /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		88ADDD390DB8F626A36A34FBABD6C4F0 /* frontend */ = {
+			isa = PBXGroup;
+			children = (
+				D0FE9AAF03CBCFC8B39495C734DAF34F /* macos */,
+			);
+			name = frontend;
+			path = frontend;
+			sourceTree = "<group>";
+		};
+		8CE7D8D615DE15586BE2CA0D4E4442F8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				63C2EE6B3C241906D035985E1DAD8035 /* AudioContext.swift */,
+				AAA42C340822DC80415DA27E194055F7 /* AudioplayersDarwinPlugin.h */,
+				8A0A5AA77375E9E761540940DD9AEA9D /* AudioplayersDarwinPlugin.m */,
+				E3EE74C5C7D71A6E25790BF6D1CBE695 /* SwiftAudioplayersDarwinPlugin.swift */,
+				68AC0CABAF1FCEC1911A9FFB7D408AA5 /* Utils.swift */,
+				7EC8044911EACE70785422E1BF47F729 /* WrappedMediaPlayer.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8DA018EAA18856DFC8327D15BFB6DD11 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				8DDA38225BE2267828EC627EAF65C719 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources";
+			sourceTree = "<group>";
+		};
+		8DDA38225BE2267828EC627EAF65C719 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				B884323EC13AEDEB6528D532CD93F0CC /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		94E161E8716F15D616384B17CE64F319 /* path_provider_foundation */ = {
+			isa = PBXGroup;
+			children = (
+				E5EE195962B7A1F2B39572B9A48AE116 /* Resources */,
+			);
+			name = path_provider_foundation;
+			path = path_provider_foundation;
+			sourceTree = "<group>";
+		};
+		999F31A975D3DEC7B20DEFF794251463 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FFECB32D88515ECC80D512288873477F /* audioplayers_darwin.podspec */,
+				D73AF0413F0DB7BABAD1EB3107D68AD7 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		9B54F575F7103E0B1769194DEF1F8AA4 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				85E06E607DD4F870D1D94FA14AAA38E8 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		9DAECEA085DE019A3204ECA2E15B2A08 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7094B88E91D01B1961B151AB71B804F7 /* FlutterMacOS.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		A243FC10528196614C0A245EB08DF590 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				900E3CD1499703BB5EC6BBBC4885AFFA /* LICENSE */,
+				7E61ACC3E03270EED9557DBB2E08CF5D /* path_provider_foundation.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		A6DB98EA8D430E525AD1D644340C103C /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				E0D16AF67E62AA0C049FEA67A097AB27 /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		AA1C7EACB635E3873C85E6B5C8A7BAF2 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				B405C01609FE7DA8122526D978AE6960 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		ACB2510E8F98BE49977DFF8CA567FC22 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				30E2A464B6BF46507C7E6AC6660316DC /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B0B612EBC0B253B79FD99D48BCAE2D24 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				AA1C7EACB635E3873C85E6B5C8A7BAF2 /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		B36F5E9B7DDCB1F17B3740BEE47BD0B8 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				2B9CE0391D0193DAAFEEB526410ABEAB /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B405C01609FE7DA8122526D978AE6960 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				E771CD03019D42EE196CF551AFFEEF18 /* path_provider_foundation */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		B64D834507A52E2EA0235CACBDE1375F /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				67242BD52DD65F87E33DC7C2A1DBF756 /* Documents */,
+			);
+			name = ..;
+			path = .;
+			sourceTree = "<group>";
+		};
+		B673F2AC5E8C063C9E607F13B2E42014 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				138F4CF82CE4CBCDF87DE8B0DBE3EE2B /* Flutter */,
 			);
 			name = macos;
 			path = macos;
+			sourceTree = "<group>";
+		};
+		B884323EC13AEDEB6528D532CD93F0CC /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				80ED9E9771D049E0B4A0A790F7AE05B9 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		BBCD0A7C927F7288CD15D91BFD91D191 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				42CFB9A3B5A07147FB7227BD3DA531AD /* path_provider_foundation */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		BF62B7D9158AFD25AE742CFC255CE3D9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C9685C699873ABD4D19A886D485E6C5D /* frontend */,
+			);
+			name = UI;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C2BA965F96E3C551CF95836E403BF747 /* darwin */ = {
+			isa = PBXGroup;
+			children = (
+				C8A95516A126137FFA872AB59DB0F78E /* path_provider_foundation */,
+			);
+			name = darwin;
+			path = darwin;
+			sourceTree = "<group>";
+		};
+		C7F118EAC166BD36D6822745FA843FB0 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				0A38200960CBDA48E30E41BDBC2C751E /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C892F380416888D8465BB787A5F0C2FF /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				E55D98362A9B49E0154CA2D901A4B937 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C8A95516A126137FFA872AB59DB0F78E /* path_provider_foundation */ = {
+			isa = PBXGroup;
+			children = (
+				73EAB1E0FD2475ECED6E0E9F4FC81C21 /* Sources */,
+			);
+			name = path_provider_foundation;
+			path = path_provider_foundation;
+			sourceTree = "<group>";
+		};
+		C9685C699873ABD4D19A886D485E6C5D /* frontend */ = {
+			isa = PBXGroup;
+			children = (
+				E1D743DC626E2A716E865C16CC78669C /* macos */,
+			);
+			name = frontend;
+			path = frontend;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				A3820832947DB726C66D62B85DD8DAB8 /* Development Pods */,
+				E1CCE025E1296147471861FA17924A00 /* Development Pods */,
 				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
-				0D164929481CA802FB13FAB20551C031 /* Products */,
+				FF60A4814CF46CB0FE078F30C7D47E9C /* Products */,
 				2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D22FAD3FADCF0F8C3F43D7FCC865EC49 /* .. */ = {
+		D0FE9AAF03CBCFC8B39495C734DAF34F /* macos */ = {
 			isa = PBXGroup;
 			children = (
-				DBA3E54BC95637E1BBEDBE3303321064 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		D2DA2E0D241E59F6AB61F839F9BC8B1D /* ephemeral */ = {
-			isa = PBXGroup;
-			children = (
-				A0AC8A221FD8B9247D5C4C01EF770A1B /* .symlinks */,
-			);
-			name = ephemeral;
-			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		D4A4540A0728821BFB4E33805085241D /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				ECA5B6212D84CFB0981A58DD581B61AC /* Classes */,
+				839DF4E9F4AAE16ABAB137199375C0C3 /* Flutter */,
 			);
 			name = macos;
 			path = macos;
 			sourceTree = "<group>";
 		};
-		DB4529CE7027BC56ED43EA0BBD34FF77 /* Classes */ = {
+		D1BA2F796A913B019EE644317507506C /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				983EE434D67333F67D81B01CA28646E8 /* BridgedCasts.swift */,
-				01BD48672711C340EF8C930CEB2A0832 /* Constants.swift */,
-				2F3E2C87E7A749CFA92D38BFFF50BD53 /* FlutterVolumeControllerPlugin.swift */,
-				C64C53264F7C540955DD6F24E0E89F22 /* VolumeController.swift */,
-				8C8E467EA26EC8CCF56082245EB8E219 /* VolumeListener.swift */,
-				2593B08DEA8075CAE04DBA637E7FC9CB /* ISSoundAdditions */,
+				4560E5353F9EB7DA67388D9D94052A74 /* AI_Manager */,
 			);
-			name = Classes;
-			path = Classes;
+			name = Documents;
+			path = Documents;
 			sourceTree = "<group>";
 		};
-		DBA3E54BC95637E1BBEDBE3303321064 /* .. */ = {
+		D507FBC3218895A36CAE75F1AF25A926 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				27DC19F97A9A934E92490F77EB0CD6F7 /* .. */,
+				68AF26EAB20ED9588650FF2A5C29F512 /* AI_Manager */,
 			);
-			name = ..;
-			path = ..;
+			name = Documents;
+			path = Documents;
 			sourceTree = "<group>";
 		};
-		DD56B88B332C374E56686226942ACC0F /* .. */ = {
+		D5505B3A5E0952FD10126C46BED95CC9 /* path_provider_foundation */ = {
 			isa = PBXGroup;
 			children = (
-				9FD535D15BA9E50AB075223A1CB65999 /* .. */,
+				8DA018EAA18856DFC8327D15BFB6DD11 /* .. */,
+				A243FC10528196614C0A245EB08DF590 /* Pod */,
+				1427190B5F75D8CBA34E096B9543A3C1 /* Support Files */,
 			);
-			name = ..;
-			path = "../../../../../../../../../../../.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.3/darwin/path_provider_foundation/Sources";
+			name = path_provider_foundation;
+			path = ../Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin;
 			sourceTree = "<group>";
 		};
-		DE6033B2424F711E8F6DA523E0FABCDA /* plugins */ = {
+		DCD459B0C6F09B2CA1DE0A35981894E5 /* macos */ = {
 			isa = PBXGroup;
 			children = (
-				0557EF447237AB62375B0F08DCA09D56 /* path_provider_foundation */,
+				1CED78FF58B98E7056F992388DD87B75 /* Classes */,
 			);
-			name = plugins;
-			path = plugins;
+			name = macos;
+			path = macos;
 			sourceTree = "<group>";
 		};
 		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
@@ -1242,31 +960,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E48786044413B19512C7B290E153C890 /* AI_Manager */ = {
+		E0D16AF67E62AA0C049FEA67A097AB27 /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
-				4004FC570981EF90EBF8C452FC86C0D6 /* UI */,
+				BBCD0A7C927F7288CD15D91BFD91D191 /* plugins */,
 			);
-			name = AI_Manager;
-			path = AI_Manager;
+			name = .symlinks;
+			path = .symlinks;
 			sourceTree = "<group>";
 		};
-		E488B291CFB2883CEAA1F0E529C25D1A /* ephemeral */ = {
+		E1CCE025E1296147471861FA17924A00 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A19F7B238B92B6170A4CD20C4FC0084B /* .symlinks */,
+				4250A3E44B73EFDF2565591DFA90047A /* audioplayers_darwin */,
+				6133A9B094FA0008079DFB7879EA014F /* FlutterMacOS */,
+				D5505B3A5E0952FD10126C46BED95CC9 /* path_provider_foundation */,
+				042229DF748B4C3E260C2EFB3C8987F3 /* speech_to_text_macos */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E1D743DC626E2A716E865C16CC78669C /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				3D1AB078664D5EEA23AACB7A614820F7 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		E55D98362A9B49E0154CA2D901A4B937 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				F3FAA4739704E021875CDC6E46EC4E02 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E5EE195962B7A1F2B39572B9A48AE116 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5E544E47FF3815725369BC2C1E03D50 /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E6094FE65627F68C54561D6AAC01AFC1 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				21E3920FF521DD4FFA8F3ADD5E00B6D4 /* .symlinks */,
 			);
 			name = ephemeral;
 			path = ephemeral;
 			sourceTree = "<group>";
 		};
-		E4B30244DC5C302188364BBECA7640C9 /* .symlinks */ = {
+		E771CD03019D42EE196CF551AFFEEF18 /* path_provider_foundation */ = {
 			isa = PBXGroup;
 			children = (
-				29227F45A7619E750EA78F01C64DDBB0 /* plugins */,
+				C2BA965F96E3C551CF95836E403BF747 /* darwin */,
 			);
-			name = .symlinks;
-			path = .symlinks;
+			name = path_provider_foundation;
+			path = path_provider_foundation;
 			sourceTree = "<group>";
 		};
 		E806A4F97D48F5FD3B4CA1BC617EA1F5 /* Pods-Runner */ = {
@@ -1287,136 +1043,103 @@
 			path = "Target Support Files/Pods-Runner";
 			sourceTree = "<group>";
 		};
-		E9788C33D507CB4328E888F651A95CDC /* .. */ = {
+		EA1E3F5601F76F502B0EFE8BCE42DF1E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				5BE0252776354A5C0552E23812375468 /* .. */,
+				17E2F7833042105D6B703847F0DA5ADA /* frontend */,
 			);
-			name = ..;
-			path = ..;
+			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		E991339632774496A344B1752917518F /* Pod */ = {
+		F19972F774E9E7D0BB8D6D9A35E52D2E /* AI_Manager */ = {
 			isa = PBXGroup;
 			children = (
-				3246557B4889DA08B5CA732DE79CFDE5 /* LICENSE */,
-				61D84F6092581FAF97D2BDEB0EE196C0 /* speech_to_text_macos.podspec */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		EA42D33A0AB2BA1D45C8A61E9D19C61E /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				74B8B3FB716E64E5CF1E330902737A3B /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		ECA5B6212D84CFB0981A58DD581B61AC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				85FB6F1FA36D288BA88951F901F955F0 /* SpeechToTextMacosPlugin.swift */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		EEC0A7606962006B97F649B58E063A52 /* path_provider_foundation */ = {
-			isa = PBXGroup;
-			children = (
-				0C338D232F9227AA1CCFF16ED0B687C1 /* messages.g.swift */,
-				0D5C83497A27AB58D1A507D4D9F823A2 /* PathProviderPlugin.swift */,
-			);
-			name = path_provider_foundation;
-			path = path_provider_foundation;
-			sourceTree = "<group>";
-		};
-		F468D7C9DEC34CACEC2819D49599CA89 /* AI_Manager */ = {
-			isa = PBXGroup;
-			children = (
-				AB5F55BFCA8F736875DB0F76C416918C /* UI */,
+				73203740CB39F020B52960721F79B2EF /* UI */,
 			);
 			name = AI_Manager;
 			path = AI_Manager;
 			sourceTree = "<group>";
 		};
-		F4741A28E794E209A46D2849D4188C4F /* AI_Manager */ = {
+		F1C179FC0D24A029881B6ECAAB252AE0 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				3E1C9ED557014C7B11EE727A327D4DC7 /* UI */,
-			);
-			name = AI_Manager;
-			path = AI_Manager;
-			sourceTree = "<group>";
-		};
-		F7A55A82A7B9EFA6B1A4CCE0D93454F7 /* .symlinks */ = {
-			isa = PBXGroup;
-			children = (
-				DE6033B2424F711E8F6DA523E0FABCDA /* plugins */,
-			);
-			name = .symlinks;
-			path = .symlinks;
-			sourceTree = "<group>";
-		};
-		F7D8D57F13FFCCF1DC2F8437316B9163 /* frontend */ = {
-			isa = PBXGroup;
-			children = (
-				252F0E5D556964CA2360F3EE06979766 /* macos */,
-			);
-			name = frontend;
-			path = frontend;
-			sourceTree = "<group>";
-		};
-		FA9C8D62AD79D8B0DC0B4535AC7D2D3F /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				9F7B083BE3E7A6F4BE185AE7EBFB8F1E /* AI_Manager */,
-			);
-			name = Documents;
-			path = Documents;
-			sourceTree = "<group>";
-		};
-		FB362870119F9D420E68825626CA4F36 /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				BAAC4B01F94A6FCE5F9F2920473C97A7 /* AI_Manager */,
-			);
-			name = Documents;
-			path = Documents;
-			sourceTree = "<group>";
-		};
-		FC2682456966E98A82B1B9C613094544 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				FB362870119F9D420E68825626CA4F36 /* Documents */,
+				D507FBC3218895A36CAE75F1AF25A926 /* Documents */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		FC838369E138A47CD4260C54315E5858 /* FlutterMacOS */ = {
+		F3FAA4739704E021875CDC6E46EC4E02 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				90AB0AAD9936791921152C8FDFB617A4 /* Pod */,
-				6A695921A823185C9083C8AE66A520FE /* Support Files */,
+				F77E406DEEA7B03F2FC78A3D50588376 /* Documents */,
 			);
-			name = FlutterMacOS;
-			path = ../Flutter/ephemeral;
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F77E406DEEA7B03F2FC78A3D50588376 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				7C5D4B6CE751EB4B8D0659C2D2D9B70B /* AI_Manager */,
+			);
+			name = Documents;
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		FB05DAA94B7DA167A7F2103630A8D1E4 /* darwin */ = {
+			isa = PBXGroup;
+			children = (
+				7263E3FBD0B3D443A22B576AD45E3999 /* path_provider_foundation */,
+			);
+			name = darwin;
+			path = darwin;
+			sourceTree = "<group>";
+		};
+		FBA8B17B365697A5B709A8E63903994F /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7D8D615DE15586BE2CA0D4E4442F8 /* Classes */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		FE02E9A0984F79B5DCBDA1FD6DF4B029 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				1396E61C2314600B3641633D667E6096 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FF60A4814CF46CB0FE078F30C7D47E9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01E45A15AB8BA1B99F116F1BE1C66960 /* audioplayers_darwin */,
+				AE157A33FEF959A214796BFF348717F6 /* path_provider_foundation */,
+				3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */,
+				669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */,
+				6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */,
+				3DF9EBB7BC57DD986A9305DD5453B8A5 /* speech_to_text_macos */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFCE16F94021B411B115E860DD51FFCB /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				9B54F575F7103E0B1769194DEF1F8AA4 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1D0703735FB0873D208A8CA5A1CE9DAB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4337362D17961F4A00078B6CC525A4F /* flutter_volume_controller-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		54B39BFC29D63F4E8642B6FB911E9470 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1425,11 +1148,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55394E5246BB31F40F26F64AD4288692 /* Headers */ = {
+		888AB2B0B360C1D8E747F50E4E9FCF95 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D028226FCB457B64B45E924C767B72 /* Pods-Runner-umbrella.h in Headers */,
+				E3169B7BC19FDFC50589DF6BFCFD63F2 /* Pods-Runner-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1473,7 +1196,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				1E7833CA192713063572E592FB4A264A /* PBXTargetDependency */,
+				A0C9490F38F8C3613330C31FC53D62C9 /* PBXTargetDependency */,
 			);
 			name = "Pods-RunnerTests";
 			productName = Pods_RunnerTests;
@@ -1492,7 +1215,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0B52083FBF60A9A2052366C8D4AACC45 /* PBXTargetDependency */,
+				770A1223CFEEEA874CEF6B96A6F18F55 /* PBXTargetDependency */,
 			);
 			name = speech_to_text_macos;
 			productName = speech_to_text_macos;
@@ -1511,8 +1234,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				88BC6067B0FBE4BE9F665C11413848AC /* PBXTargetDependency */,
-				35D7AD95231C8872F8D920A09A959371 /* PBXTargetDependency */,
+				44090C2B9D27F207B3D0E7DDB2B4E0B1 /* PBXTargetDependency */,
+				C1F72811A228DEABEC7DCAD5BCB8AC88 /* PBXTargetDependency */,
 			);
 			name = path_provider_foundation;
 			productName = path_provider_foundation;
@@ -1531,7 +1254,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				60B6D038957761DA92240A6050A675C5 /* PBXTargetDependency */,
+				A01F6EA5DC6E52371E391BA61D44362A /* PBXTargetDependency */,
 			);
 			name = audioplayers_darwin;
 			productName = audioplayers_darwin;
@@ -1540,21 +1263,20 @@
 		};
 		8B74B458B450D74B75744B87BD747314 /* Pods-Runner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0DDC54DE7197AE360495E54EDE7E68E0 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
+			buildConfigurationList = 1B2D2708C1A6110FB39B92D0CD9F38B3 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
 			buildPhases = (
-				55394E5246BB31F40F26F64AD4288692 /* Headers */,
-				D82C1D4CC108501A11485F59A1550C8D /* Sources */,
-				774294D745B43266F61B36D561E391C0 /* Frameworks */,
-				618B839FEBB58EBBDA853558B09E28AE /* Resources */,
+				888AB2B0B360C1D8E747F50E4E9FCF95 /* Headers */,
+				9D422AECAF7DAC9085F1517700964FE3 /* Sources */,
+				9276D3F41ECA46FBACFB49A098810804 /* Frameworks */,
+				44307086BE4533B88C2A72643CC0B921 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BFEE44C560D0EDCB99558A648EB6D7C9 /* PBXTargetDependency */,
-				735FF844BC4B596DB5B0083D7192A712 /* PBXTargetDependency */,
-				E4F96AE2A24FE0D7CE792703F49B1558 /* PBXTargetDependency */,
-				428DC5FC33740FC730033824CB4F0C16 /* PBXTargetDependency */,
-				7F4C2AA52A40EEBD58A8D41D8C0B66D7 /* PBXTargetDependency */,
+				FF94C2978B76A86C892FC1F2CDEC187A /* PBXTargetDependency */,
+				1D3DF93D71EC499F111961A20B707A34 /* PBXTargetDependency */,
+				23983C8F4E078DF44FFE077A3AF88C7E /* PBXTargetDependency */,
+				CA50731701D15F8F9F947B9E6929566B /* PBXTargetDependency */,
 			);
 			name = "Pods-Runner";
 			productName = Pods_Runner;
@@ -1563,11 +1285,11 @@
 		};
 		CACE6618E7996464E38687E13F67D945 /* path_provider_foundation-path_provider_foundation_privacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 433BE6338BAD6E76920A0B8E4E0581CB /* Build configuration list for PBXNativeTarget "path_provider_foundation-path_provider_foundation_privacy" */;
+			buildConfigurationList = 7085338A102EF48948C412604B097110 /* Build configuration list for PBXNativeTarget "path_provider_foundation-path_provider_foundation_privacy" */;
 			buildPhases = (
-				58EDE78D53B80FA1DABC9BC25C9DDE45 /* Sources */,
-				3833963B89083A58FAC876C50DA196CC /* Frameworks */,
-				A605EC1683943141F6A59472158B445B /* Resources */,
+				832F6E5EC6816B05DAFE97AB6DE55776 /* Sources */,
+				1B8F6CFF52ABF69EABA65810E942F0AA /* Frameworks */,
+				6756C1DCE5ABF3FB8ED0893EA9E55B7B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1577,25 +1299,6 @@
 			productName = path_provider_foundation_privacy;
 			productReference = 3DBD4BADE27F8B91024E4B4B4DD75DB5 /* path_provider_foundation-path_provider_foundation_privacy */;
 			productType = "com.apple.product-type.bundle";
-		};
-		E34851F4A0FF40E6FF3940A3E09D7F99 /* flutter_volume_controller */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FCCAB96156F58A40C1407FEDDAAEE124 /* Build configuration list for PBXNativeTarget "flutter_volume_controller" */;
-			buildPhases = (
-				1D0703735FB0873D208A8CA5A1CE9DAB /* Headers */,
-				E18AD2C55F06C2B611A1D8911A30E0E7 /* Sources */,
-				75D6CABE95860BF5ADF227980CBE1768 /* Frameworks */,
-				613E4DB49C48A18F1E5651E0A2FFEC8B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				06B2D0A8C3BFCB0B19CE718C6FD9F153 /* PBXTargetDependency */,
-			);
-			name = flutter_volume_controller;
-			productName = flutter_volume_controller;
-			productReference = 05281B6F8199120A24ABA0F59C36704A /* flutter_volume_controller */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -1617,12 +1320,11 @@
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 0D164929481CA802FB13FAB20551C031 /* Products */;
+			productRefGroup = FF60A4814CF46CB0FE078F30C7D47E9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				67C6B567311D7E870E2D1A0DA187FE3B /* audioplayers_darwin */,
-				E34851F4A0FF40E6FF3940A3E09D7F99 /* flutter_volume_controller */,
 				CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */,
 				56F581DDCB0A032454E604885E17AE3C /* path_provider_foundation */,
 				CACE6618E7996464E38687E13F67D945 /* path_provider_foundation-path_provider_foundation_privacy */,
@@ -1641,6 +1343,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44307086BE4533B88C2A72643CC0B921 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A765108DEAFDEBF078F71CDDBE3414E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1648,25 +1357,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		613E4DB49C48A18F1E5651E0A2FFEC8B /* Resources */ = {
+		6756C1DCE5ABF3FB8ED0893EA9E55B7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		618B839FEBB58EBBDA853558B09E28AE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A605EC1683943141F6A59472158B445B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB29F21465DE40E601C490BB09C450BC /* PrivacyInfo.xcprivacy in Resources */,
+				905E74E4B4F9D30B1C2815944A36746D /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1709,13 +1404,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58EDE78D53B80FA1DABC9BC25C9DDE45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		598758E731AE30904DDE1E65C1B434F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1735,99 +1423,77 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D82C1D4CC108501A11485F59A1550C8D /* Sources */ = {
+		832F6E5EC6816B05DAFE97AB6DE55776 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B69EE2D5FAAA478D841C3C71848CF1A /* Pods-Runner-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E18AD2C55F06C2B611A1D8911A30E0E7 /* Sources */ = {
+		9D422AECAF7DAC9085F1517700964FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE3728DDE58B98D4635A9211AC2C21F /* BridgedCasts.swift in Sources */,
-				F6F6BC7EA9ECB62AE23829907FFD35D6 /* Constants.swift in Sources */,
-				5DC96473A3FA6FC565AB21BAE87192DA /* flutter_volume_controller-dummy.m in Sources */,
-				8BBF1EBB0CFC6E2011CAE16A92C5634E /* FlutterVolumeControllerPlugin.swift in Sources */,
-				6C9A9FCF6BEC9EC6583E3F02FD82F6D1 /* Sound.swift in Sources */,
-				3D659506BD43E2C3D539AC5C9D2A5151 /* SoundOutputManager.swift in Sources */,
-				05F4B9B10E1CADAA2B13017B916FC67E /* SoundOutputManager+Goodies.swift in Sources */,
-				5C3A438D4EDED33CCEDFD65B7FAE1C48 /* SoundOutputManager+Properties.swift in Sources */,
-				991762466B2953FA3B077A64D7F4DD3A /* VolumeController.swift in Sources */,
-				C304B45A8D9EB3696461DF55B702B9B8 /* VolumeListener.swift in Sources */,
+				6CD02BF3E586951C76657B89776337B0 /* Pods-Runner-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		06B2D0A8C3BFCB0B19CE718C6FD9F153 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FlutterMacOS;
-			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
-			targetProxy = C7B9244D2A48B333677EFEC8B0F97B6D /* PBXContainerItemProxy */;
-		};
-		0B52083FBF60A9A2052366C8D4AACC45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FlutterMacOS;
-			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
-			targetProxy = C8573199F9DEF1360572E0B2A807BF64 /* PBXContainerItemProxy */;
-		};
-		1E7833CA192713063572E592FB4A264A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Runner";
-			target = 8B74B458B450D74B75744B87BD747314 /* Pods-Runner */;
-			targetProxy = 76700484FF9ADB53F827A3B83D041732 /* PBXContainerItemProxy */;
-		};
-		35D7AD95231C8872F8D920A09A959371 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "path_provider_foundation-path_provider_foundation_privacy";
-			target = CACE6618E7996464E38687E13F67D945 /* path_provider_foundation-path_provider_foundation_privacy */;
-			targetProxy = DA6C0ADBCCBF7F662C4A6B96079E2C08 /* PBXContainerItemProxy */;
-		};
-		428DC5FC33740FC730033824CB4F0C16 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = path_provider_foundation;
-			target = 56F581DDCB0A032454E604885E17AE3C /* path_provider_foundation */;
-			targetProxy = 53CF01D38A421B181A8CC820B29E2E7A /* PBXContainerItemProxy */;
-		};
-		60B6D038957761DA92240A6050A675C5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FlutterMacOS;
-			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
-			targetProxy = 56E849B52F77E5C08F8F865930E382E1 /* PBXContainerItemProxy */;
-		};
-		735FF844BC4B596DB5B0083D7192A712 /* PBXTargetDependency */ = {
+		1D3DF93D71EC499F111961A20B707A34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = audioplayers_darwin;
 			target = 67C6B567311D7E870E2D1A0DA187FE3B /* audioplayers_darwin */;
-			targetProxy = 31994AF42B5E5271C6A0D3328A2E1FDA /* PBXContainerItemProxy */;
+			targetProxy = A4F3467F7DE7D2741FF8E35351B33FF6 /* PBXContainerItemProxy */;
 		};
-		7F4C2AA52A40EEBD58A8D41D8C0B66D7 /* PBXTargetDependency */ = {
+		23983C8F4E078DF44FFE077A3AF88C7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = path_provider_foundation;
+			target = 56F581DDCB0A032454E604885E17AE3C /* path_provider_foundation */;
+			targetProxy = D45A4A2BD1433E55587F4233E8798F7F /* PBXContainerItemProxy */;
+		};
+		44090C2B9D27F207B3D0E7DDB2B4E0B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = DC69ACA572E5483F110F8E47924E772B /* PBXContainerItemProxy */;
+		};
+		770A1223CFEEEA874CEF6B96A6F18F55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 645CFBA151AFB23D61D263B348B0515D /* PBXContainerItemProxy */;
+		};
+		A01F6EA5DC6E52371E391BA61D44362A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 173DAFE49E61DDEEE044691FE6B5167E /* PBXContainerItemProxy */;
+		};
+		A0C9490F38F8C3613330C31FC53D62C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Runner";
+			target = 8B74B458B450D74B75744B87BD747314 /* Pods-Runner */;
+			targetProxy = A255182BF24B73CA36D4FEBD77F77B4B /* PBXContainerItemProxy */;
+		};
+		C1F72811A228DEABEC7DCAD5BCB8AC88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "path_provider_foundation-path_provider_foundation_privacy";
+			target = CACE6618E7996464E38687E13F67D945 /* path_provider_foundation-path_provider_foundation_privacy */;
+			targetProxy = 7A3C083EFB7EFD36139CD6C6F8302CD9 /* PBXContainerItemProxy */;
+		};
+		CA50731701D15F8F9F947B9E6929566B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = speech_to_text_macos;
 			target = 35F55791B4A13521349D20E456BFCA90 /* speech_to_text_macos */;
-			targetProxy = 0F4B99298E737654F1292AC7DCB248AD /* PBXContainerItemProxy */;
+			targetProxy = D0D069AB04F9C1B2275EB3142C9874BD /* PBXContainerItemProxy */;
 		};
-		88BC6067B0FBE4BE9F665C11413848AC /* PBXTargetDependency */ = {
+		FF94C2978B76A86C892FC1F2CDEC187A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FlutterMacOS;
 			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
-			targetProxy = 0CE625B019048D55BF28BD0E300DC2A7 /* PBXContainerItemProxy */;
-		};
-		BFEE44C560D0EDCB99558A648EB6D7C9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FlutterMacOS;
-			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
-			targetProxy = DBF23829A0CC4DBC17FA26A6E9E76697 /* PBXContainerItemProxy */;
-		};
-		E4F96AE2A24FE0D7CE792703F49B1558 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = flutter_volume_controller;
-			target = E34851F4A0FF40E6FF3940A3E09D7F99 /* flutter_volume_controller */;
-			targetProxy = 36E0316036982E9DF33789CEECBB9A63 /* PBXContainerItemProxy */;
+			targetProxy = FC1DDD3D49F32250A51EECA847F6CD61 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1940,7 +1606,185 @@
 			};
 			name = Release;
 		};
-		129F88EDA54FD72F090E0B1ACD05820A /* Release */ = {
+		0B9491FA6C28385CE644FAC6A7958BC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1C924509941BE3985F4AA4FF1C68A3E3 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E3F1904C07AA14D261520F6F00EA8AA /* speech_to_text_macos.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/speech_to_text_macos/speech_to_text_macos-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/speech_to_text_macos/speech_to_text_macos-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/speech_to_text_macos/speech_to_text_macos.modulemap";
+				PRODUCT_MODULE_NAME = speech_to_text_macos;
+				PRODUCT_NAME = speech_to_text_macos;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		275E7E38A6D68742F27428B3F3A5C57B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D40E8DE312FDFA47659A8099139B2D46 /* audioplayers_darwin.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/audioplayers_darwin/audioplayers_darwin-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin.modulemap";
+				PRODUCT_MODULE_NAME = audioplayers_darwin;
+				PRODUCT_NAME = audioplayers_darwin;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		59371247813E7C97B3CFB248832A454C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED79AACC96228F20743A8BC843151288 /* audioplayers_darwin.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/audioplayers_darwin/audioplayers_darwin-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin.modulemap";
+				PRODUCT_MODULE_NAME = audioplayers_darwin;
+				PRODUCT_NAME = audioplayers_darwin;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		65FA25D5945BDE8D898B7CEF54F43DB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */;
 			buildSettings = {
@@ -1986,187 +1830,10 @@
 			};
 			name = Release;
 		};
-		1C924509941BE3985F4AA4FF1C68A3E3 /* Profile */ = {
+		6A7761EA6EA6917AB05320DD88287E56 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA3403695C79DB3851CF0B434174B017 /* speech_to_text_macos.release.xcconfig */;
+			baseConfigurationReference = EF4A95C59D068FE410ACD1D25B4A266F /* path_provider_foundation.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/speech_to_text_macos/speech_to_text_macos-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/speech_to_text_macos/speech_to_text_macos-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/speech_to_text_macos/speech_to_text_macos.modulemap";
-				PRODUCT_MODULE_NAME = speech_to_text_macos;
-				PRODUCT_NAME = speech_to_text_macos;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Profile;
-		};
-		275E7E38A6D68742F27428B3F3A5C57B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 234213C157E6A5AA5429772B6C3A613D /* audioplayers_darwin.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/audioplayers_darwin/audioplayers_darwin-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin.modulemap";
-				PRODUCT_MODULE_NAME = audioplayers_darwin;
-				PRODUCT_NAME = audioplayers_darwin;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		59371247813E7C97B3CFB248832A454C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755306B9490978853C60A08A1FB7AE90 /* audioplayers_darwin.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/audioplayers_darwin/audioplayers_darwin-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/audioplayers_darwin/audioplayers_darwin.modulemap";
-				PRODUCT_MODULE_NAME = audioplayers_darwin;
-				PRODUCT_NAME = audioplayers_darwin;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6282EB09359D724893E3910A0ADD84AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D02111C855ACB70CFAA049E497352191 /* flutter_volume_controller.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/flutter_volume_controller/flutter_volume_controller-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller.modulemap";
-				PRODUCT_MODULE_NAME = flutter_volume_controller;
-				PRODUCT_NAME = flutter_volume_controller;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6C81E4E050A452BB7F2E811B50951913 /* Profile */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGNING_ALLOWED = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
@@ -2179,7 +1846,7 @@
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Profile;
+			name = Debug;
 		};
 		7240A8579D4E173D4895EA679806EC07 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2229,7 +1896,7 @@
 		};
 		73A146472CC9628F31295209925776B4 /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2862D350D8680C8FF2A3375E6530A80 /* FlutterMacOS.release.xcconfig */;
+			baseConfigurationReference = 63B62DCF3D3FB47D20698343E26DA452 /* FlutterMacOS.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2243,6 +1910,52 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				SDKROOT = macosx;
+			};
+			name = Profile;
+		};
+		77A9DDFA0CC2CE644422F8E788170F22 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Profile;
 		};
@@ -2312,27 +2025,9 @@
 			};
 			name = Debug;
 		};
-		861C42146AD8B873887157C0F5B65590 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37263271C0C7C5A7F1C3A0C2619C840F /* path_provider_foundation.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
-				IBSC_MODULE = path_provider_foundation;
-				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_NAME = path_provider_foundation_privacy;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		8717AE9D98E33F36B7BB74A77DA8AE9E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A208BE233B90DDB4D3E7F4BCAF6DB14 /* FlutterMacOS.debug.xcconfig */;
+			baseConfigurationReference = 0DC598FFB4EA2CBB657D59496EF56631 /* FlutterMacOS.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2351,7 +2046,7 @@
 		};
 		88915AE2FB79501DBFBBAA8B8327FB4D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA3403695C79DB3851CF0B434174B017 /* speech_to_text_macos.release.xcconfig */;
+			baseConfigurationReference = 0E3F1904C07AA14D261520F6F00EA8AA /* speech_to_text_macos.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2393,55 +2088,9 @@
 			};
 			name = Release;
 		};
-		8DFF5B39A0C8F22DC4F888929758A515 /* Profile */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Profile;
-		};
 		8F9C618EF59890DB56CCD75233202DDB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */;
+			baseConfigurationReference = 8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2487,7 +2136,7 @@
 		};
 		9DDB691A1F37EF5A9117DB4BC3D53E4C /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */;
+			baseConfigurationReference = 8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2531,55 +2180,9 @@
 			};
 			name = Profile;
 		};
-		A0EFC480BE9C86902E64521C54D1E51C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		A7F2DEAE8DD6485C716941F8BAF8D3E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C0660DFA7B72258C5A8BF825AB699A2 /* speech_to_text_macos.debug.xcconfig */;
+			baseConfigurationReference = 333224A430DE0EA26A10C0B344F98788 /* speech_to_text_macos.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2683,71 +2286,9 @@
 			};
 			name = Profile;
 		};
-		B25C99F4B7C7B0FF5FAC4C317F558C3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BFE55A48E70FA3084FB4AB710FE131D /* path_provider_foundation.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
-				IBSC_MODULE = path_provider_foundation;
-				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_NAME = path_provider_foundation_privacy;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		B6175CB947E780FA3844F9CAC2E06FDD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3691A424956CA0C8CA3AB26B72463001 /* flutter_volume_controller.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/flutter_volume_controller/flutter_volume_controller-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller.modulemap";
-				PRODUCT_MODULE_NAME = flutter_volume_controller;
-				PRODUCT_NAME = flutter_volume_controller;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		CEAEF0BB86C6BBA81D6E17A5B8618EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2862D350D8680C8FF2A3375E6530A80 /* FlutterMacOS.release.xcconfig */;
+			baseConfigurationReference = 63B62DCF3D3FB47D20698343E26DA452 /* FlutterMacOS.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2761,6 +2302,24 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DCD0132485A019A66069F8013A4AB890 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
+				IBSC_MODULE = path_provider_foundation;
+				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = path_provider_foundation_privacy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -2812,7 +2371,7 @@
 		};
 		EBA6514B3BFE092C1D81D372AE779974 /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755306B9490978853C60A08A1FB7AE90 /* audioplayers_darwin.release.xcconfig */;
+			baseConfigurationReference = ED79AACC96228F20743A8BC843151288 /* audioplayers_darwin.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2856,7 +2415,7 @@
 		};
 		F8B48FE81DCA212C898223C2A6AB0253 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37263271C0C7C5A7F1C3A0C2619C840F /* path_provider_foundation.debug.xcconfig */;
+			baseConfigurationReference = EF4A95C59D068FE410ACD1D25B4A266F /* path_provider_foundation.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2900,47 +2459,22 @@
 			};
 			name = Debug;
 		};
-		FE4BB1DD4917699D7C121C85F99AA301 /* Profile */ = {
+		FDCF1CDA537BB0CE8978BB161CDDC75A /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D02111C855ACB70CFAA049E497352191 /* flutter_volume_controller.release.xcconfig */;
+			baseConfigurationReference = 8E2E26497A2B4A2FF2CB33C588334238 /* path_provider_foundation.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGNING_REQUIRED = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/tk/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
-					"$(inherited)",
-				);
-				GCC_PREFIX_HEADER = "Target Support Files/flutter_volume_controller/flutter_volume_controller-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/flutter_volume_controller/flutter_volume_controller.modulemap";
-				PRODUCT_MODULE_NAME = flutter_volume_controller;
-				PRODUCT_NAME = flutter_volume_controller;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/path_provider_foundation";
+				IBSC_MODULE = path_provider_foundation;
+				INFOPLIST_FILE = "Target Support Files/path_provider_foundation/ResourceBundle-path_provider_foundation_privacy-path_provider_foundation-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = path_provider_foundation_privacy;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Profile;
 		};
@@ -2957,22 +2491,12 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0DDC54DE7197AE360495E54EDE7E68E0 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
+		1B2D2708C1A6110FB39B92D0CD9F38B3 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0EFC480BE9C86902E64521C54D1E51C /* Debug */,
-				8DFF5B39A0C8F22DC4F888929758A515 /* Profile */,
-				129F88EDA54FD72F090E0B1ACD05820A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		433BE6338BAD6E76920A0B8E4E0581CB /* Build configuration list for PBXNativeTarget "path_provider_foundation-path_provider_foundation_privacy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				861C42146AD8B873887157C0F5B65590 /* Debug */,
-				6C81E4E050A452BB7F2E811B50951913 /* Profile */,
-				B25C99F4B7C7B0FF5FAC4C317F558C3A /* Release */,
+				0B9491FA6C28385CE644FAC6A7958BC7 /* Debug */,
+				77A9DDFA0CC2CE644422F8E788170F22 /* Profile */,
+				65FA25D5945BDE8D898B7CEF54F43DB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -3007,6 +2531,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7085338A102EF48948C412604B097110 /* Build configuration list for PBXNativeTarget "path_provider_foundation-path_provider_foundation_privacy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A7761EA6EA6917AB05320DD88287E56 /* Debug */,
+				FDCF1CDA537BB0CE8978BB161CDDC75A /* Profile */,
+				DCD0132485A019A66069F8013A4AB890 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A4A83EFD93329BD3EF7F5ECB3275F7E6 /* Build configuration list for PBXNativeTarget "audioplayers_darwin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -3023,16 +2557,6 @@
 				E3492020E6C8FFFAA75EF20124A3E54A /* Debug */,
 				07AD40A4677FB80E95DF81E94F42B5EE /* Profile */,
 				7240A8579D4E173D4895EA679806EC07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FCCAB96156F58A40C1407FEDDAAEE124 /* Build configuration list for PBXNativeTarget "flutter_volume_controller" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B6175CB947E780FA3844F9CAC2E06FDD /* Debug */,
-				FE4BB1DD4917699D7C121C85F99AA301 /* Profile */,
-				6282EB09359D724893E3910A0ADD84AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
