@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 
 class MusicService extends ChangeNotifier {
   final AudioPlayer _audioPlayer = AudioPlayer();
-  List<File> _musicFiles = [];
+  final List<File> _musicFiles = [];
   int _currentTrackIndex = 0;
   bool _isPlaying = false;
   bool _isLoading = false;
@@ -368,6 +368,7 @@ class MusicService extends ChangeNotifier {
   }
 
   // 释放资源
+  @override
   void dispose() {
     _audioPlayer.dispose();
     super.dispose();

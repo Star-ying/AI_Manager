@@ -198,7 +198,12 @@ class _VoiceControlTabState extends State<VoiceControlTab>
     with TickerProviderStateMixin {
   late AnimationController _pulseController;
   late Animation<double> _pulseAnimation;
+  late AnimationController _stateChangeController; // 添加状态切换动画控制器
+  late Animation<double> _stateChangeAnimation; // 添加状态切换动画
   late BuildContext _context;
+  bool _wasListening = false; // 添加状态跟踪变量
+  bool _hovered = false; // 添加悬停状态变量
+  bool _pressed = false; // 添加按下状态变量
 
   @override
   void initState() {
@@ -216,6 +221,19 @@ class _VoiceControlTabState extends State<VoiceControlTab>
       ),
     );
 
+    // 初始化状态切换动画控制器
+    _stateChangeController = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+
+    _stateChangeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _stateChangeController,
+        curve: Curves.easeOut,
+      ),
+    );
+
     // 设置语音识别完成回调
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final voiceService = Provider.of<VoiceService>(context, listen: false);
@@ -228,6 +246,7 @@ class _VoiceControlTabState extends State<VoiceControlTab>
   @override
   void dispose() {
     _pulseController.dispose();
+    _stateChangeController.dispose(); // 释放状态切换动画控制器
     super.dispose();
   }
 
@@ -236,11 +255,15 @@ class _VoiceControlTabState extends State<VoiceControlTab>
     return Consumer2<VoiceService, ApiProvider>(
       builder: (context, voiceService, apiProvider, child) {
         // 根据监听状态控制动画
-        if (voiceService.isListening) {
+        if (voiceService.isListening && !_wasListening) {
+          _wasListening = true;
           _pulseController.repeat(reverse: true);
-        } else {
+          _stateChangeController.forward(); // 触发状态切换动画
+        } else if (!voiceService.isListening && _wasListening) {
+          _wasListening = false;
           _pulseController.stop();
           _pulseController.reset();
+          _stateChangeController.reverse(); // 反向播放状态切换动画
         }
 
         return SingleChildScrollView(
@@ -374,39 +397,158 @@ class _VoiceControlTabState extends State<VoiceControlTab>
 
               const SizedBox(height: 30),
 
-              // 麦克风按钮
+              // 麦克风按钮 - 全新设计
               Consumer<VoiceService>(
                 builder: (context, voiceService, child) {
-                  return GestureDetector(
-                    onTap: () {
-                      if (voiceService.isListening) {
-                        voiceService.stopListening();
-                      } else {
-                        voiceService.startListening();
-                      }
-                    },
-                    child: Container(
-                      width: 120,
-                      height: 120,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: voiceService.isListening
-                            ? Colors.red.withOpacity(0.8)
-                            : Colors.blue.withOpacity(0.8),
-                        boxShadow: [
-                          BoxShadow(
-                            color: voiceService.isListening
-                                ? Colors.red.withOpacity(0.4)
-                                : Colors.blue.withOpacity(0.4),
-                            blurRadius: 20,
-                            spreadRadius: 5,
-                          ),
-                        ],
-                      ),
-                      child: Icon(
-                        voiceService.isListening ? Icons.mic : Icons.mic_none,
-                        size: 60,
-                        color: Colors.white,
+                  return MouseRegion(
+                    onEnter: (_) => setState(() => _hovered = true),
+                    onExit: (_) => setState(() => _hovered = false),
+                    child: GestureDetector(
+                      onTap: () {
+                        if (voiceService.isListening) {
+                          voiceService.stopListening();
+                        } else {
+                          voiceService.startListening();
+                        }
+                      },
+                      onTapDown: (_) => setState(() => _pressed = true),
+                      onTapUp: (_) => setState(() => _pressed = false),
+                      onTapCancel: () => setState(() => _pressed = false),
+                      child: AnimatedBuilder(
+                        animation: Listenable.merge([_pulseAnimation, _stateChangeAnimation]),
+                        builder: (context, child) {
+                          // 计算基础缩放值
+                          double baseScale = voiceService.isListening 
+                              ? _pulseAnimation.value 
+                              : 1.0;
+                          
+                          // 悬停和按下效果
+                          double hoverScale = _hovered ? 1.05 : 1.0;
+                          double pressScale = _pressed ? 0.95 : 1.0;
+                          
+                          // 最终缩放值
+                          double scaleValue = baseScale * hoverScale * pressScale;
+                          
+                          // 应用状态切换动画效果
+                          double stateChangeEffect = _stateChangeAnimation.value;
+                          
+                          // 颜色和阴影效果
+                          Color buttonColor = voiceService.isListening
+                              ? Theme.of(context).colorScheme.error
+                              : Theme.of(context).colorScheme.primaryContainer;
+                          
+                          // 悬停和按下时的颜色变化
+                          Color effectiveColor = _pressed
+                              ? buttonColor.withOpacity(1.0)
+                              : (_hovered
+                                  ? buttonColor.withOpacity(0.95)
+                                  : buttonColor.withOpacity(0.9 + stateChangeEffect * 0.1));
+                          
+                          // 阴影效果
+                          double blurRadius = voiceService.isListening
+                              ? 20 + (_pulseAnimation.value - 1.0) * 15
+                              : (_pressed ? 25 : (_hovered ? 22 : 18 + stateChangeEffect * 7));
+                          
+                          double spreadRadius = voiceService.isListening
+                              ? 4 + (_pulseAnimation.value - 1.0) * 6
+                              : (_pressed ? 6 : (_hovered ? 5 : 3 + stateChangeEffect * 2));
+                          
+                          // 添加额外的发光效果
+                          double glowIntensity = voiceService.isListening 
+                              ? 0.6 + (_pulseAnimation.value - 1.0) * 0.4
+                              : (_pressed ? 0.8 : (_hovered ? 0.7 : 0.5 + stateChangeEffect * 0.2));
+                          
+                          return Transform.scale(
+                            scale: scaleValue,
+                            child: Container(
+                              width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: effectiveColor,
+                                boxShadow: [
+                                  // 主阴影
+                                  BoxShadow(
+                                    color: effectiveColor.withOpacity(glowIntensity),
+                                    blurRadius: blurRadius,
+                                    spreadRadius: spreadRadius,
+                                    offset: const Offset(0, 4),
+                                  ),
+                                  // 次要阴影
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.2),
+                                    blurRadius: 10,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                  // 额外的发光效果
+                                  BoxShadow(
+                                    color: effectiveColor.withOpacity(glowIntensity * 0.5),
+                                    blurRadius: blurRadius * 1.5,
+                                    spreadRadius: spreadRadius * 0.5,
+                                  ),
+                                ],
+                                border: Border.all(
+                                  color: voiceService.isListening
+                                      ? Theme.of(context).colorScheme.onError.withOpacity(0.8)
+                                      : Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(_hovered ? 0.7 : 0.5),
+                                  width: _pressed ? 3 : (_hovered ? 2.5 : 2),
+                                ),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  // 内部波纹效果（仅在监听时显示）
+                                  if (voiceService.isListening)
+                                    AnimatedBuilder(
+                                      animation: _pulseAnimation,
+                                      builder: (context, child) {
+                                        return Container(
+                                          width: 70 + (_pulseAnimation.value - 1.0) * 25,
+                                          height: 70 + (_pulseAnimation.value - 1.0) * 25,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Theme.of(context).colorScheme.error.withOpacity(
+                                              0.25 - (_pulseAnimation.value - 1.0) * 0.15,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  // 主图标
+                                  Icon(
+                                    voiceService.isListening 
+                                        ? Icons.mic 
+                                        : (_hovered ? Icons.mic : Icons.mic_none),
+                                    size: _hovered ? 50 : 45,
+                                    color: voiceService.isListening
+                                        ? Theme.of(context).colorScheme.onError
+                                        : Theme.of(context).colorScheme.onPrimaryContainer,
+                                  ),
+                                  // 外部波纹动画（仅在监听时显示）
+                                  if (voiceService.isListening)
+                                    Positioned.fill(
+                                      child: AnimatedBuilder(
+                                        animation: _pulseAnimation,
+                                        builder: (context, child) {
+                                          return Container(
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color: Theme.of(context).colorScheme.onError.withOpacity(
+                                                  0.5 - (_pulseAnimation.value - 1.0) * 0.3,
+                                                ),
+                                                width: 2 + (_pulseAnimation.value - 1.0) * 1,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   );
@@ -638,9 +780,9 @@ class _VoiceControlTabState extends State<VoiceControlTab>
       builder: (context) {
         return AlertDialog(
           title: const Text('语音命令帮助'),
-          content: SingleChildScrollView(
+          content: const SingleChildScrollView(
             child: ListBody(
-              children: const [
+              children: [
                 Text('AI助手控制:', style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 8),
                 Text('• "你好助手" - 启动AI助手'),
