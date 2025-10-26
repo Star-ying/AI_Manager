@@ -13,8 +13,6 @@ from threading import Lock
 from database.config import config
 from Progress.utils.logger_utils import log_time, log_step, log_var
 from Progress.utils.logger_config import setup_logger
-
-
 try:
     from Progress.utils.ai_tools import FUNCTION_SCHEMA
 except ImportError:
@@ -185,11 +183,51 @@ class QWENAssistant:
             return None
 
     def _validate_plan_structure(self, data: dict):
+        if not isinstance(data, dict):
+            logger.warning("输入数据不是字典类型")
+            return None
+
+        # 定义必需字段（仅适用于任务型）
         required_top_level = ["intent", "task_type", "execution_plan", "response_to_user", "requires_confirmation"]
-        for field in required_top_level:
-            if field not in data:
-                logger.warning(f"缺少必要字段: {field}")
-                return None
+
+        # 闲聊类意图列表（可配置）
+        CHAT_INTENTS = {"chat"}
+
+        intent = data.get("intent")
+
+        # 如果没有 intent 字段，至少报错
+        if not intent:
+            logger.warning("缺少必要字段: intent")
+            return None
+
+        # === 情况1：如果是闲聊类意图，放宽校验 ===
+        if intent in CHAT_INTENTS:
+            logger.info(f"检测到闲聊意图 '{intent}'，启用宽松模式")
+
+            # 自动设置其他默认值
+            data.setdefault("task_type", "chat")
+            data.setdefault("requires_confirmation", False)
+            data.setdefault("mode", "single")
+            data.setdefault("expect_follow_up", True)  # 通常希望继续对话
+
+            # 不要求 execution_plan 存在，但如果存在则要合法
+            if "execution_plan" in data:
+                if not self._is_valid_execution_plan(data["execution_plan"]):
+                    logger.warning("闲聊消息中的 execution_plan 不合法")
+                    return None
+
+            return data
+
+        # === 情况2：任务型意图 → 严格校验 ===
+        missing_fields = [field for field in required_top_level if field not in data]
+        if missing_fields:
+            logger.warning(f"任务型请求缺少必要字段: {missing_fields}")
+            return None
+
+        # 校验 execution_plan 中每个步骤的操作是否合法
+        if not isinstance(data["execution_plan"], list):
+            logger.warning("execution_plan 必须是一个数组")
+            return None
 
         valid_operations = {item["name"] for item in FUNCTION_SCHEMA} | {"exit"}
 
@@ -204,15 +242,35 @@ class QWENAssistant:
                 logger.warning(f"parameters 必须是对象: {params}")
                 return None
 
+        # === 自动补全可选字段 ===
         if "mode" not in data:
-            data["mode"] = "parallel"
+            # 并行模式：多个步骤可同时执行；串行则逐个执行
+            data["mode"] = "parallel"  # 或可根据 task_type 判断
+
         if "expect_follow_up" not in data:
-            ending_words = ['退出', '关闭', '停止', '拜拜', '再见', '不用了', '谢谢']
+            ending_words = ['退出', '关闭', '停止', '拜拜', '再见', '不用了', '谢谢', '好的']
             is_ending = any(word in data.get("response_to_user", "") for word in ending_words)
             data["expect_follow_up"] = not is_ending
 
+        # 确保布尔类型正确
+        data["requires_confirmation"] = bool(data["requires_confirmation"])
+        data["expect_follow_up"] = bool(data["expect_follow_up"])
+
         return data
 
+    def _is_valid_execution_plan(self, plan):
+        if not isinstance(plan, list):
+            return False
+        valid_operations = {item["name"] for item in FUNCTION_SCHEMA} | {"exit"}
+        for step in plan:
+            op = step.get("operation")
+            params = step.get("parameters", {})
+            if not op or op not in valid_operations:
+                return False
+            if not isinstance(params, dict):
+                return False
+        return True
+    
     def _create_fallback_response(self, message: str, expect_follow_up: bool):
         return {
             "intent": "chat",
