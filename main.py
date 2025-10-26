@@ -18,29 +18,29 @@ from Progress.app.voice_recognizer import recognizer
 from Progress.app.qwen_assistant import assistant
 from Progress.app.text_to_speech import tts_engine
 from Progress.app.system_controller import executor
-from database import config
+from database.config import config  # 注意路径修正
 from api_server import create_api_server  # 新方式
 
 # 创建 API 服务（但不绑定具体实例）
 api_app, init_api_deps = create_api_server()
 
 def run_api_server(host='127.0.0.1', port=5000):
-    def start():
-        # ✅ 在这里才注入所有依赖
-        init_api_deps(
-            ass=assistant,
-            exec=executor,
-            tts=tts_engine,
-            rec=recognizer
-        )
-        api_app.run(host=host, port=port, debug=False, threaded=True, use_reloader=False)
-    
-    thread = threading.Thread(target=start, daemon=True)
-    thread.start()
+    app, init_deps = create_api_server()
+    init_deps(ass=assistant, exec=executor, tts=tts_engine, rec=recognizer)
+    threading.Thread(
+        target=lambda: app.run(
+            host=host,
+            port=port,
+            debug=False,
+            threaded=True,
+            use_reloader=False
+        ),
+        daemon=True
+    ).start()
     logger.info(f"🌐 API 服务器已启动：http://{host}:{port}")
 
-# --- 初始化全局日志器 ---
-logger = logging.getLogger("ai_assistant")
+# ✅ 在全局作用域创建 logger 前必须先初始化
+logger = None  # 先占位
 
 @log_step("处理一次语音交互（AI动态控制等待）")
 @log_time
@@ -57,7 +57,6 @@ def handle_single_interaction():
     decision = assistant.process_voice_command(text)
     expect_follow_up = decision.get("expect_follow_up", False)
 
-    # 3. 构造回复语句
     result = executor.execute_task_plan(decision)
     
     if result["success"]:
@@ -84,6 +83,10 @@ def handle_single_interaction():
 @log_step("启动 AI 语音助手")
 @log_time
 def main():
+    global logger
+    # ✅ 关键：先初始化日志系统
+    logger = setup_logger(name="ai_assistant", level=logging.DEBUG)
+    
     logger.info("🚀 正在启动 AI 语音助手系统...")
 
     run_api_server(host='127.0.0.1', port=5000)
@@ -128,7 +131,20 @@ def main():
         print(f"\n🚨 程序异常终止：{e}")
         sys.exit(1)
 
+# ========================
+#   主入口 & 自检流程
+# ========================
 if __name__ == "__main__":
-    if not logging.getLogger().handlers:
-        setup_logger(name="ai_assistant", log_dir="logs", level=logging.INFO)
+    # 1. 检查 Vosk 是否安装
+    try:
+        import vosk
+        print(f"🔍 Vosk 安装路径: {vosk.__file__}")
+    except ImportError as e:
+        print(f"❌ 无法导入 vosk: {e}")
+        sys.exit(1)
+
+    # 2. 初始化日志器后进行健康检查
+    logger = setup_logger(name="ai_assistant", level=logging.DEBUG)
+
+    # 3. 启动主程序
     main()

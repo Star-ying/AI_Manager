@@ -16,19 +16,16 @@ from Progress.utils.logger_config import setup_logger
 # --- 初始化日志器 ---
 logger = logging.getLogger("ai_assistant")
 
-DASHSCOPE_API_KEY = config.get("ai_model","api_key")
-DASHSCOPE_MODEL = config.get("ai_model","model")
-
+DASHSCOPE_API_KEY = config.get("ai_model", "api_key")
+DASHSCOPE_MODEL = config.get("ai_model", "model")
 
 class QWENAssistant:
     def __init__(self):
         if not DASHSCOPE_API_KEY:
             raise ValueError("缺少 DASHSCOPE_API_KEY，请检查配置文件")
         dashscope.api_key = DASHSCOPE_API_KEY
-
         self.model_name = DASHSCOPE_MODEL or 'qwen-max'
         logger.info(f"✅ QWENAssistant 初始化完成，使用模型: {self.model_name}")
-
         self.conversation_history = []
 
         self.system_prompt = """

@@ -1,83 +1,80 @@
 {
-    "shortcuts": {
-        "save": "Ctrl+Shift+S",
-        "open": "Ctrl+O",
-        "exit": "Ctrl+Q",
-        "undo": "Ctrl+Z"
-    },
-    "display": {
-        "theme": "light",
-        "window_size": [
-            800,
-            600
-        ],
-        "font": "Arial",
-        "font_size": 12
-    },
-    "paths": {
-        "resource_path": "./resources",
-        "resources": {
-            "music_path": "./Music",
-            "document_path": "./Documents"
-        }
-    },
-    "ai_model": {
-        "api_key": "sk-6175f4c9a399401d914d11b1e1db1873",
-        "model": "qwen-plus"
-    },
-    "voice_recognition": {
-        "timeout": {
-            "initial": 10,
-            "min": 2,
-            "max": 30,
-            "unit": "seconds",
-            "description": "初始监听等待时间，过短会误判，过长用户体验差"
-        },
-        "post_speech_short_wait": {
-            "value": 1.5,
-            "min": 1.0,
-            "max": 5.0,
-            "unit": "seconds",
-            "description": "短句后静默多久判定结束"
-        },
-        "post_speech_long_wait": {
-            "value": 4.0,
-            "min": 1.0,
-            "max": 8.0,
-            "unit": "seconds",
-            "description": "长句后静默等待时间"
-        },
-        "long_speech_threshold": {
-            "value": 3.0,
-            "min": 1.0,
-            "max": 10.0,
-            "unit": "seconds",
-            "description": "超过此长度视为长句"
-        },
-        "volume_threshold": {
-            "base": 600,
-            "min": 400,
-            "max": 2000,
-            "unit": "amplitude",
-            "description": "声音幅度阈值，用于判断是否开始说话"
-        }
-    },
-    "tts": {
-        "rate": {
-            "value": 200,
-            "min": 100,
-            "max": 300,
-            "unit": "words per minute"
-        },
-        "volume": {
-            "value": 0.9,
-            "min": 0.0,
-            "max": 1.0,
-            "unit": "fraction"
-        }
-    },
-    "app": {
-        "name": "语音控制AI助手",
-        "version": "1.0.0"
+  "shortcuts": {
+    "save": "Ctrl+Shift+S",
+    "open": "Ctrl+O",
+    "exit": "Ctrl+Q",
+    "undo": "Ctrl+Z"
+  },
+  "display": {
+    "theme": "light",
+    "window_size": [800, 600],
+    "font": "Arial",
+    "font_size": 12
+  },
+  "paths": {
+    "resource_path": "./resources",
+    "resources": {
+      "music_path": "/Music",
+      "document_path": "/Documents"
     }
+  },
+  "ai_model": {
+    "api_key": "sk-6175f4c9a399401d914d11b1e1db1873",
+    "model": "qwen-plus"
+  },
+  "voice_recognition": {
+    "timeout": {
+      "initial": 10,
+      "min": 2,
+      "max": 30,
+      "unit": "seconds",
+      "description": "初始监听等待时间，过短会误判，过长用户体验差"
+    },
+    "post_speech_short_wait": {
+      "value": 1.5,
+      "min": 1.0,
+      "max": 5.0,
+      "unit": "seconds",
+      "description": "短句后静默多久判定结束"
+    },
+    "post_speech_long_wait": {
+      "value": 4.0,
+      "min": 1.0,
+      "max": 8.0,
+      "unit": "seconds",
+      "description": "长句后静默等待时间"
+    },
+    "long_speech_threshold": {
+      "value": 3.0,
+      "min": 1.0,
+      "max": 10.0,
+      "unit": "seconds",
+      "description": "超过此长度视为长句"
+    },
+    "volume_threshold": {
+      "base": 600,
+      "min": 400,
+      "max": 2000,
+      "unit": "amplitude",
+      "description": "声音幅度阈值，用于判断是否开始说话"
+    }
+  },
+  "tts": {
+    "rate": {
+      "value": 200,
+      "min": 100,
+      "max": 300,
+      "unit": "words per minute"
+    },
+    "volume": {
+      "value": 0.9,
+      "min": 0.0,
+      "max": 1.0,
+      "unit": "fraction"
+    }
+  },
+  "app": {
+    "name": "语音控制AI助手",
+    "version": "1.0.0"
+  }
 }

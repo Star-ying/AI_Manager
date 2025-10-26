@@ -22,6 +22,8 @@ from Progress.utils.ai_tools import FUNCTION_SCHEMA, ai_callable
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
 from dataclasses import dataclass
+from Progress.utils.resource_helper import resource_path
+
 
 @dataclass
 class TaskResult:
@@ -39,11 +41,16 @@ class TaskResult:
             "data": self.data or {}
         }
 
-# 终结型任务白名单（只能出现在最后）
 TERMINAL_OPERATIONS = {"exit"}
-RESOURCE_PATH = config.get("paths","resource_path")
-DEFAULT_MUSIC_PATH = os.path.join(RESOURCE_PATH, config.get("paths","resources","music_path"))
-DEFAULT_DOCUMENT_PATH = os.path.join(RESOURCE_PATH, config.get("paths","resources","document_path"))
+
+# 从配置读取路径字符串
+RESOURCE_PATH_STR = config.get("paths", "resource_path")        # "./resources"
+MUSIC_PATH_STR = config.get("paths","resources", "music_path")         # "/Music" 或 "Music"
+DOCUMENT_PATH_STR = config.get("paths","resources", "document_path")   # "/Documents"
+
+# 使用增强版 resource_path 函数自动解析这些字符串
+DEFAULT_MUSIC_PATH = resource_path(RESOURCE_PATH_STR, MUSIC_PATH_STR.lstrip("/\\"))
+DEFAULT_DOCUMENT_PATH = resource_path(RESOURCE_PATH_STR, DOCUMENT_PATH_STR.lstrip("/\\"))
 
 logger = logging.getLogger("ai_assistant")
 

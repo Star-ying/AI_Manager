@@ -1,4 +1,3 @@
-# utils/log_utils.py
 import logging
 import time
 from functools import wraps

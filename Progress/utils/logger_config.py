@@ -6,9 +6,9 @@ from logging.handlers import TimedRotatingFileHandler, RotatingFileHandler
 
 def setup_logger(
     name="ai_assistant",
-    log_dir: str = "logs",
+    log_dir="logs",
     level=logging.INFO,
-    max_bytes=10 * 1024 * 1024,  # 10MB
+    max_bytes=10 * 1024 * 1024,
     backup_count=7
 ):
     """
@@ -27,12 +27,10 @@ def setup_logger(
     log_path = Path(log_dir)
     log_path.mkdir(exist_ok=True)
 
-    # 日志文件路径
     log_file = log_path / "app.log"
     debug_log_file = log_path / "debug.log"
     error_log_file = log_path / "error.log"
 
-    # 自定义格式
     detailed_formatter = logging.Formatter(
         fmt='%(asctime)s | %(name)s | %(levelname)-8s | %(filename)s:%(lineno)d | %(funcName)s() | %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
@@ -42,11 +40,8 @@ def setup_logger(
         datefmt='%H:%M:%S'
     )
 
-    # 获取或新建 logger
     logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)  # 设为最低级，由 handlers 控制输出
-
-    # 防止重复添加 handler（重要！在导入时避免多次运行导致重复日志）
+    logger.setLevel(logging.DEBUG)
     if logger.hasHandlers():
         logger.handlers.clear()
 
@@ -91,17 +86,3 @@ def setup_logger(
     logger.addHandler(error_handler)
 
     return logger
-
-
-# --- 全局异常捕获钩子 ---
-def install_uncaught_exception_hook(logger: logging.Logger):
-    """
-    安装未捕获异常的处理钩子，自动记录 traceback
-    """
-    def handle_exception(exc_type, exc_value, exc_traceback):
-        if issubclass(exc_type, KeyboardInterrupt):
-            sys.__excepthook__(exc_type, exc_value, exc_traceback)
-        else:
-            logger.critical("未捕获的异常", exc_info=(exc_type, exc_value, exc_traceback))
-
-    sys.excepthook = handle_exception

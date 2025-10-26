@@ -17,8 +17,9 @@ import pyaudio
 from database.config import config
 from Progress.utils.logger_utils import log_time, log_step, log_var, log_call
 from Progress.utils.logger_config import setup_logger
+from Progress.utils.resource_helper import resource_path
 
-VOSK_MODEL_PATH = "./vosk-model-small-cn-0.22"
+VOSK_MODEL_PATH = resource_path("vosk-model-small-cn-0.22")
 
 # --- 初始化日志器 ---
 logger = logging.getLogger("ai_assistant")
