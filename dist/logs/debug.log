@@ -1,0 +1,498 @@
+2025-10-27 18:34:07 | ai_assistant | INFO     | main.py:82 | main() | 🚀 AI 语音助手正在启动...
+2025-10-27 18:34:07 | ai_assistant | INFO     | main.py:88 | main() | 🌐 API 服务已启动: http://127.0.0.1:5001/api
+2025-10-27 18:34:07 | ai_assistant | INFO     | main.py:94 | main() | 👂 助手已就绪，请开始说话...
+2025-10-27 18:34:07 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:34:07 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:34:07 | ai_assistant | INFO     | __init__.py:40 | initialize_all() | 🚀 启动 AI 助手...
+2025-10-27 18:34:09 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-27 18:34:09 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: _init_music_player
+2025-10-27 18:34:09 | ai_assistant | INFO     | system_controller.py:76 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-27 18:34:09 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 '_init_music_player' 完成，耗时: 0.024s
+2025-10-27 18:34:09 | ai_assistant | INFO     | system_controller.py:478 | __init__() | 🔧 任务编排器已加载 16 个可调用函数
+2025-10-27 18:34:09 | ai_assistant | INFO     | system_controller.py:525 | _start_scheduled_task_loop() | ⏰ 已启动定时任务监听循环
+2025-10-27 18:34:10 | ai_assistant | INFO     | voice_recognizer.py:77 | _load_model() | ✅ Vosk 模型加载成功
+2025-10-27 18:34:10 | ai_assistant | DEBUG    | voice_recognizer.py:82 | _init_audio_system() | ✅ PyAudio 初始化完成
+2025-10-27 18:34:10 | ai_assistant | INFO     | voice_recognizer.py:48 | __init__() | ✅ 语音识别器初始化完成
+2025-10-27 18:34:17 | ai_assistant | INFO     | qwen_assistant.py:54 | __init__() | ✅ QWENAssistant 单例初始化完成，使用模型: qwen-plus
+2025-10-27 18:34:17 | tts_engine | INFO     | text_to_speech.py:21 | start() | 🎧 TTS 引擎已启动
+2025-10-27 18:34:17 | ai_assistant | INFO     | __init__.py:67 | initialize_all() | 🎉 所有模块初始化完成！
+2025-10-27 18:34:17 | ai_assistant | DEBUG    | logger_utils.py:51 | log_call() | 📌 调用点: 🎙️ AI 助手已就绪！说出指令试试吧～
+2025-10-27 18:34:17 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:34:23 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:34:23 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:34:23 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:34:23 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:34:24 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "response_to_user": "你好！有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "expect_follow_up": true
+}
+2025-10-27 18:34:24 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:34:24 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 1.630s
+2025-10-27 18:34:24 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:34:24 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:34:24 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.001s
+2025-10-27 18:34:24 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！有什么我可以帮你的吗？
+2025-10-27 18:34:24 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！有什么我可以帮你的吗？
+2025-10-27 18:34:28 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:34:28 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 10.0 → 8.0s
+2025-10-27 18:34:28 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 20.622s
+2025-10-27 18:34:28 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:34:28 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:34:28 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:35:24 | ai_assistant | INFO     | main.py:82 | main() | 🚀 AI 语音助手正在启动...
+2025-10-27 18:35:24 | ai_assistant | INFO     | main.py:88 | main() | 🌐 API 服务已启动: http://127.0.0.1:5001/api
+2025-10-27 18:35:24 | ai_assistant | INFO     | main.py:94 | main() | 👂 助手已就绪，请开始说话...
+2025-10-27 18:35:24 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:35:24 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:35:24 | ai_assistant | INFO     | __init__.py:40 | initialize_all() | 🚀 启动 AI 助手...
+2025-10-27 18:35:26 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-27 18:35:26 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: _init_music_player
+2025-10-27 18:35:26 | ai_assistant | INFO     | system_controller.py:76 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-27 18:35:26 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 '_init_music_player' 完成，耗时: 0.035s
+2025-10-27 18:35:26 | ai_assistant | INFO     | system_controller.py:478 | __init__() | 🔧 任务编排器已加载 16 个可调用函数
+2025-10-27 18:35:26 | ai_assistant | INFO     | system_controller.py:525 | _start_scheduled_task_loop() | ⏰ 已启动定时任务监听循环
+2025-10-27 18:35:27 | ai_assistant | INFO     | voice_recognizer.py:77 | _load_model() | ✅ Vosk 模型加载成功
+2025-10-27 18:35:27 | ai_assistant | DEBUG    | voice_recognizer.py:82 | _init_audio_system() | ✅ PyAudio 初始化完成
+2025-10-27 18:35:27 | ai_assistant | INFO     | voice_recognizer.py:48 | __init__() | ✅ 语音识别器初始化完成
+2025-10-27 18:35:35 | ai_assistant | INFO     | qwen_assistant.py:54 | __init__() | ✅ QWENAssistant 单例初始化完成，使用模型: qwen-plus
+2025-10-27 18:35:35 | tts_engine | INFO     | text_to_speech.py:21 | start() | 🎧 TTS 引擎已启动
+2025-10-27 18:35:35 | ai_assistant | INFO     | __init__.py:67 | initialize_all() | 🎉 所有模块初始化完成！
+2025-10-27 18:35:35 | ai_assistant | DEBUG    | logger_utils.py:51 | log_call() | 📌 调用点: 🎙️ AI 助手已就绪！说出指令试试吧～
+2025-10-27 18:35:35 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:35:42 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:35:42 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:35:42 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:35:42 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:35:44 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:35:44 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:35:44 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.319s
+2025-10-27 18:35:44 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:35:44 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:35:44 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:35:44 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！有什么我可以帮你的吗？
+2025-10-27 18:35:44 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！有什么我可以帮你的吗？
+2025-10-27 18:35:48 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:35:48 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 10.0 → 8.0s
+2025-10-27 18:35:48 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 24.189s
+2025-10-27 18:35:48 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:35:48 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:35:48 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:35:52 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:35:52 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:35:52 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:35:52 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:35:55 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！很高兴再次见到你，有什么我可以帮忙的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:35:55 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:35:55 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.831s
+2025-10-27 18:35:55 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:35:55 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:35:55 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:35:55 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:35:55 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:36:00 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:36:00 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:36:00 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 12.607s
+2025-10-27 18:36:00 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:00 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:01 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:09 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:36:09 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.257s
+2025-10-27 18:36:09 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:09 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:09 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:17 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.254s
+2025-10-27 18:36:17 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:17 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:17 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:25 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.264s
+2025-10-27 18:36:25 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:25 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:25 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:33 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.281s
+2025-10-27 18:36:33 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:33 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:34 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:38 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:36:38 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:36:38 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:36:38 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:36:42 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好呀！今天过得怎么样？有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:36:42 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:36:42 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 3.309s
+2025-10-27 18:36:42 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:36:42 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:36:42 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:36:42 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好呀！今天过得怎么样？有什么我可以帮你的吗？
+2025-10-27 18:36:42 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好呀！今天过得怎么样？有什么我可以帮你的吗？
+2025-10-27 18:36:47 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:36:47 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:36:47 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 13.914s
+2025-10-27 18:36:47 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:36:47 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:36:48 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:36:55 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:36:55 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:36:55 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:36:55 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:36:57 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "嗨，又见面啦！是不是有什么事情想跟我聊呢？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:36:57 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:36:57 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.367s
+2025-10-27 18:36:57 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:36:57 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:36:57 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.001s
+2025-10-27 18:36:57 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 嗨，又见面啦！是不是有什么事情想跟我聊呢？
+2025-10-27 18:36:57 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 嗨，又见面啦！是不是有什么事情想跟我聊呢？
+2025-10-27 18:37:02 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:37:02 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:37:02 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 14.681s
+2025-10-27 18:37:02 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:37:02 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:37:02 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:37:07 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '身穿 一个 我 自然 文件'
+2025-10-27 18:37:07 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:37:07 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:37:07 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 身穿 一个 我 自然 文件
+2025-10-27 18:37:10 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "unknown_input",
+  "execution_plan": [],
+  "response_to_user": "抱歉，我没太理解你的意思。你可以重新说清楚一些吗？比如你想打开文件、播放音乐，还是其他操作？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:37:10 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:37:10 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 3.220s
+2025-10-27 18:37:10 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:37:10 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:37:10 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:37:10 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 抱歉，我没太理解你的意思。你可以重新说清楚一些吗？比如你想打开文件、播放音乐，还是其他操作？
+2025-10-27 18:37:10 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 抱歉，我没太理解你的意思。你可以重新说清楚一些吗？比如你想打开文件、播放音乐，还是其他操作？
+2025-10-27 18:37:21 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:37:21 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:37:21 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 18.920s
+2025-10-27 18:37:21 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:37:21 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:37:21 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:37:29 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:37:29 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.268s
+2025-10-27 18:37:29 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:37:29 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:37:29 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:37:32 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:37:32 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:37:32 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:37:32 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:37:34 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！今天有什么我可以为你效劳的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:37:34 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:37:34 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.658s
+2025-10-27 18:37:34 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:37:34 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:37:34 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:37:34 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！今天有什么我可以为你效劳的吗？
+2025-10-27 18:37:34 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！今天有什么我可以为你效劳的吗？
+2025-10-27 18:37:39 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:37:39 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:37:39 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 9.576s
+2025-10-27 18:37:39 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:37:39 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:37:39 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:38:17 | ai_assistant | INFO     | main.py:82 | main() | 🚀 AI 语音助手正在启动...
+2025-10-27 18:38:17 | ai_assistant | INFO     | main.py:88 | main() | 🌐 API 服务已启动: http://127.0.0.1:5001/api
+2025-10-27 18:38:17 | ai_assistant | INFO     | main.py:94 | main() | 👂 助手已就绪，请开始说话...
+2025-10-27 18:38:17 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:38:17 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:38:17 | ai_assistant | INFO     | __init__.py:40 | initialize_all() | 🚀 启动 AI 助手...
+2025-10-27 18:38:19 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-27 18:38:19 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: _init_music_player
+2025-10-27 18:38:19 | ai_assistant | INFO     | system_controller.py:76 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-27 18:38:19 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 '_init_music_player' 完成，耗时: 0.027s
+2025-10-27 18:38:19 | ai_assistant | INFO     | system_controller.py:478 | __init__() | 🔧 任务编排器已加载 16 个可调用函数
+2025-10-27 18:38:19 | ai_assistant | INFO     | system_controller.py:525 | _start_scheduled_task_loop() | ⏰ 已启动定时任务监听循环
+2025-10-27 18:38:20 | ai_assistant | INFO     | voice_recognizer.py:77 | _load_model() | ✅ Vosk 模型加载成功
+2025-10-27 18:38:20 | ai_assistant | DEBUG    | voice_recognizer.py:82 | _init_audio_system() | ✅ PyAudio 初始化完成
+2025-10-27 18:38:20 | ai_assistant | INFO     | voice_recognizer.py:48 | __init__() | ✅ 语音识别器初始化完成
+2025-10-27 18:38:27 | ai_assistant | INFO     | qwen_assistant.py:54 | __init__() | ✅ QWENAssistant 单例初始化完成，使用模型: qwen-plus
+2025-10-27 18:38:27 | tts_engine | INFO     | text_to_speech.py:21 | start() | 🎧 TTS 引擎已启动
+2025-10-27 18:38:27 | ai_assistant | INFO     | __init__.py:67 | initialize_all() | 🎉 所有模块初始化完成！
+2025-10-27 18:38:27 | ai_assistant | DEBUG    | logger_utils.py:51 | log_call() | 📌 调用点: 🎙️ AI 助手已就绪！说出指令试试吧～
+2025-10-27 18:38:27 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:38:37 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:38:37 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 20.281s
+2025-10-27 18:38:37 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:38:37 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:38:37 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:38:41 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '您好'
+2025-10-27 18:38:41 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:38:41 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:38:41 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 您好
+2025-10-27 18:38:43 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "您好！有什么我可以帮您的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:38:43 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:38:43 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.086s
+2025-10-27 18:38:43 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:38:43 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:38:43 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:38:43 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 您好！有什么我可以帮您的吗？
+2025-10-27 18:38:43 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 您好！有什么我可以帮您的吗？
+2025-10-27 18:38:47 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:38:47 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 10.0 → 8.0s
+2025-10-27 18:38:47 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 9.925s
+2025-10-27 18:38:47 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:38:47 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:38:47 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:38:55 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.278s
+2025-10-27 18:38:55 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:38:55 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:38:55 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:39:01 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:39:01 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:39:01 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:39:01 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:39:03 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:39:03 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:39:03 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 1.870s
+2025-10-27 18:39:03 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:39:03 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:39:03 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:39:03 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！有什么我可以帮你的吗？
+2025-10-27 18:39:03 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！有什么我可以帮你的吗？
+2025-10-27 18:39:06 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:39:06 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:39:06 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 11.089s
+2025-10-27 18:39:06 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:39:06 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:39:06 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:39:15 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:39:15 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.238s
+2025-10-27 18:39:15 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:39:15 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:39:15 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:39:23 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.319s
+2025-10-27 18:39:23 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:39:23 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:39:23 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:40:19 | ai_assistant | INFO     | main.py:82 | main() | 🚀 AI 语音助手正在启动...
+2025-10-27 18:40:19 | ai_assistant | INFO     | main.py:88 | main() | 🌐 API 服务已启动: http://127.0.0.1:5001/api
+2025-10-27 18:40:19 | ai_assistant | INFO     | main.py:94 | main() | 👂 助手已就绪，请开始说话...
+2025-10-27 18:40:19 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:40:19 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:40:19 | ai_assistant | INFO     | __init__.py:40 | initialize_all() | 🚀 启动 AI 助手...
+2025-10-27 18:40:21 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-27 18:40:21 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: _init_music_player
+2025-10-27 18:40:21 | ai_assistant | INFO     | system_controller.py:76 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-27 18:40:21 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 '_init_music_player' 完成，耗时: 0.025s
+2025-10-27 18:40:21 | ai_assistant | INFO     | system_controller.py:478 | __init__() | 🔧 任务编排器已加载 16 个可调用函数
+2025-10-27 18:40:21 | ai_assistant | INFO     | system_controller.py:525 | _start_scheduled_task_loop() | ⏰ 已启动定时任务监听循环
+2025-10-27 18:40:22 | ai_assistant | INFO     | voice_recognizer.py:77 | _load_model() | ✅ Vosk 模型加载成功
+2025-10-27 18:40:22 | ai_assistant | DEBUG    | voice_recognizer.py:82 | _init_audio_system() | ✅ PyAudio 初始化完成
+2025-10-27 18:40:22 | ai_assistant | INFO     | voice_recognizer.py:48 | __init__() | ✅ 语音识别器初始化完成
+2025-10-27 18:40:32 | ai_assistant | INFO     | qwen_assistant.py:54 | __init__() | ✅ QWENAssistant 单例初始化完成，使用模型: qwen-plus
+2025-10-27 18:40:32 | tts_engine | INFO     | text_to_speech.py:21 | start() | 🎧 TTS 引擎已启动
+2025-10-27 18:40:32 | ai_assistant | INFO     | __init__.py:67 | initialize_all() | 🎉 所有模块初始化完成！
+2025-10-27 18:40:32 | ai_assistant | DEBUG    | logger_utils.py:51 | log_call() | 📌 调用点: 🎙️ AI 助手已就绪！说出指令试试吧～
+2025-10-27 18:40:32 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:40:42 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:40:42 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 23.113s
+2025-10-27 18:40:42 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:40:42 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:40:42 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:40:52 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 10.320s
+2025-10-27 18:40:52 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:40:52 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:40:53 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:40:59 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:40:59 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:40:59 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:40:59 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:41:01 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:41:01 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:41:01 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 2.504s
+2025-10-27 18:41:01 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:41:01 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:41:01 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.001s
+2025-10-27 18:41:01 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！有什么我可以帮你的吗？
+2025-10-27 18:41:01 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！有什么我可以帮你的吗？
+2025-10-27 18:41:05 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:41:05 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 10.0 → 8.0s
+2025-10-27 18:41:05 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 12.787s
+2025-10-27 18:41:05 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:41:05 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:41:05 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:41:10 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:41:10 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:41:10 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:41:10 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:41:13 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！很高兴再次见到你，有什么我可以帮忙的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:41:13 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:41:13 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 3.487s
+2025-10-27 18:41:13 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:41:13 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:41:13 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.001s
+2025-10-27 18:41:13 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:41:13 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:41:18 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:41:18 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:41:18 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 13.168s
+2025-10-27 18:41:18 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:41:18 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:41:19 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:41:27 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:41:27 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 8.279s
+2025-10-27 18:41:27 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:41:27 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:41:27 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:43:03 | ai_assistant | INFO     | main.py:82 | main() | 🚀 AI 语音助手正在启动...
+2025-10-27 18:43:03 | ai_assistant | INFO     | main.py:88 | main() | 🌐 API 服务已启动: http://127.0.0.1:5001/api
+2025-10-27 18:43:03 | ai_assistant | INFO     | main.py:94 | main() | 👂 助手已就绪，请开始说话...
+2025-10-27 18:43:03 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:43:03 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:43:03 | ai_assistant | INFO     | __init__.py:40 | initialize_all() | 🚀 启动 AI 助手...
+2025-10-27 18:43:05 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 初始化音乐播放器
+2025-10-27 18:43:05 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: _init_music_player
+2025-10-27 18:43:05 | ai_assistant | INFO     | system_controller.py:76 | _init_music_player() | ✅ 音乐播放器初始化成功
+2025-10-27 18:43:05 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 '_init_music_player' 完成，耗时: 0.027s
+2025-10-27 18:43:05 | ai_assistant | INFO     | system_controller.py:478 | __init__() | 🔧 任务编排器已加载 16 个可调用函数
+2025-10-27 18:43:05 | ai_assistant | INFO     | system_controller.py:525 | _start_scheduled_task_loop() | ⏰ 已启动定时任务监听循环
+2025-10-27 18:43:06 | ai_assistant | INFO     | voice_recognizer.py:77 | _load_model() | ✅ Vosk 模型加载成功
+2025-10-27 18:43:07 | ai_assistant | DEBUG    | voice_recognizer.py:82 | _init_audio_system() | ✅ PyAudio 初始化完成
+2025-10-27 18:43:07 | ai_assistant | INFO     | voice_recognizer.py:48 | __init__() | ✅ 语音识别器初始化完成
+2025-10-27 18:43:14 | ai_assistant | INFO     | qwen_assistant.py:54 | __init__() | ✅ QWENAssistant 单例初始化完成，使用模型: qwen-plus
+2025-10-27 18:43:14 | tts_engine | INFO     | text_to_speech.py:21 | start() | 🎧 TTS 引擎已启动
+2025-10-27 18:43:14 | ai_assistant | INFO     | __init__.py:67 | initialize_all() | 🎉 所有模块初始化完成！
+2025-10-27 18:43:14 | ai_assistant | DEBUG    | logger_utils.py:51 | log_call() | 📌 调用点: 🎙️ AI 助手已就绪！说出指令试试吧～
+2025-10-27 18:43:14 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:43:24 | ai_assistant | INFO     | main.py:53 | handle_single_interaction() | 🔇 当前未检测到语音输入，请说话唤醒...
+2025-10-27 18:43:24 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 20.397s
+2025-10-27 18:43:24 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:43:24 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:43:24 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:43:34 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 10.268s
+2025-10-27 18:43:34 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:43:34 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:43:34 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:43:38 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:43:38 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:43:38 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:43:38 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:43:40 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！有什么我可以帮你的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:43:40 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:43:40 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 1.790s
+2025-10-27 18:43:40 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:43:40 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:43:40 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:43:40 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！有什么我可以帮你的吗？
+2025-10-27 18:43:40 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！有什么我可以帮你的吗？
+2025-10-27 18:43:44 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:43:44 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 10.0 → 8.0s
+2025-10-27 18:43:44 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 9.710s
+2025-10-27 18:43:44 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:43:44 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:43:44 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...
+2025-10-27 18:43:48 | ai_assistant | INFO     | main.py:57 | handle_single_interaction() | 🗣️ 用户说: '你好'
+2025-10-27 18:43:48 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: process_voice_command
+2025-10-27 18:43:48 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理语音指令
+2025-10-27 18:43:48 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 原始输入 = 你好
+2025-10-27 18:43:49 | ai_assistant | DEBUG    | logger_utils.py:45 | log_var() | 模型输出 = {
+  "intent": "chat",
+  "task_type": "greeting",
+  "execution_plan": [],
+  "response_to_user": "你好！很高兴再次见到你，有什么我可以帮忙的吗？",
+  "requires_confirmation": false,
+  "mode": "serial",
+  "expect_follow_up": true
+}
+2025-10-27 18:43:49 | ai_assistant | INFO     | qwen_assistant.py:205 | _validate_plan_structure() | 检测到闲聊意图 'chat'，启用宽松模式
+2025-10-27 18:43:49 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'process_voice_command' 完成，耗时: 1.742s
+2025-10-27 18:43:49 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 执行多任务计划
+2025-10-27 18:43:49 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: execute_task_plan
+2025-10-27 18:43:49 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'execute_task_plan' 完成，耗时: 0.000s
+2025-10-27 18:43:49 | tts_engine | INFO     | text_to_speech.py:40 | speak() | 📢 推送 TTS 文本: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:43:49 | tts_engine | INFO     | text_to_speech.py:66 | _playback_worker() | 🔊 开始播放 TTS: 你好！很高兴再次见到你，有什么我可以帮忙的吗？
+2025-10-27 18:43:55 | tts_engine | INFO     | text_to_speech.py:68 | _playback_worker() | ✅ TTS 播放完成
+2025-10-27 18:43:55 | ai_assistant | DEBUG    | voice_recognizer.py:60 | current_timeout() | ⏱️ 监听超时: 8.0 → 8.0s
+2025-10-27 18:43:55 | ai_assistant | DEBUG    | logger_utils.py:33 | wrapper() | ✅ 函数 'handle_single_interaction' 完成，耗时: 11.066s
+2025-10-27 18:43:55 | ai_assistant | INFO     | logger_utils.py:15 | wrapper() | 🔄 开始执行: 处理一次交互
+2025-10-27 18:43:55 | ai_assistant | DEBUG    | logger_utils.py:28 | wrapper() | ▶️ 进入函数: handle_single_interaction
+2025-10-27 18:43:55 | ai_assistant | INFO     | voice_recognizer.py:112 | listen_and_recognize() | 🎙️ 请说话...

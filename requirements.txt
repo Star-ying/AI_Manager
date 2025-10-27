@@ -9,5 +9,6 @@ flask
 werkzeug
 flask_cors
 requests
+pyttsx3
 
 pyinstaller
