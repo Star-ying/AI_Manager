@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+venv-*/
+*.egg-info/
+
+# Build outputs
+build/
+dist/
+
+# IDE
+.idea/
+*.iml
+
+# Flutter/Dart noise
+.dart_tool/
+.flutter-plugins-dependencies
+
+# OS
+Thumbs.db
+Desktop.ini

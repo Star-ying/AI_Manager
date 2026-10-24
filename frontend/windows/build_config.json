@@ -1,8 +1,0 @@
-{
-  "config_type": "build",
-  "config_version": 2,
-  "windows": {
-    "target_platform": "windows-x64",
-    "supported_architectures": ["x64", "arm64"]
-  }
-}
