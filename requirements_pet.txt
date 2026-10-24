@@ -1,0 +1,4 @@
+# 桌面小人（桌宠）独立依赖 —— 与后端 requirements.txt 分离
+# 安装：venv\Scripts\pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements_pet.txt
+PySide6>=6.6
+requests>=2.31

@@ -34,6 +34,7 @@ class StatusResponse {
   final String? batteryLevel;
   final String? networkStatus;
   final String? lastError;
+  final String? lastTranscript;
   final Map<String, dynamic>? assistantState;
   
   StatusResponse({
@@ -48,6 +49,7 @@ class StatusResponse {
     this.batteryLevel,
     this.networkStatus,
     this.lastError,
+    this.lastTranscript,
     this.assistantState,
   });
   
@@ -64,6 +66,7 @@ class StatusResponse {
       batteryLevel: json['battery_level'],
       networkStatus: json['network_status'],
       lastError: json['last_error'],
+      lastTranscript: json['last_transcript'],
       assistantState: json['assistant_state'],
     );
   }
@@ -152,6 +155,33 @@ class TTSResponse {
       audioFile: json['audio_file'],
       duration: json['duration'],
       error: json['error'],
+    );
+  }
+}
+
+// 监听控制响应（/api/listen）
+class ListenResponse {
+  final bool success;
+  final bool? isListening;
+  final String? message;
+  final String? transcript;
+  final int? timestamp;
+
+  ListenResponse({
+    required this.success,
+    this.isListening,
+    this.message,
+    this.transcript,
+    this.timestamp,
+  });
+
+  factory ListenResponse.fromJson(Map<String, dynamic> json) {
+    return ListenResponse(
+      success: json['success'] == true || json['is_listening'] != null,
+      isListening: json['is_listening'],
+      message: json['message'],
+      transcript: json['transcript'] ?? json['last_transcript'],
+      timestamp: json['timestamp'] is int ? json['timestamp'] : int.tryParse(json['timestamp']?.toString() ?? '') ?? 0,
     );
   }
 }

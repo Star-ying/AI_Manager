@@ -123,6 +123,24 @@ class ApiService {
     }
   }
   
+  // 控制后端收音开关（/api/listen：start/stop/status）
+  static Future<ListenResponse?> controlListen(String action) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$_baseUrl/listen'),
+        headers: _getHeaders(includeApiKey: true),
+        body: jsonEncode({'action': action}),
+      );
+      if (response.statusCode == 200) {
+        return ListenResponse.fromJson(jsonDecode(response.body));
+      }
+      return null;
+    } catch (e) {
+      print('控制监听失败: $e');
+      return null;
+    }
+  }
+
   // 远程唤醒
   static Future<WakeupResponse?> wakeup({
     String device = 'phone',

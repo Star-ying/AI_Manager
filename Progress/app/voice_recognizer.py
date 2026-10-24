@@ -33,6 +33,7 @@ class SpeechRecognizer:
         self.tts_engine = tts_engine
         self._is_tts_playing = False
         self._tts_lock = threading.Lock()
+        self._enabled = True  # 新增：UI 遥控监听开关（/api/listen 控制）
 
         self.sample_rate = 16000
         self.chunk_size = 1600
@@ -70,6 +71,19 @@ class SpeechRecognizer:
         if not status:
             logger.debug("🟢 TTS 结束，恢复监听")
 
+    def set_enabled(self, status: bool):
+        self._enabled = status
+        logger.info(f"🎙️ 监听开关: {'开启' if status else '关闭'}")
+
+    def is_enabled(self) -> bool:
+        return self._enabled
+
+    def start_listening(self):
+        self.set_enabled(True)
+
+    def stop_listening(self):
+        self.set_enabled(False)
+
     def _load_model(self):
         if not os.path.exists(VOSK_MODEL_PATH):
             raise FileNotFoundError(f"模型路径不存在: {VOSK_MODEL_PATH}")
@@ -89,6 +103,11 @@ class SpeechRecognizer:
         min_t = config.get("voice_recognition", "timeout", "min")
         max_t = config.get("voice_recognition", "timeout", "max")
         use_timeout = max(min_t, min(max_t, float(use_timeout)))
+
+        if not self._enabled:
+            # UI 已关闭收音：不占麦克风，短睡等待重新开启（主循环空转节流）
+            time.sleep(0.5)
+            return None
 
         if self.tts_engine.is_playing():
             logger.info("🔇 TTS 正在播放，跳过本次语音识别")

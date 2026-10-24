@@ -16,6 +16,7 @@ from Progress.app import (
     get_voice_recognizer,
     get_ai_assistant
 )
+import api_server
 from api_server import APIServer
 from Progress.utils.logger_utils import log_call, log_step, log_time
 
@@ -40,11 +41,15 @@ def handle_single_interaction() -> bool:
         executor = get_task_executor()
         tts = get_tts_engine()
 
+        api_server.current_status["is_listening"] = rec.is_enabled()
         text = rec.listen_and_recognize()
 
         if _shutdown_event.is_set():
             logger.info("🛑 收到关闭信号，停止交互")
             return False
+
+        if text:
+            api_server.last_transcribed_text = text
 
         if not text:
             global _last_silence_warn
@@ -55,14 +60,26 @@ def handle_single_interaction() -> bool:
             return True
 
         logger.info(f"🗣️ 用户说: '{text}'")
+        api_server.current_status.update({"is_processing": True, "timestamp": int(time.time())})
         decision = assistant.process_voice_command(text)
         result = executor.execute_task_plan(decision)
+        api_server.current_status.update({
+            "is_processing": False,
+            "last_command_result": {
+                "success": result["success"],
+                "message": result["message"],
+                "operation": "voice_loop",
+            },
+            "timestamp": int(time.time()),
+        })
 
         ai_reply = result["message"]
         if not result["success"] and not ai_reply.startswith("抱歉"):
             ai_reply = f"抱歉，{ai_reply}"
 
+        api_server.current_status["is_tts_playing"] = True
         tts.speak(ai_reply, block=True)
+        api_server.current_status["is_tts_playing"] = False
 
         expect_follow_up = decision.get("expect_follow_up", False)
         rec.current_timeout = 8 if expect_follow_up else 3
