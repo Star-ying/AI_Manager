@@ -19,8 +19,10 @@
     }
   },
   "ai_model": {
-    "api_key": "sk-6175f4c9a399401d914d11b1e1db1873",
-    "model": "qwen-plus"
+    "api_key": "",
+    "base_url": "https://dora.tinno.com/dora-ops/llm-proxy/v1",
+    "model": "qwen3.8-flash",
+    "_comment": "api_key 由项目根 .env 的 LLM_API_KEY 提供（不入 git），可被 LLM_BASE_URL/LLM_MODEL 覆盖"
   },
   "voice_recognition": {
     "timeout": {

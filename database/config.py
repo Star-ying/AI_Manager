@@ -25,8 +25,40 @@ class ConfigManager:
 
         self.BASE_CONFIG_FILE = get_internal_path("database", "base_config.json")
         self.CONFIG_FILE = os.path.join(get_app_path(), "config.json")
+        # 密钥外置：项目根 .env（照 AI_talk setting.py 同款 dotenv_values 机制，不入 git）
+        self.ENV_FILE = Path(__file__).resolve().parent.parent / ".env"
         self.DEFAULT_CONFIG: Optional[Dict] = None
         self.config = self.load_config()
+        self._overlay_env()
+
+    def _overlay_env(self):
+        """用 .env 里的密钥覆盖内存配置（优先级最高；文件缺失则保持原样）"""
+        if not os.path.exists(self.ENV_FILE):
+            return
+        try:
+            try:
+                from dotenv import dotenv_values
+                env = {k: v for k, v in dotenv_values(self.ENV_FILE).items() if v}
+            except ImportError:
+                env = {}
+                for line in open(self.ENV_FILE, encoding="utf-8"):
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, _, v = line.partition("=")
+                        v = v.split("#")[0].strip()  # 剔除行内注释（AI_talk .env 同款写法）
+                        if v:
+                            env[k.strip()] = v
+        except Exception as e:
+            print(f"⚠️ .env 读取失败，保持 json 配置: {e}")
+            return
+        mapping = {
+            "LLM_API_KEY": ("ai_model", "api_key"),
+            "LLM_BASE_URL": ("ai_model", "base_url"),
+            "LLM_MODEL": ("ai_model", "model"),
+        }
+        for k, path in mapping.items():
+            if k in env:
+                self.deep_update(self.config, {path[0]: {path[1]: env[k]}})
 
     def _load_default(self) -> Dict:
         """加载默认配置模板"""

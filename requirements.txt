@@ -1,4 +1,4 @@
-dashscope
+# dashscope  # 【留痕 2026-10-24】已改 OpenAI 兼容协议（requests POST {base_url}/chat/completions），不再依赖原生 SDK
 pygame
 psutil
 comtypes
@@ -9,6 +9,7 @@ flask
 werkzeug
 flask_cors
 requests
+python-dotenv
 pyttsx3
 
 pyinstaller

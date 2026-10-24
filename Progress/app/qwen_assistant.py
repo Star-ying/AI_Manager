@@ -6,8 +6,10 @@
 import json
 import re
 import logging
-import dashscope
-from dashscope import Generation
+import requests
+# 【留痕 2026-10-24】原 dashscope 原生 SDK 改 OpenAI 兼容协议（通用模板：base_url+key+model 三件套即可接任意网关）：
+# import dashscope
+# from dashscope import Generation
 from threading import Lock
 
 from database.config import config
@@ -20,8 +22,12 @@ except ImportError:
 
 logger = logging.getLogger("ai_assistant")
 
-DASHSCOPE_API_KEY = config.get("ai_model", "api_key")
-DASHSCOPE_MODEL = config.get("ai_model", "model")
+LLM_API_KEY = config.get("ai_model", "api_key")
+LLM_MODEL = config.get("ai_model", "model")
+LLM_BASE_URL = config.get("ai_model", "base_url") or "https://dora.tinno.com/dora-ops/llm-proxy/v1"
+# 原名保留一份供外部引用兼容：
+DASHSCOPE_API_KEY = LLM_API_KEY
+DASHSCOPE_MODEL = LLM_MODEL
 
 
 class QWENAssistant:
@@ -47,11 +53,14 @@ class QWENAssistant:
                 return
 
             # === 正式初始化 ===
-            if not DASHSCOPE_API_KEY:
-                raise ValueError("缺少 DASHSCOPE_API_KEY，请检查配置文件")
-            dashscope.api_key = DASHSCOPE_API_KEY
-            self.model_name = DASHSCOPE_MODEL or 'qwen-max'
-            logger.info(f"✅ QWENAssistant 单例初始化完成，使用模型: {self.model_name}")
+            if not LLM_API_KEY:
+                raise ValueError("缺少 ai_model.api_key，请检查配置文件")
+            self.api_key = LLM_API_KEY
+            self.base_url = LLM_BASE_URL.rstrip("/")
+            self.model_name = LLM_MODEL or 'qwen3.8-flash'
+            # 原 dashscope 初始化已改 OpenAI 兼容：
+            # dashscope.api_key = DASHSCOPE_API_KEY
+            logger.info(f"✅ QWENAssistant 单例初始化完成，网关: {self.base_url} 模型: {self.model_name}")
 
             self.conversation_history = []
 
@@ -138,19 +147,25 @@ class QWENAssistant:
             messages = [{"role": "system", "content": self.system_prompt}]
             messages.extend(self.conversation_history[-10:])
 
-            response = Generation.call(
-                model=self.model_name,
-                messages=messages,
-                temperature=0.5,
-                top_p=0.8,
-                max_tokens=1024
+            # 原 dashscope Generation.call 已改 OpenAI 兼容模板：
+            # response = Generation.call(model=self.model_name, messages=messages,
+            #                            temperature=0.5, top_p=0.8, max_tokens=1024)
+            # if response.status_code != 200: ...
+            # ai_output = response.output['text'].strip()
+            resp = requests.post(
+                self.base_url + "/chat/completions",
+                headers={"Authorization": f"Bearer {self.api_key}",
+                         "Content-Type": "application/json"},
+                json={"model": self.model_name, "messages": messages,
+                      "temperature": 0.5, "top_p": 0.8, "max_tokens": 1024},
+                timeout=30,
             )
 
-            if response.status_code != 200:
-                logger.error(f"Qwen API 调用失败: {response.status_code}, {response.message}")
-                return self._create_fallback_response(f"服务暂时不可用: {response.message}", expect_follow_up=False)
+            if resp.status_code != 200:
+                logger.error(f"LLM 网关调用失败: {resp.status_code}, {resp.text[:200]}")
+                return self._create_fallback_response(f"服务暂时不可用: HTTP {resp.status_code}", expect_follow_up=False)
 
-            ai_output = response.output['text'].strip()
+            ai_output = resp.json()["choices"][0]["message"]["content"].strip()
             log_var("模型输出", ai_output)
 
             self.conversation_history.append({"role": "assistant", "content": ai_output})
